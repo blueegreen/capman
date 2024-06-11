@@ -13,10 +13,5 @@ func start():
 
 func reset():
 	for child in get_children():
-		if child is Timer:
-			continue
 		child.queue_free()
 	start()
-
-func _on_timer_timeout():
-	reset()

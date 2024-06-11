@@ -4,6 +4,7 @@ extends Node2D
 @onready var point_1 = $wall/Area2D
 
 enum DIR {CW, ACW}
+signal changed
 
 var mouse_position : Vector2
 var rotate_allowed = true
@@ -27,8 +28,10 @@ func complete_rotation():
 	anchor.rotation = 0
 	wall.global_transform = wall_transform
 	rotate_allowed = true
+	changed.emit()
 	
 func rotate_around(point):
+	changed.emit()
 	rotate_allowed = false
 	var wall_position = wall.global_position
 	anchor.global_position = point.global_position
