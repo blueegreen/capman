@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://pqce4evc8xcf"]
+
+[ext_resource type="PackedScene" uid="uid://db7531pu6sgsm" path="res://player/capman.tscn" id="1_o6jc4"]
+[ext_resource type="PackedScene" uid="uid://dwswa6qxuu3gf" path="res://player/food.tscn" id="2_txs2e"]
+
+[node name="game" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_o6jc4")]
+
+[node name="food" parent="." groups=["food"] instance=ExtResource("2_txs2e")]
+position = Vector2(-1, -20)
+
+[node name="food4" parent="." groups=["food"] instance=ExtResource("2_txs2e")]
+position = Vector2(0, 24)
+
+[node name="food2" parent="." groups=["food"] instance=ExtResource("2_txs2e")]
+position = Vector2(0, -59)
+
+[node name="food3" parent="." groups=["food"] instance=ExtResource("2_txs2e")]
+position = Vector2(0, -38)
+
+[node name="Camera2D" type="Camera2D" parent="."]

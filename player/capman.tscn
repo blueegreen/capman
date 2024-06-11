@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://db7531pu6sgsm"]
 
-[ext_resource type="Script" path="res://capman.gd" id="1_1xjef"]
+[ext_resource type="Script" path="res://player/capman.gd" id="1_1xjef"]
 [ext_resource type="Texture2D" uid="uid://dmkpq8lyvismj" path="res://icon.svg" id="2_3mjkv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mg3lv"]

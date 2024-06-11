@@ -13,13 +13,13 @@ var dir_h = 1
 var dir_v = - 1
 
 func _process(delta):
-	if up.is_colliding() or down.is_colliding():
+	await get_tree().create_timer(1).timeout
+	if up.is_colliding() and down.is_colliding():
 		if up.get_collider().is_in_group("food") and not down.get_collider().is_in_group("food"):
 			position.y += SPEED * dir_v * delta
 			#position.x += 0 * SPEED  * dir_h * delta
 		elif not up.get_collider().is_in_group("food") and down.get_collider().is_in_group("food"):
 			position.y += -1 * SPEED * dir_v *delta
 			#position.x += 0 * SPEED * dir_h * delta
-		elif up.get_collider.is_in_group("food") and down.get_collider().is_in_group("food"):
+		elif up.get_collider().is_in_group("food") and down.get_collider().is_in_group("food"):
 			position.y += dir_v * SPEED * delta
-			
