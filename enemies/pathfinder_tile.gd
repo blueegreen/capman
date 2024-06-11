@@ -9,6 +9,7 @@ signal done
 
 var tile_size = 128
 func start():
+	await get_tree().create_timer(.01).timeout
 	if get_parent().get_child_count() >= get_parent().max_tile_count:
 		queue_free()
 		return
