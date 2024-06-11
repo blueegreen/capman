@@ -3,9 +3,18 @@ extends Node2D
 @onready var wall = $wall
 @onready var point_1 = $wall/Area2D
 
+enum DIR {CW, ACW}
 
 var mouse_position : Vector2
 var rotate_allowed = true
+@export var rotation_dir = DIR.CW:
+	set(value):
+		if value == DIR.CW:
+			rotation_angle = abs(rotation_angle)
+		elif value == DIR.ACW:
+			rotation_angle = -abs(rotation_angle)
+		rotation_dir = value
+@export var rotation_angle = PI/2
 
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
 	if event.is_action("click") and rotate_allowed == true:
@@ -30,5 +39,5 @@ func rotate_around(point):
 	wall.global_position = wall_position
 	
 	var rotate_tween = create_tween()
-	rotate_tween.tween_property(anchor, "rotation", PI/2, 0.5).set_trans(Tween.TRANS_EXPO)
+	rotate_tween.tween_property(anchor, "rotation", rotation_angle, 0.5).set_trans(Tween.TRANS_EXPO)
 	rotate_tween.tween_callback(complete_rotation)

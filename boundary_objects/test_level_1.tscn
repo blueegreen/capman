@@ -7,16 +7,17 @@
 position = Vector2(496, 232)
 
 [node name="wall_segment" parent="." instance=ExtResource("1_5qomb")]
+position = Vector2(0, 256)
 
 [node name="wall_segment4" parent="." instance=ExtResource("1_5qomb")]
-position = Vector2(128, 128)
+position = Vector2(128, 0)
 
 [node name="wall_segment2" parent="." instance=ExtResource("1_5qomb")]
 position = Vector2(64, 64)
 rotation = 1.5708
 
 [node name="wall_segment3" parent="." instance=ExtResource("1_5qomb")]
-position = Vector2(64, 192)
+position = Vector2(-64, 192)
 rotation = 1.5708
 
 [node name="single_anchor_wall" parent="." instance=ExtResource("2_airv1")]
