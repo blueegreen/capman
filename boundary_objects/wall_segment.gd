@@ -18,3 +18,4 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 
 func reset_permission():
 	rotate_allowed = false
+print("Hello world")
