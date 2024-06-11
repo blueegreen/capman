@@ -15,11 +15,18 @@ script = ExtResource("1_31r80")
 
 [node name="wall" type="Node2D" parent="."]
 
-[node name="wall_area" type="Area2D" parent="wall" groups=["wall"]]
+[node name="wall_area" type="Area2D" parent="wall" groups=["double_anchor_wall", "wall"]]
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall/wall_area"]
 shape = SubResource("RectangleShape2D_vu8kd")
+
+[node name="Label" type="Label" parent="wall"]
+offset_left = -16.0
+offset_top = -8.0
+offset_right = 24.0
+offset_bottom = 15.0
+text = "0"
 
 [node name="Area2D" type="Area2D" parent="wall"]
 position = Vector2(-64, 0)

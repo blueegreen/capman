@@ -50,11 +50,11 @@ position = Vector2(832, 320)
 rotation = 1.5708
 
 [node name="wall_segment15" parent="." instance=ExtResource("1_5qomb")]
-position = Vector2(576, 64)
+position = Vector2(448, 192)
 rotation = 1.5708
 
 [node name="wall_segment9" parent="." instance=ExtResource("1_5qomb")]
-position = Vector2(832, 192)
+position = Vector2(960, 64)
 rotation = 1.5708
 
 [node name="wall_segment10" parent="." instance=ExtResource("1_5qomb")]
@@ -92,7 +92,8 @@ position = Vector2(512, 0)
 position = Vector2(640, 0)
 
 [node name="single_anchor_wall10" parent="." instance=ExtResource("2_airv1")]
-position = Vector2(768, 0)
+position = Vector2(704, 64)
+rotation = -1.5708
 
 [node name="single_anchor_wall11" parent="." instance=ExtResource("2_airv1")]
 position = Vector2(768, 256)
@@ -113,7 +114,8 @@ position = Vector2(896, 384)
 position = Vector2(1024, 384)
 
 [node name="single_anchor_wall17" parent="." instance=ExtResource("2_airv1")]
-position = Vector2(640, 128)
+position = Vector2(704, 192)
+rotation = 1.5708
 
 [node name="single_anchor_wall8" parent="." instance=ExtResource("2_airv1")]
 position = Vector2(512, 384)

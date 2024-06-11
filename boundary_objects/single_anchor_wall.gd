@@ -31,7 +31,6 @@ func complete_rotation():
 	changed.emit()
 	
 func rotate_around(point):
-	changed.emit()
 	rotate_allowed = false
 	var wall_position = wall.global_position
 	anchor.global_position = point.global_position
@@ -40,5 +39,5 @@ func rotate_around(point):
 	wall.global_position = wall_position
 	
 	var rotate_tween = create_tween()
-	rotate_tween.tween_property(anchor, "rotation", rotation_angle, 0.5).set_trans(Tween.TRANS_EXPO)
+	rotate_tween.tween_property(anchor, "rotation", rotation_angle, 0.3).set_trans(Tween.TRANS_EXPO)
 	rotate_tween.tween_callback(complete_rotation)

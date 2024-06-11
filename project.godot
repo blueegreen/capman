@@ -15,6 +15,10 @@ run/main_scene="res://player/game.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalVariables="*res://global/global_variables.gd"
+
 [input]
 
 click={

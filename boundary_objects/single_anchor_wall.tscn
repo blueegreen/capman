@@ -15,7 +15,7 @@ script = ExtResource("1_woqot")
 
 [node name="wall" type="Node2D" parent="."]
 
-[node name="wall_area" type="Area2D" parent="wall" groups=["wall"]]
+[node name="wall_area" type="Area2D" parent="wall" groups=["single_anchor_wall", "wall"]]
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall/wall_area"]
