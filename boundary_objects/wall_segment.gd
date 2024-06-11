@@ -17,4 +17,4 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 		rotate_tween.tween_callback(reset_permission)
 
 func reset_permission():
-	rotate_allowed = false
+	rotate_allowed = true
