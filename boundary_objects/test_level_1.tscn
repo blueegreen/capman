@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://yumpfuotfh5h"]
+[gd_scene load_steps=5 format=3 uid="uid://yumpfuotfh5h"]
 
 [ext_resource type="PackedScene" uid="uid://cnr625oysfmyj" path="res://boundary_objects/double_anchor_wall.tscn" id="1_5qomb"]
 [ext_resource type="PackedScene" uid="uid://cbm00s6fateus" path="res://boundary_objects/single_anchor_wall.tscn" id="2_airv1"]
 [ext_resource type="PackedScene" uid="uid://ck5d81ekfneit" path="res://enemies/pathfinder.tscn" id="3_2xjhj"]
+[ext_resource type="PackedScene" uid="uid://lyj2ofbuus5i" path="res://enemies/enemy_basic.tscn" id="4_a8scm"]
 
 [node name="test_level_1" type="Node2D"]
 
@@ -102,3 +103,6 @@ position = Vector2(512, 384)
 
 [node name="pathfinder" parent="." instance=ExtResource("3_2xjhj")]
 position = Vector2(896, 320)
+
+[node name="enemy_basic" parent="." instance=ExtResource("4_a8scm")]
+position = Vector2(0, 192)
