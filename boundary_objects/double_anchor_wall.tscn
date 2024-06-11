@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnr625oysfmyj"]
+
+[ext_resource type="Script" path="res://boundary_objects/double_anchor_wall.gd" id="1_31r80"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vu8kd"]
+size = Vector2(112, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gyamk"]
+radius = 8.0
+
+[node name="double_anchor_wall" type="Node2D" groups=["wall"]]
+script = ExtResource("1_31r80")
+
+[node name="wall" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="wall"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall/StaticBody2D"]
+shape = SubResource("RectangleShape2D_vu8kd")
+
+[node name="Area2D" type="Area2D" parent="wall"]
+position = Vector2(-64, 0)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall/Area2D"]
+shape = SubResource("CircleShape2D_gyamk")
+
+[node name="Area2D2" type="Area2D" parent="wall"]
+position = Vector2(64, 0)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall/Area2D2"]
+shape = SubResource("CircleShape2D_gyamk")
+
+[node name="anchor" type="Node2D" parent="."]
+position = Vector2(-64, 0)
+
+[connection signal="input_event" from="wall/Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="input_event" from="wall/Area2D2" to="." method="_on_area_2d_2_input_event"]

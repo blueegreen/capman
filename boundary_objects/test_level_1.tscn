@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://yumpfuotfh5h"]
+
+[ext_resource type="PackedScene" uid="uid://cnr625oysfmyj" path="res://boundary_objects/double_anchor_wall.tscn" id="1_5qomb"]
+[ext_resource type="PackedScene" uid="uid://cbm00s6fateus" path="res://boundary_objects/single_anchor_wall.tscn" id="2_airv1"]
+
+[node name="test_level_1" type="Node2D"]
+position = Vector2(496, 232)
+
+[node name="wall_segment" parent="." instance=ExtResource("1_5qomb")]
+
+[node name="wall_segment4" parent="." instance=ExtResource("1_5qomb")]
+position = Vector2(128, 128)
+
+[node name="wall_segment2" parent="." instance=ExtResource("1_5qomb")]
+position = Vector2(64, 64)
+rotation = 1.5708
+
+[node name="wall_segment3" parent="." instance=ExtResource("1_5qomb")]
+position = Vector2(64, 192)
+rotation = 1.5708
+
+[node name="single_anchor_wall" parent="." instance=ExtResource("2_airv1")]
+position = Vector2(128, 256)

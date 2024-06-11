@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbm00s6fateus"]
+
+[ext_resource type="Script" path="res://boundary_objects/single_anchor_wall.gd" id="1_woqot"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lob0q"]
+size = Vector2(112, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ljegl"]
+radius = 8.0
+
+[node name="single_anchor_wall" type="Node2D"]
+script = ExtResource("1_woqot")
+
+[node name="wall" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="wall"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall/StaticBody2D"]
+shape = SubResource("RectangleShape2D_lob0q")
+
+[node name="Area2D" type="Area2D" parent="wall"]
+position = Vector2(-64, 0)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall/Area2D"]
+shape = SubResource("CircleShape2D_ljegl")
+
+[node name="anchor" type="Node2D" parent="."]
+position = Vector2(-64, 0)
+
+[connection signal="input_event" from="wall/Area2D" to="." method="_on_area_2d_input_event"]
