@@ -11,17 +11,16 @@ var tile_size = 128
 
 var paused = false
 
-func _process(_delta):
-	if paused:
-		return
-	if direction == Vector2.ZERO:
-		start_next_move()
+func _ready():
+	GlobalTimer.timeout.connect(_on_beat)
+
+func _on_beat():
+	start_next_move()
 
 func move():	
 	var end_pos = global_position + direction * tile_size
 	var move_tween = create_tween()
 	move_tween.tween_property(self, "global_position", end_pos, GlobalVariables.time_step).set_trans(Tween.TRANS_EXPO)
-	move_tween.tween_callback(start_next_move)
 
 func start_next_move():
 	find_next_direction()
