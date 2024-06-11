@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnr625oysfmyj"]
+[gd_scene load_steps=4 format=3 uid="uid://cnr625oysfmyj"]
+
+[ext_resource type="Script" path="res://boundary_objects/wall_segment.gd" id="1_31r80"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vu8kd"]
 size = Vector2(120, 16)
@@ -7,6 +9,8 @@ size = Vector2(120, 16)
 radius = 8.0
 
 [node name="wall_segment" type="Node2D"]
+position = Vector2(120, 96)
+script = ExtResource("1_31r80")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_mask = 0
@@ -19,6 +23,9 @@ shape = SubResource("RectangleShape2D_vu8kd")
 target_position = Vector2(0, 24)
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_gyamk")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
