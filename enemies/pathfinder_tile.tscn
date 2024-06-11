@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://h7mf013s7bx5"]
+
+[ext_resource type="Script" path="res://enemies/pathfinder_tile.gd" id="1_1i26v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0h0cm"]
+size = Vector2(112, 112)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rrf4q"]
+
+[node name="pathfinder_tile" type="Area2D" groups=["tile"]]
+top_level = true
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_1i26v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0h0cm")
+debug_color = Color(0.327431, 0.0609394, 0.161294, 0.42)
+
+[node name="forward_cast" type="RayCast2D" parent="."]
+target_position = Vector2(128, 0)
+collision_mask = 17
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="left_cast" type="RayCast2D" parent="."]
+target_position = Vector2(0, -128)
+collision_mask = 17
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="right_cast" type="RayCast2D" parent="."]
+target_position = Vector2(0, 128)
+collision_mask = 17
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="back_cast" type="RayCast2D" parent="."]
+target_position = Vector2(-128, 0)
+collision_mask = 17
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-07, 5.96046e-08)
+scale = Vector2(44, 4)
+texture = SubResource("PlaceholderTexture2D_rrf4q")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-16, -8)
+rotation = -0.785398
+scale = Vector2(22, 4)
+texture = SubResource("PlaceholderTexture2D_rrf4q")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(-16, 8)
+rotation = 0.785398
+scale = Vector2(22, 4)
+texture = SubResource("PlaceholderTexture2D_rrf4q")

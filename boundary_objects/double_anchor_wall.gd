@@ -22,13 +22,11 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 		rotate_around(point_1)
 
 func complete_rotation():
-	var wall_position = wall.global_position
-	var wall_rotation = wall.global_rotation
+	var wall_transform = wall.global_transform
 	anchor.remove_child(wall)
 	add_child(wall)
 	anchor.rotation = 0
-	wall.global_position = wall_position
-	wall.global_rotation = wall_rotation
+	wall.global_transform = wall_transform
 	rotate_allowed = true
 	
 func _on_area_2d_2_input_event(_viewport, event, _shape_idx):
