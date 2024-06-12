@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://duip4dvlr4wfp"]
+[gd_scene load_steps=7 format=3 uid="uid://duip4dvlr4wfp"]
 
 [ext_resource type="PackedScene" uid="uid://cnr625oysfmyj" path="res://boundary_objects/double_anchor_wall.tscn" id="1_5qomb"]
-[ext_resource type="Script" path="res://boundary_objects/test_level_1.gd" id="1_auqvo"]
 [ext_resource type="PackedScene" uid="uid://cbm00s6fateus" path="res://boundary_objects/single_anchor_wall.tscn" id="2_airv1"]
 [ext_resource type="PackedScene" uid="uid://lyj2ofbuus5i" path="res://enemies/enemy_basic.tscn" id="4_a8scm"]
 [ext_resource type="PackedScene" uid="uid://dt00c18n44v1r" path="res://boundary_objects/fixed_wall.tscn" id="6_22wef"]
@@ -9,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://b7uigk2ronqgh" path="res://player/player.tscn" id="9_4ujd0"]
 
 [node name="test_level_1" type="Node2D"]
-script = ExtResource("1_auqvo")
 
 [node name="wall_segment" parent="." instance=ExtResource("1_5qomb")]
 position = Vector2(0, 256)
@@ -122,7 +120,7 @@ rotation = 1.5708
 position = Vector2(512, 384)
 
 [node name="player" parent="." instance=ExtResource("9_4ujd0")]
-position = Vector2(896, 320)
+position = Vector2(256, 320)
 
 [node name="enemy_basic" parent="." instance=ExtResource("4_a8scm")]
 position = Vector2(0, 192)
