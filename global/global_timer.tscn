@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dfqdewxnde07r"]
+
+[node name="GlobalTimer" type="Timer"]

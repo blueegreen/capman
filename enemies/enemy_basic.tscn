@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://lyj2ofbuus5i"]
+
+[ext_resource type="Script" path="res://enemies/enemy_basic.gd" id="1_hprcr"]
+[ext_resource type="Texture2D" uid="uid://dmkpq8lyvismj" path="res://icon.svg" id="2_jss6k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqx4g"]
+size = Vector2(96, 96)
+
+[node name="enemy_basic" type="Area2D"]
+collision_layer = 2
+collision_mask = 16
+script = ExtResource("1_hprcr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kqx4g")
+
+[node name="forward_cast" type="RayCast2D" parent="."]
+target_position = Vector2(128, 0)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="left_cast" type="RayCast2D" parent="."]
+target_position = Vector2(0, -128)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="right_cast" type="RayCast2D" parent="."]
+target_position = Vector2(0, 128)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="back_cast" type="RayCast2D" parent="."]
+target_position = Vector2(-128, 0)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_jss6k")

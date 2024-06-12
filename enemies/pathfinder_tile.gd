@@ -7,9 +7,7 @@ extends Area2D
 
 signal done
 
-var tile_size = 128
 func start():
-	await get_tree().create_timer(.01).timeout
 	if get_parent().get_child_count() >= get_parent().max_tile_count:
 		queue_free()
 		return
@@ -29,10 +27,11 @@ func start():
 
 func create_tile(direction):
 	var new_tile = self.duplicate()
-	new_tile.global_position = global_position + Vector2(cos(rotation + direction), sin(rotation + direction)) * tile_size
+	new_tile.global_position = global_position + Vector2(cos(rotation + direction), sin(rotation + direction)) * GlobalVariables.tile_size
 	new_tile.rotation = rotation + direction
 	new_tile.connect_to_prev(self)
 	add_sibling(new_tile)
+	await new_tile.done
 
 func _on_previous_tile_done():
 	start()
