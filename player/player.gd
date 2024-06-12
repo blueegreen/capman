@@ -2,16 +2,20 @@ extends Area2D
 
 @onready var forward_cast = $forward_cast
 var direction := Vector2.ZERO
+var end_pos : Vector2
 
 func _ready():
 	forward_cast.target_position = Vector2(GlobalVariables.tile_size, 0)
 	GlobalTimer.timeout.connect(_on_beat)
+	end_pos = global_position
 
 func _on_beat():
 	start_next_move()
 
 func move():	
-	var end_pos = global_position + direction * GlobalVariables.tile_size
+	forward_cast.rotation = atan2(direction.y, direction.x)
+	end_pos = global_position + direction * GlobalVariables.tile_size
+	$test.global_position = end_pos
 	var move_tween = create_tween()
 	move_tween.tween_property(self, "global_position", end_pos, GlobalVariables.time_step).set_trans(Tween.TRANS_EXPO)
 
@@ -59,3 +63,4 @@ func find_next_direction():
 		direction = Vector2(cos(forward_rotation + PI), sin(forward_rotation + PI))
 		return
 	direction = Vector2.ZERO
+	return

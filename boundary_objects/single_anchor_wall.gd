@@ -19,30 +19,22 @@ var rotate_allowed = true
 @export var rotation_angle = PI/2
 
 var move_queued = null
-var wiggle_time = 0.3
 
 func _ready():
 	root = get_parent()
 	GlobalTimer.timeout.connect(_on_beat)
 
-func _process(delta):
-	if wiggle_time > 0 and move_queued != null:
-		rotate_around(move_queued)
-		move_queued = null
-	wiggle_time -= delta
-	
 func _on_beat():
-	wiggle_time = 0.3
-	if move_queued != null:
+	if move_queued != null and rotate_allowed:
 		rotate_around(move_queued)
 		move_queued = null
 
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
-	if event.is_action("left_click") and rotate_allowed == true:
-		rotation_dir = 0
+	if event.is_action("left_click"):
+		rotation_dir = DIR.CW
 		move_queued = point_1
-	if event.is_action("right_click") and rotate_allowed == true:
-		rotation_dir = 1
+	if event.is_action("right_click"):
+		rotation_dir = DIR.ACW
 		move_queued = point_1
 
 func complete_rotation():
@@ -55,7 +47,6 @@ func complete_rotation():
 
 func rotate_around(point):
 	rotate_allowed = false
-
 	rotate_area(point)
 	var wall_position = wall.global_position
 	anchor.global_position = point.global_position
