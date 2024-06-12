@@ -15,6 +15,7 @@ func start():
 	new_tile.start()
 
 func reset():
+	print(timer.wait_time)
 	for child in get_children():
 		if child is Timer:
 			continue

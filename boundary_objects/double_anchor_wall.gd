@@ -17,7 +17,7 @@ var rotate_allowed = true
 		elif value == DIR.ACW:
 			rotation_angle = -abs(rotation_angle)
 		rotation_dir = value
-var rotation_angle = PI/2
+@export var rotation_angle = PI/2
 
 var move_queued = null
 var wiggle_time = 0.3
