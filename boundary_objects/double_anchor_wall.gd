@@ -6,6 +6,7 @@ extends Area2D
 var root
 
 enum DIR {CW, ACW}
+signal changed
 
 var mouse_position : Vector2
 var rotate_allowed = true

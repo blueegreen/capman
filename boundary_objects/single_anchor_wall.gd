@@ -50,8 +50,8 @@ func complete_rotation():
 	rotate_allowed = true
 
 func rotate_around(point):
-	changed.emit(point, rotation_angle)
 	rotate_allowed = false
+
 	rotate_area(point)
 	var wall_position = wall.global_position
 	anchor.global_position = point.global_position

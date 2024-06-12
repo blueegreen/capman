@@ -1,7 +1,6 @@
 extends Area2D
 
 @onready var forward_cast = $forward_cast
-@onready var back_cast = $back_cast
 
 signal done
 
@@ -18,8 +17,7 @@ func move_in_all_dir():
 	for i in range(4):
 		forward_cast.force_raycast_update()
 		position += Vector2(cos(rotation), sin(rotation)) * GlobalVariables.tile_size
-		back_cast.force_raycast_update()
-		if not back_cast.is_colliding() and not forward_cast.is_colliding():
+		if not forward_cast.is_colliding():
 			var new_tile = self.duplicate()
 			new_tile.global_position = global_position
 			new_tile.rotation = rotation

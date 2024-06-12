@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://duip4dvlr4wfp"]
+[gd_scene load_steps=9 format=3 uid="uid://duip4dvlr4wfp"]
 
 [ext_resource type="PackedScene" uid="uid://cnr625oysfmyj" path="res://boundary_objects/double_anchor_wall.tscn" id="1_5qomb"]
 [ext_resource type="Script" path="res://boundary_objects/test_level_1.gd" id="1_auqvo"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://ck5d81ekfneit" path="res://enemies/pathfinder.tscn" id="3_2xjhj"]
 [ext_resource type="PackedScene" uid="uid://lyj2ofbuus5i" path="res://enemies/enemy_basic.tscn" id="4_a8scm"]
 [ext_resource type="PackedScene" uid="uid://dt00c18n44v1r" path="res://boundary_objects/fixed_wall.tscn" id="6_22wef"]
+[ext_resource type="PackedScene" uid="uid://citfwdrvjm0ds" path="res://UI/level_manager.tscn" id="7_vn4yi"]
+[ext_resource type="PackedScene" uid="uid://cyqkxny4wetii" path="res://enemies/enemy_rusher.tscn" id="8_xxw1s"]
 
 [node name="test_level_1" type="Node2D"]
 script = ExtResource("1_auqvo")
@@ -239,5 +241,10 @@ position = Vector2(1024, 512)
 position = Vector2(1152, 512)
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="level_manager" parent="." instance=ExtResource("7_vn4yi")]
+
+[node name="enemy_rusher" parent="." instance=ExtResource("8_xxw1s")]
+position = Vector2(-128, 448)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

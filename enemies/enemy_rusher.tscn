@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyqkxny4wetii"]
+
+[ext_resource type="Script" path="res://enemies/enemy_rusher.gd" id="1_slp8s"]
+[ext_resource type="Texture2D" uid="uid://dmkpq8lyvismj" path="res://icon.svg" id="2_6xko5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_erqqy"]
+size = Vector2(96, 96)
+
+[node name="enemy_rusher" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_slp8s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_erqqy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.14159
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_6xko5")
+
+[node name="forward_cast" type="RayCast2D" parent="."]
+target_position = Vector2(1000, 0)
+collide_with_areas = true
+collide_with_bodies = false

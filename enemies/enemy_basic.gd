@@ -6,20 +6,15 @@ extends Area2D
 @onready var back_cast = $back_cast
 
 var direction := Vector2.ZERO
-var next_direction : Vector2
-var tile_size = 128
-
-var paused = false
 
 func _ready():
 	GlobalTimer.timeout.connect(_on_beat)
 
 func _on_beat():
-	await get_tree().create_timer(0.1).timeout
 	start_next_move()
 
 func move():	
-	var end_pos = global_position + direction * tile_size
+	var end_pos = global_position + direction * GlobalVariables.tile_size
 	var move_tween = create_tween()
 	move_tween.tween_property(self, "global_position", end_pos, GlobalVariables.time_step).set_trans(Tween.TRANS_EXPO)
 
@@ -41,8 +36,3 @@ func find_next_direction():
 	else:
 		direction = Vector2.ZERO
 		return false
-
-func pause():
-	paused = true
-	await get_tree().create_timer(GlobalVariables.time_step).timeout
-	paused = false
