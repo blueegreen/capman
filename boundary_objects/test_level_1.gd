@@ -1,12 +1,12 @@
 extends Node2D
 
 var pathfinder : Node2D
+@onready var timer = $Timer
 
 func _ready():
 	pathfinder = get_node_or_null("pathfinder")
-	for child in get_children():
-		if child.is_in_group("wall"):
-			child.changed.connect(_on_wall_changed)
+	timer.wait_time = GlobalVariables.time_step/2
+	timer.start()
 
-func _on_wall_changed():
+func _on_timer_timeout():
 	pathfinder.reset()

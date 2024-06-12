@@ -8,7 +8,6 @@ extends Area2D
 signal done
 
 func start():
-	await get_tree().create_timer(.005).timeout
 	if get_parent().get_child_count() >= get_parent().max_tile_count:
 		queue_free()
 		return
@@ -32,6 +31,7 @@ func create_tile(direction):
 	new_tile.rotation = rotation + direction
 	new_tile.connect_to_prev(self)
 	add_sibling(new_tile)
+	await new_tile.done
 
 func _on_previous_tile_done():
 	start()

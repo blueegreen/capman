@@ -126,9 +126,6 @@ position = Vector2(896, 320)
 [node name="enemy_basic" parent="." instance=ExtResource("4_a8scm")]
 position = Vector2(0, 192)
 
-[node name="enemy_basic2" parent="." instance=ExtResource("4_a8scm")]
-position = Vector2(128, 320)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(472, 216)
 zoom = Vector2(0.7, 0.7)
@@ -240,3 +237,7 @@ position = Vector2(1024, 512)
 
 [node name="fixed_wall32" parent="boundary" instance=ExtResource("6_22wef")]
 position = Vector2(1152, 512)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

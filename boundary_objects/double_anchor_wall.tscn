@@ -10,37 +10,28 @@ radius = 16.0
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_subyf"]
 
-[node name="double_anchor_wall" type="Node2D" groups=["wall"]]
+[node name="double_anchor_wall" type="Area2D" groups=["double_anchor_wall", "wall"]]
+collision_mask = 0
 script = ExtResource("1_31r80")
 
-[node name="wall" type="Node2D" parent="."]
-
-[node name="wall_area" type="Area2D" parent="wall" groups=["double_anchor_wall", "wall"]]
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall/wall_area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vu8kd")
 
-[node name="Label" type="Label" parent="wall"]
-offset_left = -16.0
-offset_top = -8.0
-offset_right = 24.0
-offset_bottom = 15.0
-text = "0"
-
-[node name="Area2D" type="Area2D" parent="wall"]
-position = Vector2(-64, 0)
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall/Area2D"]
-shape = SubResource("CircleShape2D_gyamk")
-
-[node name="Area2D2" type="Area2D" parent="wall"]
+[node name="Area2D2" type="Area2D" parent="."]
 position = Vector2(64, 0)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall/Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 shape = SubResource("CircleShape2D_gyamk")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-64, 0)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_gyamk")
+
+[node name="wall" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="wall"]
 modulate = Color(1, 0.486275, 0.901961, 0.415686)
@@ -51,5 +42,5 @@ texture = SubResource("PlaceholderTexture2D_subyf")
 [node name="anchor" type="Node2D" parent="."]
 position = Vector2(-64, 0)
 
-[connection signal="input_event" from="wall/Area2D" to="." method="_on_area_2d_input_event"]
-[connection signal="input_event" from="wall/Area2D2" to="." method="_on_area_2d_2_input_event"]
+[connection signal="input_event" from="Area2D2" to="." method="_on_area_2d_2_input_event"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

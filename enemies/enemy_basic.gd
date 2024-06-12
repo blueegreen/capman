@@ -15,6 +15,7 @@ func _ready():
 	GlobalTimer.timeout.connect(_on_beat)
 
 func _on_beat():
+	await get_tree().create_timer(0.1).timeout
 	start_next_move()
 
 func move():	

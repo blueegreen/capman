@@ -6,3 +6,4 @@ var tile_size = 128
 func _ready():
 	GlobalTimer.wait_time = time_step
 	GlobalTimer.start()
+	GlobalTimer.timeout.emit()
