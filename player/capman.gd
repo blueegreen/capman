@@ -6,20 +6,44 @@ extends Area2D
 @onready var up = $up
 @onready var left = $left
 
-const SPEED = 300.0
+const SPEED = 100.0
 
 
 var dir_h = 1
-var dir_v = - 1
+var dir_v = -1
+
+var velocity_x = dir_h * SPEED
+var velocity_y = dir_v * SPEED
 
 func _process(delta):
 	await get_tree().create_timer(1).timeout
+	
+	if up.is_colliding() and not down.is_colliding():
+		if up.get_collider().is_in_group("food"):
+			dir_v = -1
+			position.y += velocity_y*delta
+		elif up.get_collider().is_in_group("walls"):
+			velocity_y = 0
+	if down.is_colliding() and not up.is_colliding():
+		if down.get_collider().is_in_group("food"):
+			dir_v = 1
+			position.y += velocity_y*delta
+		elif down.get_collider().is_in_group("walls"):
+			velocity_y = 0
+	if left.is_colliding() and not right.is_colliding():
+		if left.get_collider().is_in_group("food"):
+			dir_h = -1
+			position.x += velocity_x*delta
+		elif left.get_collider().is_in_group("walls"):
+			velocity_x = 0
+	if right.is_colliding() and not left.is_colliding():
+		if right.get_collider().is_in_group("food"):
+			dir_h = 1
+			position.x += 1*velocity_x*delta
+		elif right.get_collider().is_in_group("walls"):
+			velocity_x = 0
 	if up.is_colliding() and down.is_colliding():
-		if up.get_collider().is_in_group("food") and not down.get_collider().is_in_group("food"):
-			position.y += SPEED * dir_v * delta
-			#position.x += 0 * SPEED  * dir_h * delta
-		elif not up.get_collider().is_in_group("food") and down.get_collider().is_in_group("food"):
-			position.y += -1 * SPEED * dir_v *delta
-			#position.x += 0 * SPEED * dir_h * delta
-		elif up.get_collider().is_in_group("food") and down.get_collider().is_in_group("food"):
-			position.y += dir_v * SPEED * delta
+		position.y += velocity_y * delta
+	if right.is_colliding() and left.is_colliding():
+		position.x += velocity_x*delta
+		
