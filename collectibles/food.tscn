@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://db2caokmjrqn2"]
+
+[ext_resource type="Script" path="res://collectibles/food.gd" id="1_q7iv4"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_g4hh5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0kvpl"]
+radius = 19.0263
+
+[node name="food" type="Area2D" groups=["collectible"]]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_q7iv4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(38, 38)
+texture = SubResource("PlaceholderTexture2D_g4hh5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0kvpl")

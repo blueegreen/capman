@@ -64,3 +64,12 @@ func find_next_direction():
 		return
 	direction = Vector2.ZERO
 	return
+
+func _on_area_entered(area):
+	if area.is_in_group("enemy"):
+		take_damage()
+	elif area.is_in_group("collectible"):
+		area.collect()
+
+func take_damage(_dmg := 0):
+	print("taken damage!")

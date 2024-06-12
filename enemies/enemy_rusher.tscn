@@ -6,8 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_erqqy"]
 size = Vector2(96, 96)
 
-[node name="enemy_rusher" type="Area2D"]
-collision_layer = 4
+[node name="enemy_rusher" type="Area2D" groups=["enemy"]]
+collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_slp8s")
 
