@@ -122,7 +122,7 @@ rotation = 1.5708
 position = Vector2(512, 384)
 
 [node name="player" parent="." instance=ExtResource("9_4ujd0")]
-position = Vector2(896, 320)
+position = Vector2(256, 320)
 
 [node name="enemy_basic" parent="." instance=ExtResource("4_a8scm")]
 position = Vector2(0, 192)
