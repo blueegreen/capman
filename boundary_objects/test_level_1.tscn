@@ -1,0 +1,243 @@
+[gd_scene load_steps=7 format=3 uid="uid://duip4dvlr4wfp"]
+
+[ext_resource type="PackedScene" uid="uid://cnr625oysfmyj" path="res://boundary_objects/double_anchor_wall.tscn" id="1_5qomb"]
+[ext_resource type="Script" path="res://boundary_objects/test_level_1.gd" id="1_auqvo"]
+[ext_resource type="PackedScene" uid="uid://cbm00s6fateus" path="res://boundary_objects/single_anchor_wall.tscn" id="2_airv1"]
+[ext_resource type="PackedScene" uid="uid://ck5d81ekfneit" path="res://enemies/pathfinder.tscn" id="3_2xjhj"]
+[ext_resource type="PackedScene" uid="uid://lyj2ofbuus5i" path="res://enemies/enemy_basic.tscn" id="4_a8scm"]
+[ext_resource type="PackedScene" uid="uid://dt00c18n44v1r" path="res://boundary_objects/fixed_wall.tscn" id="6_22wef"]
+
+[node name="test_level_1" type="Node2D"]
+script = ExtResource("1_auqvo")
+
+[node name="wall_segment" parent="." instance=ExtResource("1_5qomb")]
+position = Vector2(0, 256)
+
+[node name="wall_segment13" parent="." instance=ExtResource("1_5qomb")]
+position = Vector2(640, 384)
+
+[node name="wall_segment14" parent="." instance=ExtResource("1_5qomb")]
+position = Vector2(896, 256)
+
+[node name="wall_segment16" parent="." instance=ExtResource("1_5qomb")]
+position = Vector2(512, 256)
+
+[node name="wall_segment4" parent="." instance=ExtResource("1_5qomb")]
+position = Vector2(0, 128)
+
+[node name="wall_segment2" parent="." instance=ExtResource("1_5qomb")]
+position = Vector2(192, 192)
+rotation = 1.5708
+
+[node name="wall_segment7" parent="." instance=ExtResource("1_5qomb")]
+position = Vector2(192, 320)
+rotation = 1.5708
+
+[node name="wall_segment6" parent="." instance=ExtResource("1_5qomb")]
+position = Vector2(320, 192)
+rotation = 1.5708
+
+[node name="wall_segment5" parent="." instance=ExtResource("1_5qomb")]
+position = Vector2(64, 64)
+rotation = 1.5708
+
+[node name="wall_segment8" parent="." instance=ExtResource("1_5qomb")]
+position = Vector2(960, 192)
+rotation = 1.5708
+
+[node name="wall_segment17" parent="." instance=ExtResource("1_5qomb")]
+position = Vector2(832, 320)
+rotation = 1.5708
+
+[node name="wall_segment15" parent="." instance=ExtResource("1_5qomb")]
+position = Vector2(448, 192)
+rotation = 1.5708
+
+[node name="wall_segment9" parent="." instance=ExtResource("1_5qomb")]
+position = Vector2(960, 64)
+rotation = 1.5708
+
+[node name="wall_segment10" parent="." instance=ExtResource("1_5qomb")]
+position = Vector2(448, 320)
+rotation = 1.5708
+
+[node name="wall_segment11" parent="." instance=ExtResource("1_5qomb")]
+position = Vector2(1088, 192)
+rotation = 1.5708
+
+[node name="wall_segment12" parent="." instance=ExtResource("1_5qomb")]
+position = Vector2(1088, 320)
+rotation = 1.5708
+
+[node name="wall_segment3" parent="." instance=ExtResource("1_5qomb")]
+position = Vector2(-64, 192)
+rotation = 1.5708
+
+[node name="single_anchor_wall" parent="." instance=ExtResource("2_airv1")]
+position = Vector2(128, 256)
+
+[node name="single_anchor_wall2" parent="." instance=ExtResource("2_airv1")]
+position = Vector2(128, 0)
+
+[node name="single_anchor_wall3" parent="." instance=ExtResource("2_airv1")]
+position = Vector2(256, 0)
+
+[node name="single_anchor_wall4" parent="." instance=ExtResource("2_airv1")]
+position = Vector2(384, 0)
+
+[node name="single_anchor_wall7" parent="." instance=ExtResource("2_airv1")]
+position = Vector2(512, 0)
+
+[node name="single_anchor_wall9" parent="." instance=ExtResource("2_airv1")]
+position = Vector2(640, 0)
+
+[node name="single_anchor_wall10" parent="." instance=ExtResource("2_airv1")]
+position = Vector2(704, 64)
+rotation = -1.5708
+
+[node name="single_anchor_wall11" parent="." instance=ExtResource("2_airv1")]
+position = Vector2(768, 256)
+
+[node name="single_anchor_wall12" parent="." instance=ExtResource("2_airv1")]
+position = Vector2(768, 128)
+
+[node name="single_anchor_wall5" parent="." instance=ExtResource("2_airv1")]
+position = Vector2(256, 384)
+
+[node name="single_anchor_wall6" parent="." instance=ExtResource("2_airv1")]
+position = Vector2(384, 384)
+
+[node name="single_anchor_wall15" parent="." instance=ExtResource("2_airv1")]
+position = Vector2(896, 384)
+
+[node name="single_anchor_wall16" parent="." instance=ExtResource("2_airv1")]
+position = Vector2(1024, 384)
+
+[node name="single_anchor_wall17" parent="." instance=ExtResource("2_airv1")]
+position = Vector2(704, 192)
+rotation = 1.5708
+
+[node name="single_anchor_wall8" parent="." instance=ExtResource("2_airv1")]
+position = Vector2(512, 384)
+
+[node name="pathfinder" parent="." instance=ExtResource("3_2xjhj")]
+position = Vector2(896, 320)
+
+[node name="enemy_basic" parent="." instance=ExtResource("4_a8scm")]
+position = Vector2(0, 192)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(472, 216)
+zoom = Vector2(0.7, 0.7)
+
+[node name="boundary" type="Node2D" parent="."]
+
+[node name="fixed_wall" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(128, -128)
+
+[node name="fixed_wall2" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(256, -128)
+
+[node name="fixed_wall9" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(-128, -128)
+
+[node name="fixed_wall10" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(0, -128)
+
+[node name="fixed_wall11" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(-192, -64)
+rotation = 1.5708
+
+[node name="fixed_wall12" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(-192, 64)
+rotation = 1.5708
+
+[node name="fixed_wall13" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(-192, 192)
+rotation = 1.5708
+
+[node name="fixed_wall14" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(-192, 320)
+rotation = 1.5708
+
+[node name="fixed_wall15" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(-192, 448)
+rotation = 1.5708
+
+[node name="fixed_wall16" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(1216, -64)
+rotation = 1.5708
+
+[node name="fixed_wall17" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(1216, 64)
+rotation = 1.5708
+
+[node name="fixed_wall18" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(1216, 192)
+rotation = 1.5708
+
+[node name="fixed_wall19" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(1216, 320)
+rotation = 1.5708
+
+[node name="fixed_wall20" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(1216, 448)
+rotation = 1.5708
+
+[node name="fixed_wall3" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(384, -128)
+
+[node name="fixed_wall4" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(512, -128)
+
+[node name="fixed_wall5" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(640, -128)
+
+[node name="fixed_wall6" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(768, -128)
+
+[node name="fixed_wall7" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(896, -128)
+
+[node name="fixed_wall8" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(1024, -128)
+
+[node name="fixed_wall21" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(1152, -128)
+
+[node name="fixed_wall22" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(128, 512)
+
+[node name="fixed_wall23" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(256, 512)
+
+[node name="fixed_wall24" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(-128, 512)
+
+[node name="fixed_wall25" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(0, 512)
+
+[node name="fixed_wall26" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(384, 512)
+
+[node name="fixed_wall27" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(512, 512)
+
+[node name="fixed_wall28" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(640, 512)
+
+[node name="fixed_wall29" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(768, 512)
+
+[node name="fixed_wall30" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(896, 512)
+
+[node name="fixed_wall31" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(1024, 512)
+
+[node name="fixed_wall32" parent="boundary" instance=ExtResource("6_22wef")]
+position = Vector2(1152, 512)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -13,5 +13,5 @@ func start():
 
 func reset():
 	for child in get_children():
-		child.queue_free()
+		child.free()
 	start()

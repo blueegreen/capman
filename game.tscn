@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhrfm4v3hkrhy"]
+[gd_scene load_steps=5 format=3 uid="uid://fbb8pprc10yd"]
 
 [ext_resource type="PackedScene" uid="uid://jp7s75dvcs55" path="res://capman.tscn" id="1_o6jc4"]
-[ext_resource type="PackedScene" uid="uid://crd8v332wvn3m" path="res://food.tscn" id="2_txs2e"]
-[ext_resource type="PackedScene" uid="uid://yumpfuotfh5h" path="res://test_level_1.tscn" id="3_5ngb2"]
+[ext_resource type="PackedScene" path="res://food.tscn" id="2_txs2e"]
+[ext_resource type="PackedScene" uid="uid://duip4dvlr4wfp" path="res://boundary_objects/test_level_1.tscn" id="3_5ngb2"]
 [ext_resource type="PackedScene" uid="uid://dwswa6qxuu3gf" path="res://player/food.tscn" id="4_318yr"]
 
 [node name="game" type="Node2D"]

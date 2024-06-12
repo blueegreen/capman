@@ -1,13 +1,11 @@
 extends Area2D
 
-
 @onready var right = $right
 @onready var down = $down
 @onready var up = $up
 @onready var left = $left
 
 const SPEED = 100.0
-
 
 var dir_h = 1
 var dir_v = -1
@@ -42,8 +40,7 @@ func _process(delta):
 			position.x += 1*velocity_x*delta
 		elif right.get_collider().is_in_group("walls"):
 			velocity_x = 0
-	if up.is_colliding() and down.is_colliding():
+	if not up.is_colliding() and not down.is_colliding():
 		position.y += velocity_y * delta
-	if right.is_colliding() and left.is_colliding():
+	if not right.is_colliding() and not left.is_colliding():
 		position.x += velocity_x*delta
-		

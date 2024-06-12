@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6lc8o8lj6ux0"]
+[gd_scene load_steps=3 format=3 uid="uid://b6lc8o8lj6ux0"]
+
+[ext_resource type="Script" path="res://UI/reset_button.gd" id="1_4rexj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bmy6k"]
 radius = 48.0
 
 [node name="reset_button" type="Area2D"]
+collision_mask = 0
+script = ExtResource("1_4rexj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_bmy6k")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
