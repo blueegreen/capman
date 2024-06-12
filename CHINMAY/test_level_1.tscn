@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://0p8qyxx6r5a2"]
+[gd_scene load_steps=5 format=3 uid="uid://0p8qyxx6r5a2"]
 
 [ext_resource type="PackedScene" uid="uid://cnr625oysfmyj" path="res://boundary_objects/double_anchor_wall.tscn" id="1_5qomb"]
 [ext_resource type="PackedScene" uid="uid://cbm00s6fateus" path="res://boundary_objects/single_anchor_wall.tscn" id="2_airv1"]
 [ext_resource type="PackedScene" uid="uid://ck5d81ekfneit" path="res://enemies/pathfinder.tscn" id="3_2xjhj"]
-[ext_resource type="PackedScene" uid="uid://db7531pu6sgsm" path="res://player/capman.tscn" id="4_vjqa7"]
-[ext_resource type="PackedScene" uid="uid://dwswa6qxuu3gf" path="res://player/food.tscn" id="5_32oyn"]
+[ext_resource type="PackedScene" uid="uid://dwswa6qxuu3gf" path="res://CHINMAY/food.tscn" id="5_32oyn"]
 
 [node name="test_level_1" type="Node2D"]
 scale = Vector2(1.74274, 1.73731)
@@ -101,10 +100,6 @@ position = Vector2(512, 384)
 
 [node name="pathfinder" parent="." instance=ExtResource("3_2xjhj")]
 position = Vector2(896, 320)
-
-[node name="player" parent="." instance=ExtResource("4_vjqa7")]
-position = Vector2(45.9047, 188.798)
-scale = Vector2(1.44738, 1.44738)
 
 [node name="food" parent="." groups=["food"] instance=ExtResource("5_32oyn")]
 position = Vector2(78.038, 188.798)

@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://crd8v332wvn3m"]
-
-[ext_resource type="PackedScene" uid="uid://dwswa6qxuu3gf" path="res://player/food.tscn" id="1_glhtj"]
-
-[node name="Area2D" instance=ExtResource("1_glhtj")]
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]

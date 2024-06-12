@@ -5,6 +5,7 @@ extends Area2D
 signal done
 
 func _ready():
+	forward_cast.target_position = Vector2(GlobalVariables.tile_size, 0)
 	start()
 
 func start():

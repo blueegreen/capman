@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7uigk2ronqgh"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_hoi2d"]
+[ext_resource type="Texture2D" uid="uid://dmkpq8lyvismj" path="res://icon.svg" id="2_kgrl0"]
+[ext_resource type="PackedScene" uid="uid://ck5d81ekfneit" path="res://enemies/pathfinder.tscn" id="3_6ehm7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bcss"]
+size = Vector2(96, 96)
+
+[node name="player" type="Area2D"]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("1_hoi2d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7bcss")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.610328, 0.231495, 0.406864, 1)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_kgrl0")
+
+[node name="forward_cast" type="RayCast2D" parent="."]
+target_position = Vector2(128, 0)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="pathfinder" parent="." instance=ExtResource("3_6ehm7")]
+visible = true

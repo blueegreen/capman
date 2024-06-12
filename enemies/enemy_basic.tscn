@@ -19,21 +19,6 @@ target_position = Vector2(128, 0)
 collide_with_areas = true
 collide_with_bodies = false
 
-[node name="left_cast" type="RayCast2D" parent="."]
-target_position = Vector2(0, -128)
-collide_with_areas = true
-collide_with_bodies = false
-
-[node name="right_cast" type="RayCast2D" parent="."]
-target_position = Vector2(0, 128)
-collide_with_areas = true
-collide_with_bodies = false
-
-[node name="back_cast" type="RayCast2D" parent="."]
-target_position = Vector2(-128, 0)
-collide_with_areas = true
-collide_with_bodies = false
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_jss6k")

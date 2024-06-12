@@ -1,13 +1,11 @@
 extends Area2D
 
 @onready var forward_cast = $forward_cast
-@onready var left_cast = $left_cast
-@onready var right_cast = $right_cast
-@onready var back_cast = $back_cast
 
 var direction := Vector2.ZERO
 
 func _ready():
+	forward_cast.target_position = Vector2(GlobalVariables.tile_size, 0)
 	GlobalTimer.timeout.connect(_on_beat)
 
 func _on_beat():
