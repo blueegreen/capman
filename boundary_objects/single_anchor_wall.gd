@@ -38,7 +38,11 @@ func _on_beat():
 		move_queued = null
 
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
-	if event.is_action("click") and rotate_allowed == true:
+	if event.is_action("left_click") and rotate_allowed == true:
+		rotation_dir = 0
+		move_queued = point_1
+	if event.is_action("right_click") and rotate_allowed == true:
+		rotation_dir = 1
 		move_queued = point_1
 
 func complete_rotation():
