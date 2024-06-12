@@ -5,6 +5,7 @@ extends Area2D
 var root
 
 enum DIR {CW, ACW}
+signal changed
 
 var mouse_position : Vector2
 var rotate_allowed = true
@@ -49,6 +50,7 @@ func complete_rotation():
 	rotate_allowed = true
 
 func rotate_around(point):
+	changed.emit(point, rotation_angle)
 	rotate_allowed = false
 	rotate_area(point)
 	var wall_position = wall.global_position

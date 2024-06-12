@@ -5,12 +5,9 @@ size = Vector2(112, 16)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8aw3f"]
 
-[node name="fixed_wall" type="Node2D"]
+[node name="fixed_wall" type="Area2D" groups=["fixed_wall", "wall"]]
 
-[node name="wall_area" type="Area2D" parent="." groups=["wall"]]
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_o66lr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

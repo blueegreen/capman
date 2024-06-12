@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+GameManager="*res://global/game_manager.gd"
 GlobalVariables="*res://global/global_variables.gd"
 GlobalTimer="*res://global/global_timer.tscn"
 
