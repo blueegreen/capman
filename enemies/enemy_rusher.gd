@@ -74,3 +74,4 @@ func find_end_pos():
 	else:
 		direction = direction.normalized()
 		end_pos = global_position + floor(forward_cast.get_collider().global_position.distance_to(global_position) / GlobalVariables.tile_size) * GlobalVariables.tile_size * direction
+		end_pos = (end_pos * (2.0 / GlobalVariables.tile_size)).round() * GlobalVariables.tile_size / 2

@@ -29,11 +29,15 @@ func _on_beat():
 		rotate_around(move_queued)
 		move_queued = null
 
-func _on_area_2d_input_event(_viewport, event, _shape_idx):
-	if event.is_action("left_click"):
+func _on_area_2d_input_event(_viewport, _event, _shape_idx):
+	if point_1.get_overlapping_areas().size() > 0:
+		for obj in point_1.get_overlapping_areas():
+			if obj.is_in_group("fixed_wall"):
+				return
+	if Input.is_action_just_pressed("left_click"):
 		rotation_dir = DIR.CW
 		move_queued = point_1
-	if event.is_action("right_click"):
+	if Input.is_action_just_pressed("right_click"):
 		rotation_dir = DIR.ACW
 		move_queued = point_1
 

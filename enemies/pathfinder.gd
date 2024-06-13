@@ -20,7 +20,6 @@ func start():
 	var new_tile = preload("res://enemies/pathfinder_tile.tscn").instantiate()
 	new_tile.global_position = player.end_pos
 	add_child(new_tile)
-	new_tile.start()
 
 func reset():
 	for child in get_children():

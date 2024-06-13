@@ -15,6 +15,7 @@ func _on_beat():
 func move():	
 	forward_cast.rotation = atan2(direction.y, direction.x)
 	end_pos = global_position + direction * GlobalVariables.tile_size
+	end_pos = (end_pos * (2.0 / GlobalVariables.tile_size)).round() * GlobalVariables.tile_size / 2
 	$test.global_position = end_pos
 	var move_tween = create_tween()
 	move_tween.tween_property(self, "global_position", end_pos, GlobalVariables.time_step).set_trans(Tween.TRANS_EXPO)
