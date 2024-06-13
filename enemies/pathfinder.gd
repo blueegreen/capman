@@ -6,10 +6,12 @@ var player = null
 
 func _ready():
 	timer.wait_time = GlobalVariables.time_step / 2.0
-	player = get_tree().get_nodes_in_group("player")[0]
-	if player == null:
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() == 0:
 		queue_free()
 		return
+	else:
+		player = players[0]
 	start()
 	timer.start()
 
