@@ -26,35 +26,46 @@ func start_next_move():
 		move()
 
 func find_next_direction():
-	var left_open = false
-	var right_open = false
+	var left_open = 0
+	var right_open = 0
 	var forward_rotation = forward_cast.rotation
 	
 	forward_cast.force_raycast_update()
 	if not forward_cast.is_colliding():
 		direction = Vector2(cos(forward_rotation), sin(forward_rotation))
 		return
+	if forward_cast.is_colliding():
+		if forward_cast.get_collider().is_in_group("collectible"):
+			direction = Vector2(cos(forward_rotation), sin(forward_rotation))
+			return
 		
 	forward_cast.rotation += PI/2
 	forward_cast.force_raycast_update()
 	if not forward_cast.is_colliding():
-		right_open = true
+		right_open = 1
+	if forward_cast.is_colliding():
+		if forward_cast.get_collider().is_in_group("collectible"):
+			right_open = 2
 	
 	forward_cast.rotation -= PI
 	forward_cast.force_raycast_update()
 	if not forward_cast.is_colliding():
-		left_open = true
+		left_open = 1
+	if forward_cast.is_colliding():
+		if forward_cast.get_collider().is_in_group("collectible"):
+			left_open = 2
 	
-	if left_open and right_open:
-		if randi_range(0, 1) == 0:
-			direction = Vector2(cos(forward_rotation - PI/2), sin(forward_rotation - PI/2))
-		else:
-			direction = Vector2(cos(forward_rotation + PI/2), sin(forward_rotation + PI/2))
-		return
-	elif left_open:
+	if left_open > 0 and right_open > 0:
+		if left_open == right_open:
+			if randi_range(0, 1) == 0:
+				direction = Vector2(cos(forward_rotation - PI/2), sin(forward_rotation - PI/2))
+			else:
+				direction = Vector2(cos(forward_rotation + PI/2), sin(forward_rotation + PI/2))
+			return
+	if left_open > right_open:
 		direction = Vector2(cos(forward_rotation - PI/2), sin(forward_rotation - PI/2))
 		return
-	elif right_open:
+	elif right_open > left_open:
 		direction = Vector2(cos(forward_rotation + PI/2), sin(forward_rotation + PI/2))
 		return
 	
@@ -63,6 +74,11 @@ func find_next_direction():
 	if not forward_cast.is_colliding():
 		direction = Vector2(cos(forward_rotation + PI), sin(forward_rotation + PI))
 		return
+	if forward_cast.is_colliding():
+		if forward_cast.get_collider().is_in_group("collectible"):
+			direction = Vector2(cos(forward_rotation + PI), sin(forward_rotation + PI))
+			return
+	
 	direction = Vector2.ZERO
 	return
 
@@ -74,3 +90,4 @@ func _on_area_entered(area):
 
 func take_damage(_dmg := 0):
 	print("taken damage!")
+	get_tree().call_deferred("reload_current_scene")

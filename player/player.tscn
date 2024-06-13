@@ -20,7 +20,7 @@ texture = ExtResource("2_kgrl0")
 
 [node name="forward_cast" type="RayCast2D" parent="."]
 target_position = Vector2(128, 0)
-collision_mask = 3
+collision_mask = 11
 collide_with_areas = true
 collide_with_bodies = false
 

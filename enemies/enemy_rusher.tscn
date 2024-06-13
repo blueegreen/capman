@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dmkpq8lyvismj" path="res://icon.svg" id="2_6xko5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_erqqy"]
-size = Vector2(96, 96)
+size = Vector2(32, 32)
 
 [node name="enemy_rusher" type="Area2D" groups=["enemy"]]
 collision_layer = 2

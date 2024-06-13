@@ -10,7 +10,6 @@ func _ready():
 	start()
 
 func start():
-	#await get_tree().create_timer(0.5).timeout
 	if get_parent().get_child_count() >= get_parent().max_tile_count:
 		queue_free()
 		return
