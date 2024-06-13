@@ -85,6 +85,9 @@ position = Vector2(320, 128)
 [node name="double_anchor_wall7" parent="walls" instance=ExtResource("4_j82nw")]
 position = Vector2(448, 128)
 
+[node name="single_anchor_wall" parent="walls" instance=ExtResource("9_8rvfa")]
+position = Vector2(192, 128)
+
 [node name="foods" type="Node" parent="."]
 
 [node name="food" parent="foods" instance=ExtResource("5_lvfiu")]
@@ -143,6 +146,3 @@ level_timestep = 0.7
 
 [node name="button" parent="." instance=ExtResource("8_ejuak")]
 position = Vector2(640, 128)
-
-[node name="single_anchor_wall" parent="." instance=ExtResource("9_8rvfa")]
-position = Vector2(192, 128)
