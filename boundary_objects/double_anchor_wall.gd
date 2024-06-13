@@ -20,15 +20,34 @@ var rotate_allowed = true
 @export var rotation_angle = PI/2
 
 var move_queued = null
+var rewinding = false
+var record_moves = Array()
 
 func _ready():
 	root = get_parent()
 	GlobalTimer.timeout.connect(_on_beat)
 
 func _on_beat():
-	if move_queued != null and rotate_allowed:
+	if rewinding:
+		rotate_back()
+	elif move_queued != null and rotate_allowed:
 		rotate_around(move_queued)
 		move_queued = null
+	else:
+		record_moves.push_back(null)
+
+func rotate_back():
+	if record_moves.size() > 0:
+		var prev_move = record_moves.pop_back()
+		if prev_move == null:
+			return
+		move_queued = null
+		rotate_allowed = false
+		if prev_move[1] == DIR.CW:
+			rotation_dir = DIR.ACW
+		elif prev_move[1] == DIR.ACW:
+			rotation_dir = DIR.CW
+		rotate_around(prev_move[0])
 
 func _on_area_2d_input_event(_viewport, _event, _shape_idx):
 	if point_1.get_overlapping_areas().size() > 0:
@@ -63,6 +82,9 @@ func _on_area_2d_2_input_event(_viewport, _event, _shape_idx):
 		move_queued = point_2
 
 func rotate_around(point):
+	if not rewinding:
+		record_moves.push_back([point, rotation_dir])
+	
 	rotate_allowed = false
 	rotate_area(point)
 	var wall_position = wall.global_position

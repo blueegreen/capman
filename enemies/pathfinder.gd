@@ -15,6 +15,9 @@ func _ready():
 	start()
 	timer.start()
 
+func _process(_delta):
+	timer.wait_time = GlobalVariables.time_step / 2.0
+
 func start():
 	if player == null:
 		queue_free()

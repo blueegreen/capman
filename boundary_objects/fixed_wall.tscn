@@ -5,7 +5,7 @@ size = Vector2(112, 16)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8aw3f"]
 
-[node name="fixed_wall" type="Area2D" groups=["fixed_wall"]]
+[node name="fixed_wall" type="Area2D" groups=["fixed_wall", "wall"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_o66lr")

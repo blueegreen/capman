@@ -10,7 +10,7 @@ radius = 16.0
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sq1jc"]
 
-[node name="single_anchor_wall" type="Area2D" groups=["single_anchor_wall", "wall"]]
+[node name="single_anchor_wall" type="Area2D" groups=["movable_wall", "single_anchor_wall", "wall"]]
 script = ExtResource("1_woqot")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

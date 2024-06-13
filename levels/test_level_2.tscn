@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://be3t7rd7ay2jb"]
+[gd_scene load_steps=10 format=3 uid="uid://be3t7rd7ay2jb"]
 
 [ext_resource type="PackedScene" uid="uid://b7uigk2ronqgh" path="res://player/player.tscn" id="1_raq55"]
 [ext_resource type="PackedScene" uid="uid://ck5d81ekfneit" path="res://enemies/pathfinder.tscn" id="2_0u6f7"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://db2caokmjrqn2" path="res://collectibles/food.tscn" id="5_lvfiu"]
 [ext_resource type="PackedScene" uid="uid://lyj2ofbuus5i" path="res://enemies/enemy_basic.tscn" id="6_0f2t6"]
 [ext_resource type="PackedScene" uid="uid://citfwdrvjm0ds" path="res://UI/level_manager.tscn" id="7_sqybx"]
+[ext_resource type="PackedScene" uid="uid://clpajm52s6ky7" path="res://UI/button.tscn" id="8_ejuak"]
+[ext_resource type="PackedScene" uid="uid://cbm00s6fateus" path="res://boundary_objects/single_anchor_wall.tscn" id="9_8rvfa"]
 
 [node name="test_level_2" type="Node2D"]
 
@@ -74,9 +76,6 @@ position = Vector2(320, 384)
 [node name="fixed_wall18" parent="walls" instance=ExtResource("3_pu4x5")]
 position = Vector2(448, 384)
 
-[node name="double_anchor_wall2" parent="walls" instance=ExtResource("4_j82nw")]
-position = Vector2(192, 128)
-
 [node name="double_anchor_wall3" parent="walls" instance=ExtResource("4_j82nw")]
 position = Vector2(64, 128)
 
@@ -140,3 +139,10 @@ position = Vector2(256, 128)
 position = Vector2(64, -64)
 
 [node name="level_manager" parent="." instance=ExtResource("7_sqybx")]
+level_timestep = 0.7
+
+[node name="button" parent="." instance=ExtResource("8_ejuak")]
+position = Vector2(640, 128)
+
+[node name="single_anchor_wall" parent="." instance=ExtResource("9_8rvfa")]
+position = Vector2(192, 128)

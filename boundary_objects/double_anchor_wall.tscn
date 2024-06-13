@@ -10,7 +10,7 @@ radius = 16.0
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_subyf"]
 
-[node name="double_anchor_wall" type="Area2D" groups=["double_anchor_wall", "wall"]]
+[node name="double_anchor_wall" type="Area2D" groups=["double_anchor_wall", "movable_wall", "wall"]]
 collision_mask = 0
 script = ExtResource("1_31r80")
 

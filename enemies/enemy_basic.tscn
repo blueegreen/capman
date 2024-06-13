@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqx4g"]
 size = Vector2(32, 32)
 
-[node name="enemy_basic" type="Area2D" groups=["enemy"]]
+[node name="enemy_basic" type="Area2D" groups=["enemy", "moving_entity"]]
 collision_layer = 2
 collision_mask = 16
 script = ExtResource("1_hprcr")
