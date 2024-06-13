@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Capman"
-run/main_scene="res://CHINMAY/test_level_1.tscn"
+run/main_scene="res://CHINMAY/chinmay_test_level_1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
