@@ -2,6 +2,7 @@ extends Area2D
 @onready var anchor = $anchor
 @onready var wall = $wall
 @onready var point_1 = $Area2D
+@onready var wall_sprite = $wall/Sprite2D
 var root
 
 enum DIR {CW, ACW}
@@ -27,6 +28,7 @@ func _ready():
 	GlobalTimer.timeout.connect(_on_beat)
 
 func _on_beat():
+	toggle_permeability()
 	if move_queued != null:
 		rotate_around(move_queued)
 		move_queued = null
@@ -97,3 +99,12 @@ func rotate_area(point):
 	global_position = r * Vector2(cos(theta + rotation_angle), sin(theta + rotation_angle)) + point.global_position
 	rotation += rotation_angle
 	wall.global_transform = wall_transform
+
+func toggle_permeability():
+	if get_collision_layer_value(1):
+		var tween = create_tween()
+		tween.tween_property(wall_sprite, "modulate", Color(1, 1, 0, 0.5), GlobalVariables.time_step).set_trans(Tween.TRANS_EXPO)
+	else:
+		var tween = create_tween()
+		tween.tween_property(wall_sprite, "modulate", Color(1, 1, 0, 1), GlobalVariables.time_step).set_trans(Tween.TRANS_EXPO)
+	set_collision_layer_value(1, !get_collision_layer_value(1))

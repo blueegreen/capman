@@ -1,6 +1,6 @@
 extends Node
 
-var time_step = 1.0:
+var time_step = 0.7:
 	set(value):
 		if value != time_step:
 			GlobalTimer.wait_time = value

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dux0r1bn0qmf"]
+[gd_scene load_steps=8 format=3 uid="uid://dux0r1bn0qmf"]
 
 [ext_resource type="PackedScene" uid="uid://citfwdrvjm0ds" path="res://UI/level_manager.tscn" id="1_3co4l"]
 [ext_resource type="PackedScene" uid="uid://ck5d81ekfneit" path="res://enemies/pathfinder.tscn" id="2_uby3f"]
@@ -6,10 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://dt00c18n44v1r" path="res://boundary_objects/fixed_wall.tscn" id="4_n8ra0"]
 [ext_resource type="PackedScene" uid="uid://cbm00s6fateus" path="res://boundary_objects/single_anchor_wall.tscn" id="5_n0hc8"]
 [ext_resource type="PackedScene" uid="uid://b7uigk2ronqgh" path="res://player/player.tscn" id="6_cl6od"]
+[ext_resource type="PackedScene" uid="uid://dt3aavonv0brs" path="res://boundary_objects/inner_fixed_wall.tscn" id="7_tijp1"]
 
 [node name="lvl_2" type="Node2D"]
 
 [node name="level_manager" parent="." instance=ExtResource("1_3co4l")]
+level_timestep = 1.0
 
 [node name="pathfinder" parent="." instance=ExtResource("2_uby3f")]
 position = Vector2(769.17, 323.324)
@@ -99,18 +101,6 @@ position = Vector2(640, 192)
 [node name="fixed_wall14" parent="Boundary" instance=ExtResource("4_n8ra0")]
 position = Vector2(512, 192)
 
-[node name="fixed_wall7" parent="Boundary" instance=ExtResource("4_n8ra0")]
-position = Vector2(896, 448)
-
-[node name="fixed_wall8" parent="Boundary" instance=ExtResource("4_n8ra0")]
-position = Vector2(768, 448)
-
-[node name="fixed_wall17" parent="Boundary" instance=ExtResource("4_n8ra0")]
-position = Vector2(640, 320)
-
-[node name="fixed_wall18" parent="Boundary" instance=ExtResource("4_n8ra0")]
-position = Vector2(512, 320)
-
 [node name="single_anchor_wall2" parent="." instance=ExtResource("5_n0hc8")]
 position = Vector2(576, 512)
 rotation = -4.71239
@@ -128,3 +118,15 @@ rotation = -4.71239
 
 [node name="player" parent="." instance=ExtResource("6_cl6od")]
 position = Vector2(896, 512)
+
+[node name="inner_fixed_wall" parent="." instance=ExtResource("7_tijp1")]
+position = Vector2(512, 320)
+
+[node name="inner_fixed_wall2" parent="." instance=ExtResource("7_tijp1")]
+position = Vector2(640, 320)
+
+[node name="inner_fixed_wall3" parent="." instance=ExtResource("7_tijp1")]
+position = Vector2(768, 448)
+
+[node name="inner_fixed_wall4" parent="." instance=ExtResource("7_tijp1")]
+position = Vector2(896, 448)

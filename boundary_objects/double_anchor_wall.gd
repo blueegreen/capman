@@ -28,11 +28,11 @@ func _ready():
 	GlobalTimer.timeout.connect(_on_beat)
 
 func _on_beat():
-	if rewinding:
-		rotate_back()
-	elif move_queued != null and rotate_allowed:
+	if move_queued != null:
 		rotate_around(move_queued)
 		move_queued = null
+	elif rewinding:
+		rotate_back()
 	else:
 		record_moves.push_back(null)
 
@@ -47,6 +47,7 @@ func rotate_back():
 			rotation_dir = DIR.ACW
 		elif prev_move[1] == DIR.ACW:
 			rotation_dir = DIR.CW
+		rotate_area(prev_move[0])
 		rotate_around(prev_move[0])
 
 func _on_area_2d_input_event(_viewport, _event, _shape_idx):
@@ -54,12 +55,40 @@ func _on_area_2d_input_event(_viewport, _event, _shape_idx):
 		for obj in point_1.get_overlapping_areas():
 			if obj.is_in_group("fixed_wall"):
 				return
-	if Input.is_action_just_pressed("left_click"):
+	if Input.is_action_just_pressed("left_click") and rotate_allowed:
 		rotation_dir = DIR.CW
 		move_queued = point_1
-	if Input.is_action_just_pressed("right_click"):
+		rotate_area(point_1)
+		rotate_allowed = false
+		if not rewinding:
+			record_moves.push_back([point_1, rotation_dir])
+	elif Input.is_action_just_pressed("right_click") and rotate_allowed:
 		rotation_dir = DIR.ACW
 		move_queued = point_1
+		rotate_area(point_1)
+		rotate_allowed = false
+		if not rewinding:
+			record_moves.push_back([point_1, rotation_dir])
+
+func _on_area_2d_2_input_event(_viewport, _event, _shape_idx):
+	if point_2.get_overlapping_areas().size() > 0:
+		for obj in point_2.get_overlapping_areas():
+			if obj.is_in_group("fixed_wall"):
+				return
+	if Input.is_action_just_pressed("left_click") and rotate_allowed:
+		rotation_dir = DIR.CW
+		move_queued = point_2
+		rotate_area(point_2)
+		rotate_allowed = false
+		if not rewinding:
+			record_moves.push_back([point_2, rotation_dir])
+	elif Input.is_action_just_pressed("right_click") and rotate_allowed:
+		rotation_dir = DIR.ACW
+		move_queued = point_2
+		rotate_area(point_2)
+		rotate_allowed = false
+		if not rewinding:
+			record_moves.push_back([point_2, rotation_dir])
 
 func complete_rotation():
 	var wall_transform = wall.global_transform
@@ -67,32 +96,16 @@ func complete_rotation():
 	add_child(wall)
 	anchor.rotation = 0
 	wall.global_transform = wall_transform
-	rotate_allowed = true
-
-func _on_area_2d_2_input_event(_viewport, _event, _shape_idx):
-	if point_2.get_overlapping_areas().size() > 0:
-		for obj in point_2.get_overlapping_areas():
-			if obj.is_in_group("fixed_wall"):
-				return
-	if Input.is_action_just_pressed("left_click"):
-		rotation_dir = DIR.CW
-		move_queued = point_2
-	if Input.is_action_just_pressed("right_click"):
-		rotation_dir = DIR.ACW
-		move_queued = point_2
+	
 
 func rotate_around(point):
-	if not rewinding:
-		record_moves.push_back([point, rotation_dir])
-	
-	rotate_allowed = false
-	rotate_area(point)
 	var wall_position = wall.global_position
 	anchor.global_position = point.global_position
 	remove_child(wall)
 	anchor.add_child(wall)
 	wall.global_position = wall_position
 	
+	rotate_allowed = true
 	var rotate_tween = create_tween()
 	rotate_tween.tween_property(anchor, "rotation", rotation_angle, GlobalVariables.time_step - 0.1).set_trans(Tween.TRANS_EXPO)
 	rotate_tween.tween_callback(complete_rotation)
@@ -105,3 +118,5 @@ func rotate_area(point):
 	global_position = r * Vector2(cos(theta + rotation_angle), sin(theta + rotation_angle)) + point.global_position
 	rotation += rotation_angle
 	wall.global_transform = wall_transform
+
+

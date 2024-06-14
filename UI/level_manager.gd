@@ -1,6 +1,7 @@
 extends Node
 
-@export var level_timestep := 1.0
+@export var level_timestep := 0.5
+@export var next_level_path : String
 
 var food_count := 0
 var score := 0
@@ -20,6 +21,8 @@ func _ready():
 	for collectible in get_tree().get_nodes_in_group("collectible"):
 		collectible.collected.connect(_on_collectible_collected)
 		food_count += 1
+	for player in get_tree().get_nodes_in_group("player"):
+		player.game_over.connect(_on_game_over)
 	moving_entities = get_tree().get_nodes_in_group("moving_entity")
 	moving_walls = get_tree().get_nodes_in_group("movable_wall")
 	
@@ -63,9 +66,7 @@ func state_transition(new_state : TIME_STATE):
 func _on_collectible_collected(_msg = {}):
 	score +=1
 	if score >= food_count:
-		print("level_complete")
-		await get_tree().create_timer(GlobalVariables.time_step / 2.0).timeout
-		get_tree().reload_current_scene()
+		finish_level()
 
 func handle_input(delta):
 	if Input.is_action_pressed("left_click"):
@@ -75,7 +76,7 @@ func handle_input(delta):
 			pressed_time = 0
 		else:
 			pressed_time += delta
-			if pressed_time > 0.3 and current_time_state != TIME_STATE.FAST:
+			if pressed_time > 0.2 and current_time_state != TIME_STATE.FAST:
 				state_transition(TIME_STATE.FAST)
 	elif Input.is_action_pressed("right_click"):
 		if not pressed_right:
@@ -84,7 +85,7 @@ func handle_input(delta):
 			pressed_time = 0
 		else:
 			pressed_time += delta
-			if pressed_time > 0.3 and current_time_state != TIME_STATE.REWIND:
+			if pressed_time > 0.2 and current_time_state != TIME_STATE.REWIND:
 				state_transition(TIME_STATE.REWIND)
 	else:
 		pressed_time = 0.0
@@ -92,3 +93,14 @@ func handle_input(delta):
 		pressed_right = false
 		if current_time_state != TIME_STATE.NORMAL:
 			state_transition(TIME_STATE.NORMAL)
+
+func _on_game_over():
+	print("game_over")
+	GameManager.goto_scene(get_tree().current_scene.scene_file_path)
+
+func finish_level():
+	print("finish_level")
+	if next_level_path.is_empty():
+		GameManager.goto_scene(get_tree().current_scene.scene_file_path)
+	else:
+		GameManager.goto_scene(next_level_path)

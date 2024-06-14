@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var forward_cast = $forward_cast
+signal game_over
 
 var direction := Vector2.ZERO
 var end_pos : Vector2
@@ -102,10 +103,6 @@ func find_next_direction():
 
 func _on_area_entered(area):
 	if area.is_in_group("enemy"):
-		take_damage()
+		game_over.emit()
 	elif area.is_in_group("collectible"):
 		area.collect()
-
-func take_damage(_dmg := 0):
-	print("taken damage!")
-	get_tree().call_deferred("reload_current_scene")
