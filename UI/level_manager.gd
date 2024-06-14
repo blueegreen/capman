@@ -7,6 +7,10 @@ var score := 0
 var moving_entities = Array()
 var moving_walls = Array()
 
+var pressed_left = false
+var pressed_right = false
+var pressed_time = 0.0
+
 enum TIME_STATE {NORMAL, REWIND, FAST}
 var current_time_state : TIME_STATE
 
@@ -20,6 +24,9 @@ func _ready():
 	moving_walls = get_tree().get_nodes_in_group("movable_wall")
 	
 	GlobalTimer.timeout.connect(_on_beat)
+
+func _process(delta):
+	handle_input(delta)
 
 func _on_beat():
 	match current_time_state:
@@ -43,9 +50,15 @@ func state_transition(new_state : TIME_STATE):
 				entity.rewinding = true
 			for moving_wall in moving_walls:
 				moving_wall.rewinding = true
-			GlobalVariables.time_step = 0.8
+			GlobalVariables.time_step = 0.6
 		TIME_STATE.FAST:
-			GlobalVariables.time_step = 0.4
+			for entity in moving_entities:
+				entity.rewinding = false
+			for moving_wall in moving_walls:
+				moving_wall.rewinding = false
+			GlobalVariables.time_step = 0.3
+		
+	current_time_state = new_state
 
 func _on_collectible_collected(_msg = {}):
 	score +=1
@@ -53,3 +66,29 @@ func _on_collectible_collected(_msg = {}):
 		print("level_complete")
 		await get_tree().create_timer(GlobalVariables.time_step / 2.0).timeout
 		get_tree().reload_current_scene()
+
+func handle_input(delta):
+	if Input.is_action_pressed("left_click"):
+		if not pressed_left:
+			pressed_left = true
+			pressed_right = false
+			pressed_time = 0
+		else:
+			pressed_time += delta
+			if pressed_time > 0.3 and current_time_state != TIME_STATE.FAST:
+				state_transition(TIME_STATE.FAST)
+	elif Input.is_action_pressed("right_click"):
+		if not pressed_right:
+			pressed_right = true
+			pressed_left = false
+			pressed_time = 0
+		else:
+			pressed_time += delta
+			if pressed_time > 0.3 and current_time_state != TIME_STATE.REWIND:
+				state_transition(TIME_STATE.REWIND)
+	else:
+		pressed_time = 0.0
+		pressed_left = false
+		pressed_right = false
+		if current_time_state != TIME_STATE.NORMAL:
+			state_transition(TIME_STATE.NORMAL)
