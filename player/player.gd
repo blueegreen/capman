@@ -121,6 +121,8 @@ func _on_area_entered(area):
 	if area.is_in_group("enemy"):
 		player_sprite.visible = false
 		player_sprite_dead.visible = true
+		player_sprite_dead.rotation = player_sprite.rotation
+		player_sprite_dead.flip_v = player_sprite.flip_v
 		game_over.emit()
 	elif area.is_in_group("collectible"):
 		area.collect()

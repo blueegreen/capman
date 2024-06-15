@@ -33,6 +33,8 @@ func _process(delta):
 			mouse_pressed = false
 			return
 		global_position = global_position.lerp(get_global_mouse_position() - mouse_offset, 10 * delta)
+		global_position.x = clampf(global_position.x, -576, 512)
+		global_position.y = clampf(global_position.y, -576, 512)
 
 func _on_area_2d_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_pressed("left_click"):

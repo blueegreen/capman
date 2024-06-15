@@ -16,7 +16,6 @@ radius = 56.0
 size = Vector2(64, 104)
 
 [node name="pop_up_window" type="Node2D"]
-top_level = true
 z_index = 9
 script = ExtResource("1_wr0qm")
 

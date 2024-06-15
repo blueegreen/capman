@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsxuxyhtjqepv"]
+
+[ext_resource type="Texture2D" uid="uid://csfhcknrdxk1f" path="res://sprite_sheet-export.png" id="1_t4315"]
+[ext_resource type="Script" path="res://UI/right_hand.gd" id="1_vtiyh"]
+
+[node name="right_hand" type="Node2D"]
+z_index = 11
+script = ExtResource("1_vtiyh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(128, 128)
+texture = ExtResource("1_t4315")
+region_enabled = true
+region_rect = Rect2(360, 440, 592, 616)
