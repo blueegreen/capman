@@ -36,6 +36,7 @@ func move_back():
 		direction = prev_move[1]
 		end_pos = prev_pos
 		move_back_tween.tween_property(self, "global_position", prev_pos, GlobalVariables.time_step).set_trans(Tween.TRANS_EXPO)
+		move_back_tween.parallel().tween_property(enemy_sprite, "frame", (enemy_sprite.frame + 1) % 2, GlobalVariables.time_step)
 
 func start_next_move():
 	record_moves.push_back([end_pos, direction])

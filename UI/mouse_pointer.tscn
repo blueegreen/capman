@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvp6nksc3aaae"]
+
+[ext_resource type="Script" path="res://UI/mouse_pointer.gd" id="1_du54t"]
+[ext_resource type="Texture2D" uid="uid://csfhcknrdxk1f" path="res://sprite_sheet-export.png" id="2_63fu6"]
+
+[node name="mouse_pointer" type="Node2D"]
+top_level = true
+z_index = 10
+script = ExtResource("1_du54t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(48, 52)
+texture = ExtResource("2_63fu6")
+hframes = 3
+region_enabled = true
+region_rect = Rect2(1152, 0, 384, 136)

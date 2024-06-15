@@ -55,6 +55,7 @@ func _on_area_2d_input_event(_viewport, _event, _shape_idx):
 		for obj in point_1.get_overlapping_areas():
 			if obj.is_in_group("fixed_wall"):
 				return
+	anchor_sprite_1.frame = 1
 	if Input.is_action_just_pressed("left_click") and rotate_allowed:
 		rotation_dir = DIR.CW
 		move_queued = point_1

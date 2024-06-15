@@ -2,6 +2,7 @@ extends Area2D
 
 @onready var forward_cast = $forward_cast
 @onready var player_sprite = $player_sprite
+@onready var player_sprite_dead = $player_sprite_dead
 signal game_over
 
 var direction := Vector2.ZERO
@@ -42,8 +43,16 @@ func move_back():
 		var move_back_tween = create_tween()
 		end_pos = prev_pos
 		direction = prev_move[1]
+		
+		player_sprite.rotation = prev_pos.direction_to(global_position).angle()
+		if player_sprite.rotation > PI/2 + 0.1 or player_sprite.rotation < -PI/2 - 0.1:
+			player_sprite.flip_v = true
+		else:
+			player_sprite.flip_v = false
+		
 		move_back_tween.tween_property(self, "global_position", prev_pos, GlobalVariables.time_step).set_trans(Tween.TRANS_EXPO)
-
+		move_back_tween.parallel().tween_property(player_sprite, "frame", (player_sprite.frame + 1) % 2, GlobalVariables.time_step)
+		
 func start_next_move():
 	record_moves.push_back([end_pos, direction])
 	find_next_direction()
@@ -110,6 +119,8 @@ func find_next_direction():
 
 func _on_area_entered(area):
 	if area.is_in_group("enemy"):
+		player_sprite.visible = false
+		player_sprite_dead.visible = true
 		game_over.emit()
 	elif area.is_in_group("collectible"):
 		area.collect()

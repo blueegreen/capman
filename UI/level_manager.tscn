@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://citfwdrvjm0ds"]
+[gd_scene load_steps=3 format=3 uid="uid://citfwdrvjm0ds"]
 
 [ext_resource type="Script" path="res://UI/level_manager.gd" id="1_nwl25"]
+[ext_resource type="PackedScene" uid="uid://bvp6nksc3aaae" path="res://UI/mouse_pointer.tscn" id="2_ya4ex"]
 
 [node name="level_manager" type="Node"]
 script = ExtResource("1_nwl25")
+
+[node name="mouse_pointer" parent="." instance=ExtResource("2_ya4ex")]

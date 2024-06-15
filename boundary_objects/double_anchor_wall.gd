@@ -53,11 +53,11 @@ func rotate_back():
 		rotate_around(prev_move[0])
 
 func _on_area_2d_input_event(_viewport, _event, _shape_idx):
-	anchor_sprite_1.frame = 1
 	if point_1.get_overlapping_areas().size() > 0:
 		for obj in point_1.get_overlapping_areas():
 			if obj.is_in_group("fixed_wall"):
 				return
+	anchor_sprite_1.frame = 1
 	if Input.is_action_just_pressed("left_click") and rotate_allowed:
 		rotation_dir = DIR.CW
 		move_queued = point_1
@@ -74,11 +74,11 @@ func _on_area_2d_input_event(_viewport, _event, _shape_idx):
 			record_moves.push_back([point_1, rotation_dir])
 
 func _on_area_2d_2_input_event(_viewport, _event, _shape_idx):
-	anchor_sprite_2.frame = 1
 	if point_2.get_overlapping_areas().size() > 0:
 		for obj in point_2.get_overlapping_areas():
 			if obj.is_in_group("fixed_wall"):
 				return
+	anchor_sprite_2.frame = 1
 	if Input.is_action_just_pressed("left_click") and rotate_allowed:
 		rotation_dir = DIR.CW
 		move_queued = point_2

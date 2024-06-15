@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://be3t7rd7ay2jb"]
+[gd_scene load_steps=9 format=3 uid="uid://be3t7rd7ay2jb"]
 
 [ext_resource type="PackedScene" uid="uid://b7uigk2ronqgh" path="res://player/player.tscn" id="1_w5hdr"]
 [ext_resource type="PackedScene" uid="uid://ck5d81ekfneit" path="res://enemies/pathfinder.tscn" id="2_qer7h"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://db2caokmjrqn2" path="res://collectibles/food.tscn" id="5_ny7l8"]
 [ext_resource type="PackedScene" uid="uid://lyj2ofbuus5i" path="res://enemies/enemy_basic.tscn" id="6_bp7vl"]
 [ext_resource type="PackedScene" uid="uid://citfwdrvjm0ds" path="res://UI/level_manager.tscn" id="7_l2sip"]
+[ext_resource type="PackedScene" uid="uid://cyqkxny4wetii" path="res://enemies/enemy_rusher.tscn" id="8_qm335"]
 
 [node name="test_level_2" type="Node2D"]
 
@@ -140,3 +141,6 @@ zoom = Vector2(0.76, 0.76)
 position = Vector2(64, -64)
 
 [node name="level_manager" parent="." instance=ExtResource("7_l2sip")]
+
+[node name="enemy_rusher" parent="." instance=ExtResource("8_qm335")]
+position = Vector2(64, 64)

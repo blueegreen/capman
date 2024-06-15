@@ -16,7 +16,6 @@ func _ready():
 	end_pos = global_position
 
 func _on_beat():
-	enemy_sprite.frame = (enemy_sprite.frame + 1) % 2
 	if rewinding:
 		move_back()
 	else:
@@ -37,12 +36,12 @@ func move_back():
 		direction = prev_move[1]
 		end_pos = prev_pos
 		move_back_tween.tween_property(self, "global_position", prev_pos, GlobalVariables.time_step).set_trans(Tween.TRANS_EXPO)
-
+		move_back_tween.parallel().tween_property(enemy_sprite, "frame", (enemy_sprite.frame + 1) % 2, GlobalVariables.time_step)
+		
 func start_next_move():
 	record_moves.push_back([end_pos, direction])
 	find_next_direction()
-	if direction != Vector2.ZERO:
-		find_end_pos()
+	find_end_pos()
 	move()
 
 func find_next_direction():

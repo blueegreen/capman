@@ -1,4 +1,5 @@
 extends Node
+@onready var mouse_pointer = $mouse_pointer
 
 @export var level_timestep := 0.6
 @export var next_level_path : String
@@ -76,6 +77,7 @@ func handle_input(delta):
 			pressed_right = false
 			pressed_time = 0
 		else:
+			mouse_pointer.get_node("Sprite2D").frame = 2 
 			pressed_time += delta
 			if pressed_time > 0.2 and current_time_state != TIME_STATE.FAST:
 				state_transition(TIME_STATE.FAST)
@@ -85,10 +87,12 @@ func handle_input(delta):
 			pressed_left = false
 			pressed_time = 0
 		else:
+			mouse_pointer.get_node("Sprite2D").frame = 1
 			pressed_time += delta
 			if pressed_time > 0.2 and current_time_state != TIME_STATE.REWIND:
 				state_transition(TIME_STATE.REWIND)
 	else:
+		mouse_pointer.get_node("Sprite2D").frame = 0
 		pressed_time = 0.0
 		pressed_left = false
 		pressed_right = false
@@ -97,7 +101,9 @@ func handle_input(delta):
 
 func _on_game_over():
 	print("game_over")
-	GameManager.goto_scene(get_tree().current_scene.scene_file_path)
+	for enemy in get_tree().get_nodes_in_group("enemy"):
+		enemy.visible = false
+	GlobalTimer.stop()
 
 func finish_level():
 	print("finish_level")
