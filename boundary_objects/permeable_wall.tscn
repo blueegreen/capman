@@ -24,6 +24,12 @@ shape = SubResource("CircleShape2D_fxymq")
 
 [node name="wall" type="Node2D" parent="."]
 
+[node name="Sprite2D2" type="Sprite2D" parent="wall"]
+modulate = Color(1, 0.882353, 0, 0.619608)
+position = Vector2(-64, 2.84217e-14)
+scale = Vector2(12, 12)
+texture = SubResource("PlaceholderTexture2D_xq0kh")
+
 [node name="Sprite2D" type="Sprite2D" parent="wall"]
 modulate = Color(1, 0.882353, 0, 0.619608)
 position = Vector2(0, 4.76837e-07)

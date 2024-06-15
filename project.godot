@@ -21,6 +21,11 @@ GameManager="*res://global/game_manager.gd"
 GlobalVariables="*res://global/global_variables.gd"
 GlobalTimer="*res://global/global_timer.tscn"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [input]
 
 left_click={
@@ -40,3 +45,7 @@ right_click={
 2d_physics/layer_2="enemy"
 2d_physics/layer_3="player"
 2d_physics/layer_4="collectible"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

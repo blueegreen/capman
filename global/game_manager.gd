@@ -9,7 +9,6 @@ func _ready():
 	current_scene = root.get_child(root.get_child_count() - 1)
 
 	GlobalTimer.wait_time = GlobalVariables.time_step
-	GlobalTimer.start()
 	GlobalTimer.timeout.emit()
 
 func goto_scene(path):

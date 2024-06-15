@@ -23,6 +23,7 @@ rotation = 1.5708
 [node name="pathfinder" parent="." instance=ExtResource("3_jp7nk")]
 
 [node name="level_manager" parent="." instance=ExtResource("4_awh0e")]
+next_level_path = "res://levels/lvl_2.tscn"
 
 [node name="boundary" type="Node" parent="."]
 

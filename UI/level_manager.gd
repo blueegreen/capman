@@ -1,6 +1,6 @@
 extends Node
 
-@export var level_timestep := 0.5
+@export var level_timestep := 0.6
 @export var next_level_path : String
 
 var food_count := 0
@@ -17,6 +17,7 @@ var current_time_state : TIME_STATE
 
 func _ready():
 	GlobalVariables.time_step = level_timestep
+	GlobalTimer.start()
 	current_time_state = TIME_STATE.NORMAL
 	for collectible in get_tree().get_nodes_in_group("collectible"):
 		collectible.collected.connect(_on_collectible_collected)
@@ -53,7 +54,7 @@ func state_transition(new_state : TIME_STATE):
 				entity.rewinding = true
 			for moving_wall in moving_walls:
 				moving_wall.rewinding = true
-			GlobalVariables.time_step = 0.6
+			GlobalVariables.time_step = 0.3
 		TIME_STATE.FAST:
 			for entity in moving_entities:
 				entity.rewinding = false
@@ -101,6 +102,7 @@ func _on_game_over():
 func finish_level():
 	print("finish_level")
 	if next_level_path.is_empty():
-		GameManager.goto_scene(get_tree().current_scene.scene_file_path)
+		GlobalTimer.stop()
+		#GameManager.goto_scene(get_tree().current_scene.scene_file_path)
 	else:
 		GameManager.goto_scene(next_level_path)
