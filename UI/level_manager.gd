@@ -1,5 +1,6 @@
-extends Node
+extends Node2D
 @onready var mouse_pointer = $mouse_pointer
+const WINDOW = preload("res://UI/pop_up_window.tscn")
 
 @export var level_timestep := 0.6
 @export var next_level_path : String
@@ -104,11 +105,24 @@ func _on_game_over():
 	for enemy in get_tree().get_nodes_in_group("enemy"):
 		enemy.visible = false
 	GlobalTimer.stop()
+	var new_window = WINDOW.instantiate()
+	new_window.global_position = global_position
+	new_window.mode = 0
+	new_window.level_manager = self
+	call_deferred("add_child", new_window)
 
 func finish_level():
 	print("finish_level")
-	if next_level_path.is_empty():
-		GlobalTimer.stop()
-		#GameManager.goto_scene(get_tree().current_scene.scene_file_path)
-	else:
+	GlobalTimer.stop()
+	var new_window = WINDOW.instantiate()
+	new_window.global_position = global_position
+	new_window.mode = 1
+	new_window.level_manager = self
+	call_deferred("add_child", new_window)
+
+func reload_level():
+	GameManager.goto_scene(get_tree().current_scene.scene_file_path)
+
+func go_to_next_level():
+	if not next_level_path.is_empty():
 		GameManager.goto_scene(next_level_path)
