@@ -1,0 +1,164 @@
+[gd_scene load_steps=9 format=3 uid="uid://dwsm1lsleiqrf"]
+
+[ext_resource type="PackedScene" uid="uid://dt00c18n44v1r" path="res://boundary_objects/fixed_wall.tscn" id="1_2qrv8"]
+[ext_resource type="PackedScene" uid="uid://db2caokmjrqn2" path="res://collectibles/food.tscn" id="2_0f645"]
+[ext_resource type="PackedScene" uid="uid://b7uigk2ronqgh" path="res://player/player.tscn" id="3_pqh0c"]
+[ext_resource type="PackedScene" uid="uid://cyqkxny4wetii" path="res://enemies/enemy_rusher.tscn" id="4_lptqg"]
+[ext_resource type="PackedScene" uid="uid://cbm00s6fateus" path="res://boundary_objects/single_anchor_wall.tscn" id="5_t8d5f"]
+[ext_resource type="PackedScene" uid="uid://dt3aavonv0brs" path="res://boundary_objects/inner_fixed_wall.tscn" id="6_dqigr"]
+[ext_resource type="PackedScene" uid="uid://ck5d81ekfneit" path="res://enemies/pathfinder.tscn" id="7_p2hho"]
+[ext_resource type="PackedScene" uid="uid://citfwdrvjm0ds" path="res://UI/level_manager.tscn" id="8_ji3yb"]
+
+[node name="lvl_7" type="Node2D"]
+
+[node name="Boundary" type="Node" parent="."]
+
+[node name="fixed_wall" parent="Boundary" instance=ExtResource("1_2qrv8")]
+position = Vector2(192, 64)
+
+[node name="fixed_wall5" parent="Boundary" instance=ExtResource("1_2qrv8")]
+position = Vector2(128, 128)
+rotation = 1.5708
+
+[node name="fixed_wall6" parent="Boundary" instance=ExtResource("1_2qrv8")]
+position = Vector2(128, 256)
+rotation = 1.5708
+
+[node name="fixed_wall7" parent="Boundary" instance=ExtResource("1_2qrv8")]
+position = Vector2(128, 384)
+rotation = 1.5708
+
+[node name="fixed_wall8" parent="Boundary" instance=ExtResource("1_2qrv8")]
+position = Vector2(128, 512)
+rotation = 1.5708
+
+[node name="fixed_wall13" parent="Boundary" instance=ExtResource("1_2qrv8")]
+position = Vector2(640, 128)
+rotation = 1.5708
+
+[node name="fixed_wall14" parent="Boundary" instance=ExtResource("1_2qrv8")]
+position = Vector2(640, 256)
+rotation = 1.5708
+
+[node name="fixed_wall15" parent="Boundary" instance=ExtResource("1_2qrv8")]
+position = Vector2(640, 384)
+rotation = 1.5708
+
+[node name="fixed_wall16" parent="Boundary" instance=ExtResource("1_2qrv8")]
+position = Vector2(640, 512)
+rotation = 1.5708
+
+[node name="fixed_wall2" parent="Boundary" instance=ExtResource("1_2qrv8")]
+position = Vector2(320, 64)
+
+[node name="fixed_wall3" parent="Boundary" instance=ExtResource("1_2qrv8")]
+position = Vector2(448, 64)
+
+[node name="fixed_wall4" parent="Boundary" instance=ExtResource("1_2qrv8")]
+position = Vector2(576, 64)
+
+[node name="fixed_wall9" parent="Boundary" instance=ExtResource("1_2qrv8")]
+position = Vector2(192, 576)
+
+[node name="fixed_wall10" parent="Boundary" instance=ExtResource("1_2qrv8")]
+position = Vector2(320, 576)
+
+[node name="fixed_wall11" parent="Boundary" instance=ExtResource("1_2qrv8")]
+position = Vector2(448, 576)
+
+[node name="fixed_wall12" parent="Boundary" instance=ExtResource("1_2qrv8")]
+position = Vector2(576, 576)
+
+[node name="Food" type="Node" parent="."]
+
+[node name="food" parent="Food" instance=ExtResource("2_0f645")]
+position = Vector2(320, 512)
+
+[node name="food2" parent="Food" instance=ExtResource("2_0f645")]
+position = Vector2(448, 512)
+
+[node name="food3" parent="Food" instance=ExtResource("2_0f645")]
+position = Vector2(576, 512)
+
+[node name="food4" parent="Food" instance=ExtResource("2_0f645")]
+position = Vector2(576, 384)
+
+[node name="food5" parent="Food" instance=ExtResource("2_0f645")]
+position = Vector2(576, 256)
+
+[node name="food6" parent="Food" instance=ExtResource("2_0f645")]
+position = Vector2(576, 128)
+
+[node name="food7" parent="Food" instance=ExtResource("2_0f645")]
+position = Vector2(448, 128)
+
+[node name="food8" parent="Food" instance=ExtResource("2_0f645")]
+position = Vector2(320, 128)
+
+[node name="food10" parent="Food" instance=ExtResource("2_0f645")]
+position = Vector2(192, 256)
+
+[node name="food11" parent="Food" instance=ExtResource("2_0f645")]
+position = Vector2(192, 384)
+
+[node name="food12" parent="Food" instance=ExtResource("2_0f645")]
+position = Vector2(320, 384)
+
+[node name="food13" parent="Food" instance=ExtResource("2_0f645")]
+position = Vector2(448, 384)
+
+[node name="food14" parent="Food" instance=ExtResource("2_0f645")]
+position = Vector2(448, 256)
+
+[node name="food15" parent="Food" instance=ExtResource("2_0f645")]
+position = Vector2(320, 256)
+
+[node name="food9" parent="Food" instance=ExtResource("2_0f645")]
+position = Vector2(192, 128)
+
+[node name="player" parent="." instance=ExtResource("3_pqh0c")]
+position = Vector2(192, 512)
+
+[node name="enemy_rusher" parent="." instance=ExtResource("4_lptqg")]
+position = Vector2(320, 256)
+
+[node name="single_anchor_wall" parent="." instance=ExtResource("5_t8d5f")]
+position = Vector2(320, 192)
+
+[node name="single_anchor_wall2" parent="." instance=ExtResource("5_t8d5f")]
+position = Vector2(256, 256)
+rotation = 1.5708
+
+[node name="single_anchor_wall3" parent="." instance=ExtResource("5_t8d5f")]
+position = Vector2(512, 256)
+rotation = 1.5708
+
+[node name="single_anchor_wall4" parent="." instance=ExtResource("5_t8d5f")]
+position = Vector2(448, 192)
+rotation = 3.14159
+
+[node name="single_anchor_wall5" parent="." instance=ExtResource("5_t8d5f")]
+position = Vector2(448, 448)
+rotation = 3.14159
+
+[node name="single_anchor_wall6" parent="." instance=ExtResource("5_t8d5f")]
+position = Vector2(320, 448)
+
+[node name="single_anchor_wall7" parent="." instance=ExtResource("5_t8d5f")]
+position = Vector2(256, 384)
+rotation = -1.5708
+
+[node name="single_anchor_wall8" parent="." instance=ExtResource("5_t8d5f")]
+position = Vector2(512, 384)
+rotation = -1.5708
+
+[node name="inner_fixed_wall" parent="." instance=ExtResource("6_dqigr")]
+position = Vector2(256, 128)
+rotation = -1.5708
+
+[node name="inner_fixed_wall2" parent="." instance=ExtResource("6_dqigr")]
+position = Vector2(576, 192)
+
+[node name="pathfinder" parent="." instance=ExtResource("7_p2hho")]
+
+[node name="level_manager" parent="." instance=ExtResource("8_ji3yb")]
