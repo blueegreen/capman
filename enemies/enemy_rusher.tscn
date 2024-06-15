@@ -4,15 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://csfhcknrdxk1f" path="res://sprite_sheet-export.png" id="2_fhaqs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_erqqy"]
-size = Vector2(32, 32)
+size = Vector2(16, 16)
 
 [node name="enemy_rusher" type="Area2D" groups=["enemy", "moving_entity"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_slp8s")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_erqqy")
 
 [node name="forward_cast" type="RayCast2D" parent="."]
 target_position = Vector2(1000, 0)
@@ -24,3 +21,6 @@ texture = ExtResource("2_fhaqs")
 vframes = 2
 region_enabled = true
 region_rect = Rect2(256, 0, 128, 256)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_erqqy")

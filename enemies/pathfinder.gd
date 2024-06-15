@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var max_tile_count = 100
+@export var max_tile_count = 60
 @onready var timer = $Timer
 var player = null
 

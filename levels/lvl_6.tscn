@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c10qlty3j2v14"]
+[gd_scene load_steps=10 format=3 uid="uid://jf0mvlxgsyj8"]
 
 [ext_resource type="PackedScene" uid="uid://ck5d81ekfneit" path="res://enemies/pathfinder.tscn" id="1_in4qk"]
 [ext_resource type="PackedScene" uid="uid://dt00c18n44v1r" path="res://boundary_objects/fixed_wall.tscn" id="2_7kj45"]
@@ -17,160 +17,161 @@
 [node name="boundary" type="Node" parent="."]
 
 [node name="fixed_wall" parent="boundary" instance=ExtResource("2_7kj45")]
-position = Vector2(320, 64)
+position = Vector2(-256, -256)
 
 [node name="fixed_wall7" parent="boundary" instance=ExtResource("2_7kj45")]
-position = Vector2(256, 264)
+position = Vector2(-320, -64)
 rotation = -1.5708
 
 [node name="fixed_wall17" parent="boundary" instance=ExtResource("2_7kj45")]
-position = Vector2(256, 136)
+position = Vector2(-320, -192)
 rotation = -1.5708
 
 [node name="fixed_wall18" parent="boundary" instance=ExtResource("2_7kj45")]
-position = Vector2(904, 136)
+position = Vector2(320, -192)
 rotation = -1.5708
 
 [node name="fixed_wall8" parent="boundary" instance=ExtResource("2_7kj45")]
-position = Vector2(256, 392)
+position = Vector2(-320, 64)
 rotation = -1.5708
 
 [node name="fixed_wall9" parent="boundary" instance=ExtResource("2_7kj45")]
-position = Vector2(256, 520)
+position = Vector2(-320, 192)
 rotation = -1.5708
 
 [node name="fixed_wall14" parent="boundary" instance=ExtResource("2_7kj45")]
-position = Vector2(904, 264)
+position = Vector2(320, -64)
 rotation = -1.5708
 
 [node name="fixed_wall15" parent="boundary" instance=ExtResource("2_7kj45")]
-position = Vector2(904, 392)
+position = Vector2(320, 64)
 rotation = -1.5708
 
 [node name="fixed_wall16" parent="boundary" instance=ExtResource("2_7kj45")]
-position = Vector2(904, 520)
+position = Vector2(320, 192)
 rotation = -1.5708
 
 [node name="fixed_wall2" parent="boundary" instance=ExtResource("2_7kj45")]
-position = Vector2(448, 64)
+position = Vector2(-128, -256)
 
 [node name="fixed_wall3" parent="boundary" instance=ExtResource("2_7kj45")]
-position = Vector2(576, 64)
+position = Vector2(0, -256)
 
 [node name="fixed_wall4" parent="boundary" instance=ExtResource("2_7kj45")]
-position = Vector2(704, 64)
+position = Vector2(128, -256)
 
 [node name="fixed_wall5" parent="boundary" instance=ExtResource("2_7kj45")]
-position = Vector2(832, 64)
+position = Vector2(256, -256)
 
 [node name="fixed_wall6" parent="boundary" instance=ExtResource("2_7kj45")]
-position = Vector2(328, 592)
+position = Vector2(-256, 256)
 
 [node name="fixed_wall10" parent="boundary" instance=ExtResource("2_7kj45")]
-position = Vector2(456, 592)
+position = Vector2(-128, 256)
 
 [node name="fixed_wall11" parent="boundary" instance=ExtResource("2_7kj45")]
-position = Vector2(584, 592)
+position = Vector2(0, 256)
 
 [node name="fixed_wall12" parent="boundary" instance=ExtResource("2_7kj45")]
-position = Vector2(712, 592)
+position = Vector2(128, 256)
 
 [node name="fixed_wall13" parent="boundary" instance=ExtResource("2_7kj45")]
-position = Vector2(840, 592)
+position = Vector2(256, 256)
 
 [node name="Food" type="Node" parent="."]
 
 [node name="food" parent="Food" instance=ExtResource("3_y20nm")]
-position = Vector2(448, 512)
+position = Vector2(-128, 192)
 
 [node name="food13" parent="Food" instance=ExtResource("3_y20nm")]
-position = Vector2(320, 384)
+position = Vector2(-256, 64)
 
 [node name="food14" parent="Food" instance=ExtResource("3_y20nm")]
-position = Vector2(320, 256)
+position = Vector2(-256, -64)
 
 [node name="food2" parent="Food" instance=ExtResource("3_y20nm")]
-position = Vector2(576, 512)
+position = Vector2(0, 192)
 
 [node name="food3" parent="Food" instance=ExtResource("3_y20nm")]
-position = Vector2(704, 512)
+position = Vector2(128, 192)
 
 [node name="food4" parent="Food" instance=ExtResource("3_y20nm")]
-position = Vector2(832, 512)
+position = Vector2(256, 192)
 
 [node name="food5" parent="Food" instance=ExtResource("3_y20nm")]
-position = Vector2(448, 384)
+position = Vector2(-128, 64)
 
 [node name="food6" parent="Food" instance=ExtResource("3_y20nm")]
-position = Vector2(576, 384)
+position = Vector2(0, 64)
 
 [node name="food7" parent="Food" instance=ExtResource("3_y20nm")]
-position = Vector2(704, 384)
+position = Vector2(128, 64)
 
 [node name="food8" parent="Food" instance=ExtResource("3_y20nm")]
-position = Vector2(832, 384)
+position = Vector2(256, 64)
 
 [node name="food9" parent="Food" instance=ExtResource("3_y20nm")]
-position = Vector2(448, 256)
+position = Vector2(-128, -64)
 
 [node name="food10" parent="Food" instance=ExtResource("3_y20nm")]
-position = Vector2(576, 256)
+position = Vector2(0, -64)
 
 [node name="food11" parent="Food" instance=ExtResource("3_y20nm")]
-position = Vector2(704, 256)
+position = Vector2(128, -64)
 
 [node name="food12" parent="Food" instance=ExtResource("3_y20nm")]
-position = Vector2(832, 256)
+position = Vector2(256, -64)
 
 [node name="food15" parent="Food" instance=ExtResource("3_y20nm")]
-position = Vector2(320, 128)
+position = Vector2(-256, -192)
 
 [node name="food16" parent="Food" instance=ExtResource("3_y20nm")]
-position = Vector2(448, 128)
+position = Vector2(-128, -192)
 
 [node name="food17" parent="Food" instance=ExtResource("3_y20nm")]
-position = Vector2(576, 128)
+position = Vector2(0, -192)
 
 [node name="food18" parent="Food" instance=ExtResource("3_y20nm")]
-position = Vector2(704, 128)
+position = Vector2(128, -192)
 
 [node name="food19" parent="Food" instance=ExtResource("3_y20nm")]
-position = Vector2(832, 128)
+position = Vector2(256, -192)
+
+[node name="walls" type="Node" parent="."]
+
+[node name="double_anchor_wall" parent="walls" instance=ExtResource("6_ernxg")]
+position = Vector2(-128, 128)
+
+[node name="inner_fixed_wall" parent="walls" instance=ExtResource("7_tn0m7")]
+position = Vector2(-192, 64)
+rotation = 1.5708
+
+[node name="single_anchor_wall" parent="walls" instance=ExtResource("8_1f8h7")]
+position = Vector2(0, -128)
+rotation = 3.14159
+
+[node name="double_anchor_wall2" parent="walls" instance=ExtResource("6_ernxg")]
+position = Vector2(128, -128)
+
+[node name="inner_fixed_wall2" parent="walls" instance=ExtResource("7_tn0m7")]
+position = Vector2(192, -64)
+rotation = 1.5708
+
+[node name="single_anchor_wall2" parent="walls" instance=ExtResource("8_1f8h7")]
+position = Vector2(0, 128)
+
+[node name="double_anchor_wall3" parent="walls" instance=ExtResource("6_ernxg")]
+position = Vector2(-192, -64)
+rotation = -1.5708
+
+[node name="double_anchor_wall4" parent="walls" instance=ExtResource("6_ernxg")]
+position = Vector2(192, 64)
+rotation = -1.5708
 
 [node name="level_manager" parent="." instance=ExtResource("4_mj03a")]
 
 [node name="player" parent="." instance=ExtResource("5_og44f")]
-position = Vector2(320, 512)
-
-[node name="double_anchor_wall" parent="." instance=ExtResource("6_ernxg")]
-position = Vector2(448, 448)
-
-[node name="inner_fixed_wall" parent="." instance=ExtResource("7_tn0m7")]
-position = Vector2(384, 384)
-rotation = 1.5708
-
-[node name="single_anchor_wall" parent="." instance=ExtResource("8_1f8h7")]
-position = Vector2(576, 192)
-rotation = 3.14159
-
-[node name="double_anchor_wall2" parent="." instance=ExtResource("6_ernxg")]
-position = Vector2(704, 192)
-
-[node name="inner_fixed_wall2" parent="." instance=ExtResource("7_tn0m7")]
-position = Vector2(768, 256)
-rotation = 1.5708
-
-[node name="single_anchor_wall2" parent="." instance=ExtResource("8_1f8h7")]
-position = Vector2(576, 448)
-rotation = 6.28319
-
-[node name="double_anchor_wall3" parent="." instance=ExtResource("6_ernxg")]
-position = Vector2(384, 256)
-rotation = -1.5708
-
-[node name="double_anchor_wall4" parent="." instance=ExtResource("6_ernxg")]
-position = Vector2(768, 384)
-rotation = -1.5708
+position = Vector2(-256, 192)
 
 [node name="enemy_basic" parent="." instance=ExtResource("9_a2mhm")]
-position = Vector2(320, 128)
+position = Vector2(-256, -192)

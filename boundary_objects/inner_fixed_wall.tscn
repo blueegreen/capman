@@ -17,12 +17,14 @@ region_enabled = true
 region_rect = Rect2(424, 280, 128, 24)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(-64, 0)
 texture = ExtResource("1_vkhay")
 region_enabled = true
 region_rect = Rect2(592, 272, 40, 40)
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(64, 0)
 texture = ExtResource("1_vkhay")
 region_enabled = true
