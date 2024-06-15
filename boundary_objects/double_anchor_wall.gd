@@ -3,6 +3,8 @@ extends Area2D
 @onready var wall = $wall
 @onready var point_1 = $Area2D
 @onready var point_2 = $Area2D2
+@onready var anchor_sprite_1 = $wall/anchor_sprite_1
+@onready var anchor_sprite_2 = $wall/anchor_sprite_2
 var root
 
 enum DIR {CW, ACW}
@@ -51,6 +53,7 @@ func rotate_back():
 		rotate_around(prev_move[0])
 
 func _on_area_2d_input_event(_viewport, _event, _shape_idx):
+	anchor_sprite_1.frame = 1
 	if point_1.get_overlapping_areas().size() > 0:
 		for obj in point_1.get_overlapping_areas():
 			if obj.is_in_group("fixed_wall"):
@@ -71,6 +74,7 @@ func _on_area_2d_input_event(_viewport, _event, _shape_idx):
 			record_moves.push_back([point_1, rotation_dir])
 
 func _on_area_2d_2_input_event(_viewport, _event, _shape_idx):
+	anchor_sprite_2.frame = 1
 	if point_2.get_overlapping_areas().size() > 0:
 		for obj in point_2.get_overlapping_areas():
 			if obj.is_in_group("fixed_wall"):
@@ -119,4 +123,8 @@ func rotate_area(point):
 	rotation += rotation_angle
 	wall.global_transform = wall_transform
 
+func _on_area_2d_mouse_exited():
+	anchor_sprite_1.frame = 0
 
+func _on_area_2d_2_mouse_exited():
+	anchor_sprite_2.frame = 0

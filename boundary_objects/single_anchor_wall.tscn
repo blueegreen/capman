@@ -1,6 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cbm00s6fateus"]
 
 [ext_resource type="Script" path="res://boundary_objects/single_anchor_wall.gd" id="1_woqot"]
+[ext_resource type="Texture2D" uid="uid://csfhcknrdxk1f" path="res://sprite_sheet-export.png" id="2_0y6no"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lob0q"]
 size = Vector2(112, 16)
@@ -8,9 +9,8 @@ size = Vector2(112, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_ljegl"]
 radius = 16.0
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sq1jc"]
-
 [node name="single_anchor_wall" type="Area2D" groups=["movable_wall", "single_anchor_wall", "wall"]]
+z_index = 3
 collision_mask = 0
 script = ExtResource("1_woqot")
 
@@ -25,19 +25,20 @@ shape = SubResource("CircleShape2D_ljegl")
 
 [node name="wall" type="Node2D" parent="."]
 
-[node name="Sprite2D2" type="Sprite2D" parent="wall"]
-modulate = Color(0, 1, 0.996078, 0.231373)
-position = Vector2(-64, 2.84217e-14)
-scale = Vector2(12, 12)
-texture = SubResource("PlaceholderTexture2D_sq1jc")
-
 [node name="Sprite2D" type="Sprite2D" parent="wall"]
-modulate = Color(0, 1, 0.996078, 0.231373)
-position = Vector2(0, 4.76837e-07)
-scale = Vector2(112, 16)
-texture = SubResource("PlaceholderTexture2D_sq1jc")
+texture = ExtResource("2_0y6no")
+region_enabled = true
+region_rect = Rect2(424, 88, 128, 24)
+
+[node name="anchor_sprite_1" type="Sprite2D" parent="wall"]
+position = Vector2(-64, 0)
+texture = ExtResource("2_0y6no")
+hframes = 2
+region_enabled = true
+region_rect = Rect2(584, 72, 112, 56)
 
 [node name="anchor" type="Node2D" parent="."]
 position = Vector2(-64, 0)
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

@@ -1,6 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cnr625oysfmyj"]
 
 [ext_resource type="Script" path="res://boundary_objects/double_anchor_wall.gd" id="1_31r80"]
+[ext_resource type="Texture2D" uid="uid://csfhcknrdxk1f" path="res://sprite_sheet-export.png" id="2_ddi3x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vu8kd"]
 size = Vector2(112, 16)
@@ -8,9 +9,8 @@ size = Vector2(112, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_gyamk"]
 radius = 16.0
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_subyf"]
-
 [node name="double_anchor_wall" type="Area2D" groups=["double_anchor_wall", "movable_wall", "wall"]]
+z_index = 5
 collision_mask = 0
 script = ExtResource("1_31r80")
 
@@ -31,26 +31,29 @@ shape = SubResource("CircleShape2D_gyamk")
 
 [node name="wall" type="Node2D" parent="."]
 
-[node name="Sprite2D3" type="Sprite2D" parent="wall"]
-modulate = Color(1, 0.486275, 0.901961, 0.415686)
-position = Vector2(64, 0)
-scale = Vector2(12, 12)
-texture = SubResource("PlaceholderTexture2D_subyf")
-
-[node name="Sprite2D2" type="Sprite2D" parent="wall"]
-modulate = Color(1, 0.486275, 0.901961, 0.415686)
-position = Vector2(-64, 0)
-scale = Vector2(12, 12)
-texture = SubResource("PlaceholderTexture2D_subyf")
-
 [node name="Sprite2D" type="Sprite2D" parent="wall"]
-modulate = Color(1, 0.486275, 0.901961, 0.415686)
-position = Vector2(0, 4.76837e-07)
-scale = Vector2(112, 16)
-texture = SubResource("PlaceholderTexture2D_subyf")
+texture = ExtResource("2_ddi3x")
+region_enabled = true
+region_rect = Rect2(424, 24, 128, 24)
+
+[node name="anchor_sprite_1" type="Sprite2D" parent="wall"]
+position = Vector2(-64, 0)
+texture = ExtResource("2_ddi3x")
+hframes = 2
+region_enabled = true
+region_rect = Rect2(584, 8, 112, 56)
+
+[node name="anchor_sprite_2" type="Sprite2D" parent="wall"]
+position = Vector2(64, 0)
+texture = ExtResource("2_ddi3x")
+hframes = 2
+region_enabled = true
+region_rect = Rect2(584, 8, 112, 56)
 
 [node name="anchor" type="Node2D" parent="."]
 position = Vector2(-64, 0)
 
 [connection signal="input_event" from="Area2D2" to="." method="_on_area_2d_2_input_event"]
+[connection signal="mouse_exited" from="Area2D2" to="." method="_on_area_2d_2_mouse_exited"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

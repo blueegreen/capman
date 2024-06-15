@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var forward_cast = $forward_cast
+@onready var enemy_sprite = $enemy_sprite
 
 var direction := Vector2.ZERO
 var end_pos : Vector2
@@ -15,6 +16,7 @@ func _ready():
 	end_pos = global_position
 
 func _on_beat():
+	enemy_sprite.frame = (enemy_sprite.frame + 1) % 2
 	if rewinding:
 		move_back()
 	else:
@@ -25,6 +27,7 @@ func move():
 	
 	var move_tween = create_tween()
 	move_tween.tween_property(self, "global_position", end_pos, GlobalVariables.time_step).set_trans(Tween.TRANS_EXPO)
+	move_tween.parallel().tween_property(enemy_sprite, "frame", (enemy_sprite.frame + 1) % 2, GlobalVariables.time_step)
 
 func move_back():
 	if record_moves.size() > 0:
@@ -40,7 +43,7 @@ func start_next_move():
 	find_next_direction()
 	if direction != Vector2.ZERO:
 		find_end_pos()
-		move()
+	move()
 
 func find_next_direction():
 	var left_open = false

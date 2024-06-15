@@ -1,20 +1,67 @@
-[gd_scene load_steps=4 format=3 uid="uid://db2caokmjrqn2"]
+[gd_scene load_steps=7 format=3 uid="uid://db2caokmjrqn2"]
 
 [ext_resource type="Script" path="res://collectibles/food.gd" id="1_q7iv4"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_g4hh5"]
+[ext_resource type="Texture2D" uid="uid://csfhcknrdxk1f" path="res://sprite_sheet-export.png" id="2_2g8ja"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0kvpl"]
 radius = 19.0263
 
+[sub_resource type="Animation" id="Animation_xndpy"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_nniuu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c1fdh"]
+_data = {
+"RESET": SubResource("Animation_nniuu"),
+"idle": SubResource("Animation_xndpy")
+}
+
 [node name="food" type="Area2D" groups=["collectible"]]
+z_index = -2
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("1_q7iv4")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(38, 38)
-texture = SubResource("PlaceholderTexture2D_g4hh5")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0kvpl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2g8ja")
+hframes = 4
+frame = 1
+region_enabled = true
+region_rect = Rect2(904, 8, 224, 56)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c1fdh")
+}
+autoplay = "idle"

@@ -2,6 +2,7 @@ extends Area2D
 @onready var anchor = $anchor
 @onready var wall = $wall
 @onready var point_1 = $Area2D
+@onready var anchor_sprite_1 = $wall/anchor_sprite_1
 var root
 
 enum DIR {CW, ACW}
@@ -97,3 +98,6 @@ func rotate_area(point):
 	global_position = r * Vector2(cos(theta + rotation_angle), sin(theta + rotation_angle)) + point.global_position
 	rotation += rotation_angle
 	wall.global_transform = wall_transform
+
+func _on_area_2d_mouse_exited():
+	anchor_sprite_1.frame = 0

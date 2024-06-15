@@ -2,7 +2,11 @@ extends Area2D
 @onready var anchor = $anchor
 @onready var wall = $wall
 @onready var point_1 = $Area2D
-@onready var wall_sprite = $wall/Sprite2D
+@onready var wall_sprite_1 = $wall/wall_sprite_1
+@onready var wall_sprite_2 = $wall/wall_sprite_2
+@onready var anchor_sprite_1 = $wall/anchor_sprite_1
+@onready var anchor_sprite_2 = $wall/anchor_sprite_2
+
 var root
 
 enum DIR {CW, ACW}
@@ -52,6 +56,8 @@ func rotate_back():
 		rotate_around(prev_move[0])
 
 func _on_area_2d_input_event(_viewport, _event, _shape_idx):
+	anchor_sprite_1.frame = 1
+	anchor_sprite_2.frame = 1
 	if point_1.get_overlapping_areas().size() > 0:
 		for obj in point_1.get_overlapping_areas():
 			if obj.is_in_group("fixed_wall"):
@@ -103,8 +109,15 @@ func rotate_area(point):
 func toggle_permeability():
 	if get_collision_layer_value(1):
 		var tween = create_tween()
-		tween.tween_property(wall_sprite, "modulate", Color(1, 1, 0, 0.5), GlobalVariables.time_step).set_trans(Tween.TRANS_EXPO)
+		tween.parallel().tween_property(wall_sprite_1, "modulate", Color(1, 1, 1, 0), GlobalVariables.time_step).set_trans(Tween.TRANS_EXPO)
+		tween.parallel().tween_property(anchor_sprite_1, "modulate", Color(1, 1, 1, 0), GlobalVariables.time_step).set_trans(Tween.TRANS_EXPO)
 	else:
 		var tween = create_tween()
-		tween.tween_property(wall_sprite, "modulate", Color(1, 1, 0, 1), GlobalVariables.time_step).set_trans(Tween.TRANS_EXPO)
+		tween.parallel().tween_property(wall_sprite_1, "modulate", Color(1, 1, 1, 1), GlobalVariables.time_step).set_trans(Tween.TRANS_EXPO)
+		tween.parallel().tween_property(anchor_sprite_1, "modulate", Color(1, 1, 1, 1), GlobalVariables.time_step).set_trans(Tween.TRANS_EXPO)
 	set_collision_layer_value(1, !get_collision_layer_value(1))
+
+
+func _on_area_2d_mouse_exited():
+	anchor_sprite_1.frame = 0
+	anchor_sprite_2.frame = 0

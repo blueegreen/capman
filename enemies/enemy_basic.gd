@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var forward_cast = $forward_cast
+@onready var enemy_sprite = $enemy_sprite
 
 var direction := Vector2.ZERO
 var end_pos : Vector2
@@ -25,6 +26,7 @@ func move():
 	
 	var move_tween = create_tween()
 	move_tween.tween_property(self, "global_position", end_pos, GlobalVariables.time_step).set_trans(Tween.TRANS_EXPO)
+	move_tween.parallel().tween_property(enemy_sprite, "frame", (enemy_sprite.frame + 1) % 2, GlobalVariables.time_step)
 
 func move_back():
 	if record_moves.size() > 0:
@@ -38,8 +40,7 @@ func move_back():
 func start_next_move():
 	record_moves.push_back([end_pos, direction])
 	find_next_direction()
-	if direction != Vector2.ZERO:
-		move()
+	move()
 
 func find_next_direction():
 	var tile_count = get_overlapping_areas().size()

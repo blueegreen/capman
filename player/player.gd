@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var forward_cast = $forward_cast
+@onready var player_sprite = $player_sprite
 signal game_over
 
 var direction := Vector2.ZERO
@@ -22,12 +23,18 @@ func _on_beat():
 
 func move():	
 	forward_cast.rotation = atan2(direction.y, direction.x)
+	player_sprite.rotation = forward_cast.rotation
+	if player_sprite.rotation > PI/2 + 0.1 or player_sprite.rotation < -PI/2 - 0.1:
+		player_sprite.flip_v = true
+	else:
+		player_sprite.flip_v = false
 	end_pos = global_position + direction * GlobalVariables.tile_size
 	end_pos = (end_pos * (2.0 / GlobalVariables.tile_size)).round() * GlobalVariables.tile_size / 2
 	
 	var move_tween = create_tween()
 	move_tween.tween_property(self, "global_position", end_pos, GlobalVariables.time_step).set_trans(Tween.TRANS_EXPO)
-
+	move_tween.parallel().tween_property(player_sprite, "frame", (player_sprite.frame + 1) % 2, GlobalVariables.time_step)
+	
 func move_back():
 	if record_moves.size() > 0:
 		var prev_move = record_moves.pop_back()

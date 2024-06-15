@@ -1,17 +1,29 @@
 [gd_scene load_steps=3 format=3 uid="uid://dt3aavonv0brs"]
 
+[ext_resource type="Texture2D" uid="uid://csfhcknrdxk1f" path="res://sprite_sheet-export.png" id="1_vkhay"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjhs8"]
 size = Vector2(112, 16)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mb8pe"]
-
 [node name="inner_fixed_wall" type="Area2D" groups=["unmovable_wall", "wall"]]
+z_index = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kjhs8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.116182, 0.537341, 0.419888, 0.415686)
-position = Vector2(0, 4.76837e-07)
-scale = Vector2(112, 16)
-texture = SubResource("PlaceholderTexture2D_mb8pe")
+texture = ExtResource("1_vkhay")
+region_enabled = true
+region_rect = Rect2(424, 280, 128, 24)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-64, 0)
+texture = ExtResource("1_vkhay")
+region_enabled = true
+region_rect = Rect2(592, 272, 40, 40)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(64, 0)
+texture = ExtResource("1_vkhay")
+region_enabled = true
+region_rect = Rect2(592, 272, 40, 40)
