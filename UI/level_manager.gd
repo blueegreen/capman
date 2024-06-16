@@ -19,6 +19,7 @@ var current_time_state : TIME_STATE
 
 func _ready():
 	GlobalVariables.time_step = level_timestep
+	GlobalVariables.levels[int(GameManager.current_scene.scene_file_path)] = true
 	GlobalTimer.start()
 	current_time_state = TIME_STATE.NORMAL
 	for collectible in get_tree().get_nodes_in_group("collectible"):
@@ -114,6 +115,10 @@ func _on_game_over():
 func finish_level():
 	print("finish_level")
 	GlobalTimer.stop()
+	
+	if not next_level_path.is_empty():
+		GlobalVariables.levels[int(next_level_path)] = true
+	
 	var new_window = WINDOW.instantiate()
 	new_window.global_position = global_position
 	new_window.mode = 1

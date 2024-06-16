@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://citfwdrvjm0ds"]
+[gd_scene load_steps=6 format=3 uid="uid://citfwdrvjm0ds"]
 
 [ext_resource type="Script" path="res://UI/level_manager.gd" id="1_nwl25"]
 [ext_resource type="PackedScene" uid="uid://bvp6nksc3aaae" path="res://UI/mouse_pointer.tscn" id="2_ya4ex"]
 [ext_resource type="Texture2D" uid="uid://csfhcknrdxk1f" path="res://sprite_sheet-export.png" id="3_gqr8u"]
+[ext_resource type="PackedScene" uid="uid://dgyqg26itodgn" path="res://UI/left_hand.tscn" id="3_q0t8h"]
 [ext_resource type="PackedScene" uid="uid://dsxuxyhtjqepv" path="res://UI/right_hand.tscn" id="4_oc4ug"]
 
 [node name="level_manager" type="Node2D"]
@@ -14,7 +15,7 @@ script = ExtResource("1_nwl25")
 position = Vector2(616, 0)
 zoom = Vector2(0.68, 0.68)
 
-[node name="bg" type="Node" parent="."]
+[node name="bg" type="Node2D" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="bg"]
 z_index = 11
@@ -51,6 +52,9 @@ offset_right = 617.0
 offset_bottom = -754.0
 scale = Vector2(36.6324, 39.9497)
 color = Color(0.0627451, 0.0313726, 0.12549, 1)
+
+[node name="left_hand" parent="bg" instance=ExtResource("3_q0t8h")]
+position = Vector2(-448, 678)
 
 [node name="right_hand" parent="bg" instance=ExtResource("4_oc4ug")]
 position = Vector2(1600, 448)

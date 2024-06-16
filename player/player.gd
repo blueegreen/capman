@@ -4,6 +4,7 @@ extends Area2D
 @onready var player_sprite = $player_sprite
 @onready var player_sprite_dead = $player_sprite_dead
 signal game_over
+signal new_dir
 
 var direction := Vector2.ZERO
 var end_pos : Vector2
@@ -57,7 +58,8 @@ func start_next_move():
 	record_moves.push_back([end_pos, direction])
 	find_next_direction()
 	if direction != Vector2.ZERO:
-		move()
+		new_dir.emit(direction)
+	move()
 
 func find_next_direction():
 	var left_open = 0

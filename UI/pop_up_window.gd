@@ -7,6 +7,7 @@ var mouse_offset : Vector2
 var level_manager : Node2D
 @export var mode := MODE.GAME_OVER
 
+@onready var exit_icon = $exit/exit_icon
 @onready var game_over_window = $game_over_window
 @onready var win_window = $win_window
 @onready var win_reload_sprite = $win_window/win_reload_sprite
@@ -44,18 +45,43 @@ func _on_area_2d_input_event(_viewport, _event, _shape_idx):
 
 
 func _on_game_over_reload_input_event(_viewport, _event, _shape_idx):
+	game_over_reload_sprite.scale = Vector2(1, 1) * 1.1
 	if Input.is_action_just_pressed("left_click"):
 		if level_manager != null:
 			level_manager.reload_level()
 
 
 func _on_win_reload_input_event(_viewport, _event, _shape_idx):
+	win_reload_sprite.scale = Vector2(1, 1) * 1.1
 	if Input.is_action_just_pressed("left_click"):
 		if level_manager != null:
 			level_manager.reload_level()
 
 
 func _on_win_continue_input_event(_viewport, _event, _shape_idx):
+	win_continue_sprite.scale = Vector2(1, 1) * 1.1
 	if Input.is_action_just_pressed("left_click"):
 		if level_manager != null:
 			level_manager.go_to_next_level()
+
+func _on_exit_input_event(_viewport, _event, _shape_idx):
+	exit_icon.scale = Vector2(1, 1) * (1.1)
+	if Input.is_action_just_pressed("left_click"):
+		if level_manager != null:
+			level_manager.next_level_path = "res://levels/lvl_select_screen.tscn"
+			level_manager.go_to_next_level()
+
+func _on_exit_mouse_exited():
+	exit_icon.scale = Vector2(1, 1)
+
+
+func _on_game_over_reload_mouse_exited():
+	game_over_reload_sprite.scale = Vector2(1, 1)
+
+
+func _on_win_reload_mouse_exited():
+	win_reload_sprite.scale = Vector2(1, 1)
+
+
+func _on_win_continue_mouse_exited():
+	win_continue_sprite.scale = Vector2(1, 1)

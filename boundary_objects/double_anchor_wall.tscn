@@ -7,7 +7,7 @@
 size = Vector2(112, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gyamk"]
-radius = 16.0
+radius = 24.0
 
 [node name="double_anchor_wall" type="Area2D" groups=["double_anchor_wall", "movable_wall", "wall"]]
 z_index = 5

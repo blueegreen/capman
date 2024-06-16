@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://ch6335jsys28v"]
+
+[ext_resource type="Script" path="res://UI/level_select_icon.gd" id="1_murh1"]
+[ext_resource type="Texture2D" uid="uid://csfhcknrdxk1f" path="res://sprite_sheet-export.png" id="1_svjd4"]
+[ext_resource type="FontFile" uid="uid://dvtvosnnewvtx" path="res://PIXBOB LITE.otf" id="2_a0svn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivnjl"]
+size = Vector2(128, 128)
+
+[node name="level_select_icon" type="Area2D"]
+position = Vector2(146, 129)
+collision_mask = 0
+script = ExtResource("1_murh1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ivnjl")
+
+[node name="panel" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="panel"]
+texture = ExtResource("1_svjd4")
+hframes = 2
+region_enabled = true
+region_rect = Rect2(640, 1152, 256, 128)
+
+[node name="Label" type="Label" parent="panel"]
+offset_left = -53.0
+offset_top = -55.0
+offset_right = 57.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.0196078, 0.266667, 0.580392, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_a0svn")
+theme_override_font_sizes/font_size = 100
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

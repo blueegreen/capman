@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgttddc4c1myp"]
+[gd_scene load_steps=8 format=3 uid="uid://bgttddc4c1myp"]
 
 [ext_resource type="Script" path="res://UI/pop_up_window.gd" id="1_wr0qm"]
 [ext_resource type="Texture2D" uid="uid://csfhcknrdxk1f" path="res://sprite_sheet-export.png" id="2_og06i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whmx2"]
-size = Vector2(496, 74.5)
+size = Vector2(432, 74.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w4nvh"]
 radius = 56.5685
@@ -15,9 +15,13 @@ radius = 56.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5a1u"]
 size = Vector2(64, 104)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lx68t"]
+size = Vector2(40, 48)
+
 [node name="pop_up_window" type="Node2D"]
 z_index = 9
 script = ExtResource("1_wr0qm")
+mode = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_og06i")
@@ -25,9 +29,10 @@ region_enabled = true
 region_rect = Rect2(32, 1088, 528, 376)
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -146.75)
+position = Vector2(-32, -146.75)
 shape = SubResource("RectangleShape2D_whmx2")
 
 [node name="game_over_window" type="Node2D" parent="."]
@@ -91,7 +96,26 @@ collision_mask = 0
 position = Vector2(80, 92)
 shape = SubResource("RectangleShape2D_h5a1u")
 
+[node name="exit" type="Area2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exit"]
+visible = false
+position = Vector2(220, -152)
+shape = SubResource("RectangleShape2D_lx68t")
+
+[node name="exit_icon" type="Sprite2D" parent="exit"]
+position = Vector2(220, -152)
+texture = ExtResource("2_og06i")
+region_enabled = true
+region_rect = Rect2(496, 1104, 40, 40)
+
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="input_event" from="game_over_window/game_over_reload" to="." method="_on_game_over_reload_input_event"]
+[connection signal="mouse_exited" from="game_over_window/game_over_reload" to="." method="_on_game_over_reload_mouse_exited"]
 [connection signal="input_event" from="win_window/win_reload" to="." method="_on_win_reload_input_event"]
+[connection signal="mouse_exited" from="win_window/win_reload" to="." method="_on_win_reload_mouse_exited"]
 [connection signal="input_event" from="win_window/win_continue" to="." method="_on_win_continue_input_event"]
+[connection signal="mouse_exited" from="win_window/win_continue" to="." method="_on_win_continue_mouse_exited"]
+[connection signal="input_event" from="exit" to="." method="_on_exit_input_event"]
+[connection signal="mouse_exited" from="exit" to="." method="_on_exit_mouse_exited"]
