@@ -115,14 +115,6 @@ position = Vector2(-64, 64)
 [node name="food15" parent="Food" instance=ExtResource("2_hq6ws")]
 position = Vector2(-192, 64)
 
-[node name="pathfinder" parent="." instance=ExtResource("4_kp85g")]
-
-[node name="player" parent="." instance=ExtResource("5_g5uda")]
-position = Vector2(-192, 192)
-
-[node name="enemy_basic" parent="." instance=ExtResource("7_gor5i")]
-position = Vector2(192, 192)
-
 [node name="walls" type="Node" parent="."]
 
 [node name="double_anchor_wall" parent="walls" instance=ExtResource("6_5n5n6")]
@@ -161,4 +153,13 @@ rotation = 1.57079
 position = Vector2(128, 200)
 rotation = 1.57079
 
+[node name="pathfinder" parent="." instance=ExtResource("4_kp85g")]
+
+[node name="player" parent="." instance=ExtResource("5_g5uda")]
+position = Vector2(-192, 192)
+
+[node name="enemy_basic" parent="." instance=ExtResource("7_gor5i")]
+position = Vector2(192, 192)
+
 [node name="level_manager" parent="." instance=ExtResource("3_mit0t")]
+next_level_path = "res://levels/lvl_9.tscn"

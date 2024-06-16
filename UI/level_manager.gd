@@ -5,6 +5,7 @@ extends Node2D
 @onready var forward_sprite = $forward_sprite
 @onready var score_label = $score_label
 @onready var highscore_label = $highscore_label
+@onready var theme_player = $theme_player
 
 const WINDOW = preload("res://UI/pop_up_window.tscn")
 
@@ -76,6 +77,7 @@ func state_transition(new_state : TIME_STATE):
 		TIME_STATE.NORMAL:
 			rewind_sprite.visible = false
 			forward_sprite.visible = false
+			theme_player.pitch_scale = 1
 			
 			for entity in moving_entities:
 				entity.rewinding = false
@@ -85,6 +87,7 @@ func state_transition(new_state : TIME_STATE):
 		TIME_STATE.REWIND:
 			forward_sprite.visible = false
 			rewind_sprite.visible = true
+			theme_player.pitch_scale = 1.25
 			
 			for entity in moving_entities:
 				entity.rewinding = true
@@ -94,6 +97,7 @@ func state_transition(new_state : TIME_STATE):
 		TIME_STATE.FAST:
 			forward_sprite.visible = true
 			rewind_sprite.visible = false
+			theme_player.pitch_scale = 1.25
 			
 			for entity in moving_entities:
 				entity.rewinding = false
@@ -141,6 +145,7 @@ func handle_input(delta):
 
 func _on_game_over():
 	level_over = true
+	theme_player.pitch_scale = 0.9
 	dialogue_manager.game_over_dialogue()
 	for enemy in get_tree().get_nodes_in_group("enemy"):
 		enemy.visible = false

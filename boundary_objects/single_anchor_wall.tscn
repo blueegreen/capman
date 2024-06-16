@@ -31,6 +31,7 @@ region_enabled = true
 region_rect = Rect2(424, 88, 128, 24)
 
 [node name="anchor_sprite_1" type="Sprite2D" parent="wall"]
+z_index = 1
 position = Vector2(-64, 0)
 texture = ExtResource("2_0y6no")
 hframes = 2

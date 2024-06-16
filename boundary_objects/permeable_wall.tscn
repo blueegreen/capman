@@ -25,6 +25,7 @@ shape = SubResource("CircleShape2D_fxymq")
 [node name="wall" type="Node2D" parent="."]
 
 [node name="wall_sprite_1" type="Sprite2D" parent="wall"]
+z_index = -1
 texture = ExtResource("2_ybcch")
 region_enabled = true
 region_rect = Rect2(424, 152, 128, 24)
@@ -38,6 +39,7 @@ region_enabled = true
 region_rect = Rect2(584, 136, 112, 56)
 
 [node name="wall_sprite_2" type="Sprite2D" parent="wall"]
+z_index = -1
 texture = ExtResource("2_ybcch")
 region_enabled = true
 region_rect = Rect2(424, 216, 128, 24)

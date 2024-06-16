@@ -136,3 +136,4 @@ position = Vector2(-192, -192)
 position = Vector2(-192, -192)
 
 [node name="level_manager" parent="." instance=ExtResource("7_l2sip")]
+next_level_path = "res://levels/lvl_5.tscn"

@@ -13,12 +13,11 @@
 position = Vector2(-192, 64)
 
 [node name="single_anchor_wall" parent="." instance=ExtResource("2_gkc4o")]
-position = Vector2(128, -64)
-rotation = -1.5708
+position = Vector2(192, 0)
 
 [node name="single_anchor_wall2" parent="." instance=ExtResource("2_gkc4o")]
-position = Vector2(128, 64)
-rotation = 1.5708
+position = Vector2(-192, 0)
+rotation = 3.14159
 
 [node name="pathfinder" parent="." instance=ExtResource("3_jp7nk")]
 

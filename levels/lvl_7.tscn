@@ -125,6 +125,7 @@ position = Vector2(-64, -64)
 [node name="pathfinder" parent="." instance=ExtResource("7_p2hho")]
 
 [node name="level_manager" parent="." instance=ExtResource("8_ji3yb")]
+next_level_path = "res://levels/lvl_8.tscn"
 
 [node name="wall" type="Node" parent="."]
 
