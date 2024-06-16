@@ -33,7 +33,7 @@ func _process(delta):
 		if Input.is_action_just_released("left_click"):
 			mouse_pressed = false
 			return
-		global_position = global_position.lerp(get_global_mouse_position() - mouse_offset, 10 * delta)
+		global_position = global_position.lerp(get_global_mouse_position() - mouse_offset, 20 * delta)
 		global_position.x = clampf(global_position.x, -576, 512)
 		global_position.y = clampf(global_position.y, -576, 512)
 

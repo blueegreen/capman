@@ -1,6 +1,5 @@
 [gd_scene load_steps=12 format=3 uid="uid://citfwdrvjm0ds"]
 
-[ext_resource type="Shader" path="res://UI/chromatic_aberration.gdshader" id="1_113o3"]
 [ext_resource type="Script" path="res://UI/level_manager.gd" id="1_nwl25"]
 [ext_resource type="PackedScene" uid="uid://bvp6nksc3aaae" path="res://UI/mouse_pointer.tscn" id="2_ya4ex"]
 [ext_resource type="PackedScene" uid="uid://dnuisoj85rswt" path="res://UI/dialogue_manager.tscn" id="3_4upxm"]
@@ -8,22 +7,22 @@
 [ext_resource type="PackedScene" uid="uid://dgyqg26itodgn" path="res://UI/left_hand.tscn" id="3_q0t8h"]
 [ext_resource type="PackedScene" uid="uid://dsxuxyhtjqepv" path="res://UI/right_hand.tscn" id="4_oc4ug"]
 [ext_resource type="FontFile" uid="uid://dpuk5ip7hhnvh" path="res://PublicPixel.ttf" id="5_r1t3k"]
+[ext_resource type="Shader" path="res://UI/crt_shader.gdshader" id="9_8iym5"]
 
 [sub_resource type="Environment" id="Environment_dea5p"]
 background_mode = 3
 glow_enabled = true
-glow_levels/1 = 0.41
+glow_levels/1 = 0.2
 glow_intensity = 1.79
 glow_strength = 0.58
 glow_bloom = 0.33
 glow_blend_mode = 0
 glow_hdr_threshold = 1.91
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_u02d3"]
-shader = ExtResource("1_113o3")
-shader_parameter/r_displacement = Vector2(2.5, 0)
-shader_parameter/g_displacement = Vector2(0, 0)
-shader_parameter/b_displacement = Vector2(-2.5, 0)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_etexg"]
+resource_local_to_scene = true
+shader = ExtResource("9_8iym5")
+shader_parameter/scanline_count = 200.0
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_w53xd"]
 
@@ -32,6 +31,7 @@ modulate = Color(0.894133, 0.888691, 0.894132, 1)
 script = ExtResource("1_nwl25")
 
 [node name="mouse_pointer" parent="." instance=ExtResource("2_ya4ex")]
+modulate = Color(0.925353, 0.925353, 0.925353, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(616, 0)
@@ -150,9 +150,9 @@ region_rect = Rect2(3448, 576, 1344, 736)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dea5p")
 
-[node name="chromatic_aberration_shader" type="Sprite2D" parent="."]
-z_index = 13
-material = SubResource("ShaderMaterial_u02d3")
-position = Vector2(768, 31.9999)
-scale = Vector2(3584, 1856)
+[node name="crt_shader" type="Sprite2D" parent="."]
+z_index = 14
+material = SubResource("ShaderMaterial_etexg")
+position = Vector2(768, -3.8147e-06)
+scale = Vector2(3840, 1920)
 texture = SubResource("PlaceholderTexture2D_w53xd")
