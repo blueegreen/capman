@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://bh3fbr786jn43"]
+
+[ext_resource type="Texture2D" uid="uid://csfhcknrdxk1f" path="res://sprite_sheet-export.png" id="1_6mgqp"]
+[ext_resource type="Script" path="res://UI/dialogue_box.gd" id="1_m2ayu"]
+[ext_resource type="FontFile" uid="uid://dpuk5ip7hhnvh" path="res://PublicPixel.ttf" id="3_m7xdw"]
+
+[node name="dialogue_box" type="Node2D"]
+top_level = true
+z_index = 12
+script = ExtResource("1_m2ayu")
+
+[node name="sprite_1" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_6mgqp")
+region_enabled = true
+region_rect = Rect2(976, 240, 616, 472)
+
+[node name="text_1" type="Label" parent="sprite_1"]
+offset_left = -223.0
+offset_top = -168.0
+offset_right = 249.0
+offset_bottom = 72.0
+rotation = 0.0385916
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_m7xdw")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="sprite_2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_6mgqp")
+region_enabled = true
+region_rect = Rect2(960, 728, 632, 448)
+
+[node name="text_2" type="Label" parent="sprite_2"]
+offset_left = -242.0
+offset_top = -149.0
+offset_right = 255.0
+offset_bottom = 101.0
+rotation = -0.0364117
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_m7xdw")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

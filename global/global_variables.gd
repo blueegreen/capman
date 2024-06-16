@@ -7,8 +7,11 @@ var time_step = 0.7:
 			time_step = value
 var tile_size = 128
 var levels = Array()
+var highscores = Array()
 
 func _ready():
-	levels.resize(20)
+	levels.resize(100)
+	highscores.resize(100)
 	levels.fill(false)
+	highscores.fill(20)
 	levels[1] = true

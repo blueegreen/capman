@@ -1,12 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://citfwdrvjm0ds"]
+[gd_scene load_steps=12 format=3 uid="uid://citfwdrvjm0ds"]
 
+[ext_resource type="Shader" path="res://UI/chromatic_aberration.gdshader" id="1_113o3"]
 [ext_resource type="Script" path="res://UI/level_manager.gd" id="1_nwl25"]
 [ext_resource type="PackedScene" uid="uid://bvp6nksc3aaae" path="res://UI/mouse_pointer.tscn" id="2_ya4ex"]
+[ext_resource type="PackedScene" uid="uid://dnuisoj85rswt" path="res://UI/dialogue_manager.tscn" id="3_4upxm"]
 [ext_resource type="Texture2D" uid="uid://csfhcknrdxk1f" path="res://sprite_sheet-export.png" id="3_gqr8u"]
 [ext_resource type="PackedScene" uid="uid://dgyqg26itodgn" path="res://UI/left_hand.tscn" id="3_q0t8h"]
 [ext_resource type="PackedScene" uid="uid://dsxuxyhtjqepv" path="res://UI/right_hand.tscn" id="4_oc4ug"]
+[ext_resource type="FontFile" uid="uid://dpuk5ip7hhnvh" path="res://PublicPixel.ttf" id="5_r1t3k"]
+
+[sub_resource type="Environment" id="Environment_dea5p"]
+background_mode = 3
+glow_enabled = true
+glow_levels/1 = 0.41
+glow_intensity = 1.79
+glow_strength = 0.58
+glow_bloom = 0.33
+glow_blend_mode = 0
+glow_hdr_threshold = 1.91
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u02d3"]
+shader = ExtResource("1_113o3")
+shader_parameter/r_displacement = Vector2(2.5, 0)
+shader_parameter/g_displacement = Vector2(0, 0)
+shader_parameter/b_displacement = Vector2(-2.5, 0)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_w53xd"]
 
 [node name="level_manager" type="Node2D"]
+modulate = Color(0.894133, 0.888691, 0.894132, 1)
 script = ExtResource("1_nwl25")
 
 [node name="mouse_pointer" parent="." instance=ExtResource("2_ya4ex")]
@@ -15,7 +37,46 @@ script = ExtResource("1_nwl25")
 position = Vector2(616, 0)
 zoom = Vector2(0.68, 0.68)
 
+[node name="dialogue_manager" parent="." instance=ExtResource("3_4upxm")]
+position = Vector2(1152, -256)
+
+[node name="rewind_sprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(487, -404)
+texture = ExtResource("3_gqr8u")
+region_enabled = true
+region_rect = Rect2(1296, 152, 80, 72)
+
+[node name="forward_sprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(487, -404)
+texture = ExtResource("3_gqr8u")
+region_enabled = true
+region_rect = Rect2(1432, 152, 80, 72)
+
+[node name="score_label" type="Label" parent="."]
+offset_left = 128.0
+offset_top = -512.0
+offset_right = 384.0
+offset_bottom = -469.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_r1t3k")
+theme_override_font_sizes/font_size = 20
+text = "moves: 0"
+vertical_alignment = 1
+
+[node name="highscore_label" type="Label" parent="."]
+offset_left = -320.0
+offset_top = -512.0
+offset_bottom = -469.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_r1t3k")
+theme_override_font_sizes/font_size = 20
+text = "highscore:"
+vertical_alignment = 1
+
 [node name="bg" type="Node2D" parent="."]
+modulate = Color(0.894922, 0.894922, 0.894922, 1)
 
 [node name="ColorRect" type="ColorRect" parent="bg"]
 z_index = 11
@@ -57,9 +118,15 @@ color = Color(0.0627451, 0.0313726, 0.12549, 1)
 position = Vector2(-448, 678)
 
 [node name="right_hand" parent="bg" instance=ExtResource("4_oc4ug")]
-position = Vector2(1600, 448)
+position = Vector2(1728, 512)
 
 [node name="console_sprite" type="Sprite2D" parent="bg"]
+z_index = 11
+texture = ExtResource("3_gqr8u")
+region_enabled = true
+region_rect = Rect2(1600, -8, 1592, 1608)
+
+[node name="console_sprite2" type="Sprite2D" parent="bg"]
 z_index = 11
 texture = ExtResource("3_gqr8u")
 region_enabled = true
@@ -73,8 +140,19 @@ region_enabled = true
 region_rect = Rect2(3200, -8, 232, 1608)
 
 [node name="keyboard_sprite" type="Sprite2D" parent="bg"]
+modulate = Color(0.646029, 0.646029, 0.646029, 1)
 z_index = 11
 position = Vector2(1792, -320)
 texture = ExtResource("3_gqr8u")
 region_enabled = true
 region_rect = Rect2(3448, 576, 1344, 736)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dea5p")
+
+[node name="chromatic_aberration_shader" type="Sprite2D" parent="."]
+z_index = 13
+material = SubResource("ShaderMaterial_u02d3")
+position = Vector2(768, 31.9999)
+scale = Vector2(3584, 1856)
+texture = SubResource("PlaceholderTexture2D_w53xd")

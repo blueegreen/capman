@@ -1,27 +1,49 @@
 extends Node2D
 @onready var mouse_pointer = $mouse_pointer
+@onready var dialogue_manager = $dialogue_manager
+@onready var rewind_sprite = $rewind_sprite
+@onready var forward_sprite = $forward_sprite
+@onready var score_label = $score_label
+@onready var highscore_label = $highscore_label
+
 const WINDOW = preload("res://UI/pop_up_window.tscn")
 
+@export var game_level = true
 @export var level_timestep := 0.6
 @export var next_level_path : String
 
 var food_count := 0
+var move_count := 0
 var score := 0
 var moving_entities = Array()
 var moving_walls = Array()
 
+var level_over = false
 var pressed_left = false
 var pressed_right = false
 var pressed_time = 0.0
 
 enum TIME_STATE {NORMAL, REWIND, FAST}
 var current_time_state : TIME_STATE
+var level_num : int
 
 func _ready():
+	level_num = int(GameManager.current_scene.scene_file_path)
+	
+	dialogue_manager.level_start_dialogue()
+	
+	if game_level:
+		highscore_label.text = "highscore: " + str(GlobalVariables.highscores[level_num])
+	else:
+		highscore_label.queue_free()
+		score_label.queue_free()
+	
 	GlobalVariables.time_step = level_timestep
-	GlobalVariables.levels[int(GameManager.current_scene.scene_file_path)] = true
+	GlobalVariables.levels[level_num] = true
 	GlobalTimer.start()
+	
 	current_time_state = TIME_STATE.NORMAL
+	
 	for collectible in get_tree().get_nodes_in_group("collectible"):
 		collectible.collected.connect(_on_collectible_collected)
 		food_count += 1
@@ -36,29 +58,43 @@ func _process(delta):
 	handle_input(delta)
 
 func _on_beat():
+	if not game_level:
+		return
 	match current_time_state:
 		TIME_STATE.NORMAL:
+			move_count += 1
 			pass
 		TIME_STATE.REWIND:
-			pass
+			move_count = max(0, move_count - 1)
 		TIME_STATE.FAST:
+			move_count += 1
 			pass
+	score_label.text = "moves: " + str(move_count)
 
 func state_transition(new_state : TIME_STATE):
 	match new_state:
 		TIME_STATE.NORMAL:
+			rewind_sprite.visible = false
+			forward_sprite.visible = false
+			
 			for entity in moving_entities:
 				entity.rewinding = false
 			for moving_wall in moving_walls:
 				moving_wall.rewinding = false
 			GlobalVariables.time_step = level_timestep
 		TIME_STATE.REWIND:
+			forward_sprite.visible = false
+			rewind_sprite.visible = true
+			
 			for entity in moving_entities:
 				entity.rewinding = true
 			for moving_wall in moving_walls:
 				moving_wall.rewinding = true
 			GlobalVariables.time_step = 0.3
 		TIME_STATE.FAST:
+			forward_sprite.visible = true
+			rewind_sprite.visible = false
+			
 			for entity in moving_entities:
 				entity.rewinding = false
 			for moving_wall in moving_walls:
@@ -73,6 +109,8 @@ func _on_collectible_collected(_msg = {}):
 		finish_level()
 
 func handle_input(delta):
+	if level_over:
+		return
 	if Input.is_action_pressed("left_click"):
 		if not pressed_left:
 			pressed_left = true
@@ -102,7 +140,8 @@ func handle_input(delta):
 			state_transition(TIME_STATE.NORMAL)
 
 func _on_game_over():
-	print("game_over")
+	level_over = true
+	dialogue_manager.game_over_dialogue()
 	for enemy in get_tree().get_nodes_in_group("enemy"):
 		enemy.visible = false
 	GlobalTimer.stop()
@@ -113,11 +152,15 @@ func _on_game_over():
 	call_deferred("add_child", new_window)
 
 func finish_level():
-	print("finish_level")
+	level_over = true
+	dialogue_manager.win_dialogue()
+	if GlobalVariables.highscores[level_num] > move_count:
+		GlobalVariables.highscores[level_num] = move_count
+		highscore_label.text = "highscore: " + str(move_count)
 	GlobalTimer.stop()
 	
 	if not next_level_path.is_empty():
-		GlobalVariables.levels[int(next_level_path)] = true
+		GlobalVariables.levels[level_num+1] = true
 	
 	var new_window = WINDOW.instantiate()
 	new_window.global_position = global_position

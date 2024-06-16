@@ -2,18 +2,18 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dvtvosnnewvtx"
-path="res://.godot/imported/PIXBOB LITE.otf-773d99bdfadd87b456018641fb6c3f01.fontdata"
+uid="uid://dpuk5ip7hhnvh"
+path="res://.godot/imported/PublicPixel.ttf-1ed55a1865185cb02ceec50c62e1b10c.fontdata"
 
 [deps]
 
-source_file="res://PIXBOB LITE.otf"
-dest_files=["res://.godot/imported/PIXBOB LITE.otf-773d99bdfadd87b456018641fb6c3f01.fontdata"]
+source_file="res://PublicPixel.ttf"
+dest_files=["res://.godot/imported/PublicPixel.ttf-1ed55a1865185cb02ceec50c62e1b10c.fontdata"]
 
 [params]
 
 Rendering=null
-antialiasing=0
+antialiasing=1
 generate_mipmaps=false
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
@@ -27,12 +27,7 @@ Fallbacks=null
 fallbacks=[]
 Compress=null
 compress=true
-preload=[{
-"chars": [],
-"glyphs": [],
-"name": "New Configuration",
-"size": Vector2i(16, 0)
-}]
+preload=[]
 language_support={}
 script_support={}
 opentype_features={}

@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnuisoj85rswt"]
+
+[ext_resource type="Script" path="res://UI/dialogue_manager.gd" id="1_dahii"]
+[ext_resource type="Script" path="res://dialogues/game_over_dialogue.gd" id="2_p40ev"]
+[ext_resource type="Script" path="res://dialogues/win_dialogue.gd" id="3_crafl"]
+
+[node name="dialogue_manager" type="Node2D"]
+script = ExtResource("1_dahii")
+level_start_delay = 3.0
+game_over_script = ExtResource("2_p40ev")
+win_script = ExtResource("3_crafl")
