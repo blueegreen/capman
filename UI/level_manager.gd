@@ -1,6 +1,5 @@
 extends Node2D
 @onready var mouse_pointer = $mouse_pointer
-@onready var dialogue_manager = $dialogue_manager
 @onready var rewind_sprite = $rewind_sprite
 @onready var forward_sprite = $forward_sprite
 @onready var score_label = $score_label
@@ -27,11 +26,13 @@ var pressed_time = 0.0
 enum TIME_STATE {NORMAL, REWIND, FAST}
 var current_time_state : TIME_STATE
 var level_num : int
+var dialogue_manager
 
 func _ready():
 	level_num = int(GameManager.current_scene.scene_file_path)
-	
-	dialogue_manager.level_start_dialogue()
+	dialogue_manager = get_parent().get_node_or_null("dialogue_manager")
+	if dialogue_manager != null:
+		dialogue_manager.level_start_dialogue()
 	
 	if game_level:
 		highscore_label.text = "highscore: " + str(GlobalVariables.highscores[level_num])
@@ -146,7 +147,8 @@ func handle_input(delta):
 func _on_game_over():
 	level_over = true
 	theme_player.pitch_scale = 0.9
-	dialogue_manager.game_over_dialogue()
+	if dialogue_manager != null:
+		dialogue_manager.game_over_dialogue()
 	for enemy in get_tree().get_nodes_in_group("enemy"):
 		enemy.visible = false
 	GlobalTimer.stop()
@@ -158,7 +160,8 @@ func _on_game_over():
 
 func finish_level():
 	level_over = true
-	dialogue_manager.win_dialogue()
+	if dialogue_manager != null:
+		dialogue_manager.level_end_dialogue()
 	if GlobalVariables.highscores[level_num] > move_count:
 		GlobalVariables.highscores[level_num] = move_count
 		highscore_label.text = "highscore: " + str(move_count)

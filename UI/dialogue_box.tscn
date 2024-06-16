@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bh3fbr786jn43"]
+[gd_scene load_steps=5 format=3 uid="uid://bh3fbr786jn43"]
 
 [ext_resource type="Texture2D" uid="uid://csfhcknrdxk1f" path="res://sprite_sheet-export.png" id="1_6mgqp"]
 [ext_resource type="Script" path="res://UI/dialogue_box.gd" id="1_m2ayu"]
 [ext_resource type="FontFile" uid="uid://dpuk5ip7hhnvh" path="res://PublicPixel.ttf" id="3_m7xdw"]
+[ext_resource type="AudioStream" uid="uid://djmqjceylegn5" path="res://audio/shift.wav" id="4_x73la"]
 
 [node name="dialogue_box" type="Node2D"]
 top_level = true
@@ -46,3 +47,7 @@ theme_override_font_sizes/font_size = 40
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="shift_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_x73la")
+pitch_scale = 1.14

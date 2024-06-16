@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://3jy3esxn8nek"]
+[gd_scene load_steps=10 format=3 uid="uid://3jy3esxn8nek"]
 
 [ext_resource type="PackedScene" uid="uid://dt00c18n44v1r" path="res://boundary_objects/fixed_wall.tscn" id="1_2qrv8"]
 [ext_resource type="PackedScene" uid="uid://db2caokmjrqn2" path="res://collectibles/food.tscn" id="2_0f645"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dt3aavonv0brs" path="res://boundary_objects/inner_fixed_wall.tscn" id="6_dqigr"]
 [ext_resource type="PackedScene" uid="uid://ck5d81ekfneit" path="res://enemies/pathfinder.tscn" id="7_p2hho"]
 [ext_resource type="PackedScene" uid="uid://citfwdrvjm0ds" path="res://UI/level_manager.tscn" id="8_ji3yb"]
+[ext_resource type="PackedScene" uid="uid://dnuisoj85rswt" path="res://UI/dialogue_manager.tscn" id="9_yr2qk"]
 
 [node name="lvl_7" type="Node2D"]
 
@@ -165,3 +166,5 @@ rotation = -1.5708
 
 [node name="inner_fixed_wall2" parent="wall" instance=ExtResource("6_dqigr")]
 position = Vector2(192, -128)
+
+[node name="dialogue_manager" parent="." instance=ExtResource("9_yr2qk")]

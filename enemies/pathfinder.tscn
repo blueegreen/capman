@@ -5,7 +5,7 @@
 [node name="pathfinder" type="Node2D"]
 visible = false
 script = ExtResource("1_32ndp")
-max_tile_count = 49
+max_tile_count = 36
 
 [node name="Timer" type="Timer" parent="."]
 

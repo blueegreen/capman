@@ -26,6 +26,7 @@ shape = SubResource("CircleShape2D_ljegl")
 [node name="wall" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="wall"]
+z_index = -1
 texture = ExtResource("2_0y6no")
 region_enabled = true
 region_rect = Rect2(424, 88, 128, 24)

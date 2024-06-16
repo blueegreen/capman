@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dux0r1bn0qmf"]
+[gd_scene load_steps=9 format=3 uid="uid://dux0r1bn0qmf"]
 
 [ext_resource type="PackedScene" uid="uid://citfwdrvjm0ds" path="res://UI/level_manager.tscn" id="1_3co4l"]
 [ext_resource type="PackedScene" uid="uid://ck5d81ekfneit" path="res://enemies/pathfinder.tscn" id="2_uby3f"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cbm00s6fateus" path="res://boundary_objects/single_anchor_wall.tscn" id="5_n0hc8"]
 [ext_resource type="PackedScene" uid="uid://b7uigk2ronqgh" path="res://player/player.tscn" id="6_cl6od"]
 [ext_resource type="PackedScene" uid="uid://dt3aavonv0brs" path="res://boundary_objects/inner_fixed_wall.tscn" id="7_tijp1"]
+[ext_resource type="PackedScene" uid="uid://dnuisoj85rswt" path="res://UI/dialogue_manager.tscn" id="8_sweyv"]
 
 [node name="lvl_2" type="Node2D"]
 
@@ -132,3 +133,5 @@ position = Vector2(192, 64)
 
 [node name="player" parent="." instance=ExtResource("6_cl6od")]
 position = Vector2(192, 128)
+
+[node name="dialogue_manager" parent="." instance=ExtResource("8_sweyv")]

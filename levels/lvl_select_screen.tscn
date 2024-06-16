@@ -16,56 +16,56 @@ region_enabled = true
 region_rect = Rect2(1048, 1456, 328, 96)
 
 [node name="level_select_icon" parent="." instance=ExtResource("3_5nu2p")]
-position = Vector2(-224, -176)
+position = Vector2(-241, -176)
 
 [node name="level_select_icon2" parent="." instance=ExtResource("3_5nu2p")]
-position = Vector2(-64, -176)
+position = Vector2(-81, -176)
 level_num = 2
 
 [node name="level_select_icon3" parent="." instance=ExtResource("3_5nu2p")]
-position = Vector2(96, -176)
+position = Vector2(79, -176)
 level_num = 3
 
 [node name="level_select_icon4" parent="." instance=ExtResource("3_5nu2p")]
-position = Vector2(256, -176)
+position = Vector2(239, -176)
 level_num = 4
 
 [node name="level_select_icon5" parent="." instance=ExtResource("3_5nu2p")]
-position = Vector2(-224, -16)
+position = Vector2(-241, -16)
 level_num = 5
 
 [node name="level_select_icon6" parent="." instance=ExtResource("3_5nu2p")]
-position = Vector2(-64, -16)
+position = Vector2(-81, -16)
 level_num = 6
 
 [node name="level_select_icon7" parent="." instance=ExtResource("3_5nu2p")]
-position = Vector2(96, -16)
+position = Vector2(79, -16)
 level_num = 7
 
 [node name="level_select_icon8" parent="." instance=ExtResource("3_5nu2p")]
-position = Vector2(256, -16)
+position = Vector2(239, -16)
 level_num = 8
 
 [node name="level_select_icon9" parent="." instance=ExtResource("3_5nu2p")]
-position = Vector2(-224, 144)
+position = Vector2(-241, 144)
 level_num = 9
 
 [node name="level_select_icon10" parent="." instance=ExtResource("3_5nu2p")]
-position = Vector2(-64, 144)
+position = Vector2(-81, 144)
 level_num = 10
 
 [node name="level_select_icon11" parent="." instance=ExtResource("3_5nu2p")]
-position = Vector2(96, 144)
+position = Vector2(79, 144)
 level_num = 11
 
 [node name="level_select_icon12" parent="." instance=ExtResource("3_5nu2p")]
-position = Vector2(256, 144)
+position = Vector2(239, 144)
 level_num = 12
 
 [node name="level_select_icon13" parent="." instance=ExtResource("3_5nu2p")]
-position = Vector2(-64, 304)
+position = Vector2(-81, 304)
 level_num = 13
 
 [node name="level_select_icon14" parent="." instance=ExtResource("3_5nu2p")]
-position = Vector2(96, 304)
+position = Vector2(79, 304)
 level_num = 14

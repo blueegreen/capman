@@ -5,6 +5,7 @@ extends Node2D
 @onready var text_2 = $sprite_2/text_2
 @onready var sprite_1 = $sprite_1
 @onready var sprite_2 = $sprite_2
+@onready var shift_sfx = $shift_sfx
 
 var index := 0
 var label : Label
@@ -13,6 +14,7 @@ var current_box : Sprite2D
 func display_array(array : Array[String]):
 	for line in array:
 		display_line(line)
+		shift_sfx.play()
 		await get_tree().create_timer(delay).timeout
 		sprite_1.visible = false
 		sprite_2.visible = false

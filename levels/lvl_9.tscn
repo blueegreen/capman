@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bocijq0pd34u"]
+[gd_scene load_steps=9 format=3 uid="uid://bocijq0pd34u"]
 
 [ext_resource type="PackedScene" uid="uid://ck5d81ekfneit" path="res://enemies/pathfinder.tscn" id="1_3gx3d"]
 [ext_resource type="PackedScene" uid="uid://citfwdrvjm0ds" path="res://UI/level_manager.tscn" id="2_1nri5"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b7uigk2ronqgh" path="res://player/player.tscn" id="5_7sc4c"]
 [ext_resource type="PackedScene" uid="uid://cnr625oysfmyj" path="res://boundary_objects/double_anchor_wall.tscn" id="6_yhmkp"]
 [ext_resource type="PackedScene" uid="uid://cyqkxny4wetii" path="res://enemies/enemy_rusher.tscn" id="7_x3kpr"]
+[ext_resource type="PackedScene" uid="uid://dnuisoj85rswt" path="res://UI/dialogue_manager.tscn" id="8_h6wjv"]
 
 [node name="lvl_8(a)" type="Node2D"]
 
@@ -162,3 +163,5 @@ rotation = 1.5708
 [node name="double_anchor_wall9" parent="walls" instance=ExtResource("6_yhmkp")]
 position = Vector2(0, 64)
 rotation = 1.5708
+
+[node name="dialogue_manager" parent="." instance=ExtResource("8_h6wjv")]

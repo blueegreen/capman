@@ -1,10 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://db2caokmjrqn2"]
+[gd_scene load_steps=8 format=3 uid="uid://db2caokmjrqn2"]
 
 [ext_resource type="Script" path="res://collectibles/food.gd" id="1_q7iv4"]
 [ext_resource type="Texture2D" uid="uid://csfhcknrdxk1f" path="res://sprite_sheet-export.png" id="2_2g8ja"]
+[ext_resource type="AudioStream" uid="uid://b4htjb5ft7frd" path="res://audio/pickupCoin.wav" id="3_p01yj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0kvpl"]
 radius = 19.0263
+
+[sub_resource type="Animation" id="Animation_nniuu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
 
 [sub_resource type="Animation" id="Animation_xndpy"]
 resource_name = "idle"
@@ -21,21 +37,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_nniuu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c1fdh"]
@@ -65,3 +66,6 @@ libraries = {
 "": SubResource("AnimationLibrary_c1fdh")
 }
 autoplay = "idle"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_p01yj")

@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2dso68s2hu80"]
+[gd_scene load_steps=10 format=3 uid="uid://b2dso68s2hu80"]
 
 [ext_resource type="PackedScene" uid="uid://dt00c18n44v1r" path="res://boundary_objects/fixed_wall.tscn" id="2_78rfq"]
+[ext_resource type="PackedScene" uid="uid://db2caokmjrqn2" path="res://collectibles/food.tscn" id="3_wa4h3"]
 [ext_resource type="PackedScene" uid="uid://ck5d81ekfneit" path="res://enemies/pathfinder.tscn" id="4_8reww"]
 [ext_resource type="PackedScene" uid="uid://dt3aavonv0brs" path="res://boundary_objects/inner_fixed_wall.tscn" id="4_pen0m"]
+[ext_resource type="PackedScene" uid="uid://dnuisoj85rswt" path="res://UI/dialogue_manager.tscn" id="5_aeh4w"]
 [ext_resource type="PackedScene" uid="uid://b7uigk2ronqgh" path="res://player/player.tscn" id="5_nymnx"]
 [ext_resource type="PackedScene" uid="uid://7fqe2rduw1yw" path="res://boundary_objects/permeable_wall.tscn" id="6_1v1on"]
 [ext_resource type="PackedScene" uid="uid://citfwdrvjm0ds" path="res://UI/level_manager.tscn" id="8_sbm2i"]
@@ -19,6 +21,8 @@ position = Vector2(-320, 256)
 
 [node name="enemy_basic" parent="." instance=ExtResource("11_dyrr7")]
 position = Vector2(320, -256)
+
+[node name="dialogue_manager" parent="." instance=ExtResource("5_aeh4w")]
 
 [node name="wall" type="Node" parent="."]
 
@@ -186,3 +190,83 @@ position = Vector2(64, 64)
 
 [node name="inner_fixed_wall15" parent="wall" instance=ExtResource("4_pen0m")]
 position = Vector2(-192, -192)
+
+[node name="food" type="Node" parent="."]
+
+[node name="food" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(-192, 256)
+
+[node name="food2" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(-64, 256)
+
+[node name="food3" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(64, 256)
+
+[node name="food4" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(192, 256)
+
+[node name="food5" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(320, 256)
+
+[node name="food6" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(320, 128)
+
+[node name="food7" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(320, 0)
+
+[node name="food8" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(320, -128)
+
+[node name="food9" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(192, -256)
+
+[node name="food10" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(64, -256)
+
+[node name="food11" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(-64, -256)
+
+[node name="food12" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(-192, -256)
+
+[node name="food13" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(-320, -256)
+
+[node name="food14" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(-320, -128)
+
+[node name="food15" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(-320, 0)
+
+[node name="food16" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(-320, 128)
+
+[node name="food17" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(-192, 128)
+
+[node name="food18" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(-64, 128)
+
+[node name="food19" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(64, 128)
+
+[node name="food20" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(192, 128)
+
+[node name="food21" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(192, 0)
+
+[node name="food22" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(192, -128)
+
+[node name="food23" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(64, -128)
+
+[node name="food24" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(-64, -128)
+
+[node name="food25" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(-192, -128)
+
+[node name="food26" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(-192, 0)

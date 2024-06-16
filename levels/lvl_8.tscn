@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dagoxiuyoddqy"]
+[gd_scene load_steps=9 format=3 uid="uid://dagoxiuyoddqy"]
 
 [ext_resource type="PackedScene" uid="uid://dt00c18n44v1r" path="res://boundary_objects/fixed_wall.tscn" id="1_k4x03"]
 [ext_resource type="PackedScene" uid="uid://db2caokmjrqn2" path="res://collectibles/food.tscn" id="2_hq6ws"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b7uigk2ronqgh" path="res://player/player.tscn" id="5_g5uda"]
 [ext_resource type="PackedScene" uid="uid://cnr625oysfmyj" path="res://boundary_objects/double_anchor_wall.tscn" id="6_5n5n6"]
 [ext_resource type="PackedScene" uid="uid://lyj2ofbuus5i" path="res://enemies/enemy_basic.tscn" id="7_gor5i"]
+[ext_resource type="PackedScene" uid="uid://dnuisoj85rswt" path="res://UI/dialogue_manager.tscn" id="8_b45yo"]
 
 [node name="lvl_8" type="Node2D"]
 
@@ -163,3 +164,5 @@ position = Vector2(192, 192)
 
 [node name="level_manager" parent="." instance=ExtResource("3_mit0t")]
 next_level_path = "res://levels/lvl_9.tscn"
+
+[node name="dialogue_manager" parent="." instance=ExtResource("8_b45yo")]
