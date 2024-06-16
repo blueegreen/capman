@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3ejelmorjtie"]
+[gd_scene load_steps=10 format=3 uid="uid://c3ejelmorjtie"]
 
 [ext_resource type="PackedScene" uid="uid://b7uigk2ronqgh" path="res://player/player.tscn" id="1_dco04"]
 [ext_resource type="PackedScene" uid="uid://cbm00s6fateus" path="res://boundary_objects/single_anchor_wall.tscn" id="2_gkc4o"]
 [ext_resource type="PackedScene" uid="uid://ck5d81ekfneit" path="res://enemies/pathfinder.tscn" id="3_jp7nk"]
 [ext_resource type="PackedScene" uid="uid://citfwdrvjm0ds" path="res://UI/level_manager.tscn" id="4_awh0e"]
 [ext_resource type="PackedScene" uid="uid://dnuisoj85rswt" path="res://UI/dialogue_manager.tscn" id="5_6kwq6"]
+[ext_resource type="Script" path="res://dialogues/lvl_1_start_dialogue.gd" id="5_kgnbn"]
 [ext_resource type="PackedScene" uid="uid://dt00c18n44v1r" path="res://boundary_objects/fixed_wall.tscn" id="5_mxl6d"]
 [ext_resource type="PackedScene" uid="uid://db2caokmjrqn2" path="res://collectibles/food.tscn" id="6_ir5t4"]
+[ext_resource type="Script" path="res://dialogues/lvl_1_end_dialogue.gd" id="6_unh67"]
 
 [node name="lvl_1" type="Node2D"]
 
@@ -19,6 +21,9 @@ position = Vector2(-192, 64)
 next_level_path = "res://levels/lvl_2.tscn"
 
 [node name="dialogue_manager" parent="." instance=ExtResource("5_6kwq6")]
+level_start_delay = 0.5
+level_start_script = ExtResource("5_kgnbn")
+level_end_script = ExtResource("6_unh67")
 
 [node name="walls" type="Node" parent="."]
 

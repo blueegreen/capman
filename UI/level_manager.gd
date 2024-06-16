@@ -5,6 +5,8 @@ extends Node2D
 @onready var score_label = $score_label
 @onready var highscore_label = $highscore_label
 @onready var theme_player = $theme_player
+@onready var death_sfx = $death_sfx
+@onready var win_sfx = $win_sfx
 
 const WINDOW = preload("res://UI/pop_up_window.tscn")
 
@@ -146,6 +148,7 @@ func handle_input(delta):
 
 func _on_game_over():
 	level_over = true
+	death_sfx.play()
 	theme_player.pitch_scale = 0.9
 	if dialogue_manager != null:
 		dialogue_manager.game_over_dialogue()
@@ -160,6 +163,7 @@ func _on_game_over():
 
 func finish_level():
 	level_over = true
+	win_sfx.play()
 	if dialogue_manager != null:
 		dialogue_manager.level_end_dialogue()
 	if GlobalVariables.highscores[level_num] > move_count:

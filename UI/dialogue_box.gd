@@ -12,6 +12,8 @@ var label : Label
 var current_box : Sprite2D
 
 func display_array(array : Array[String]):
+	sprite_1.visible = false
+	sprite_2.visible = false
 	for line in array:
 		display_line(line)
 		shift_sfx.play()

@@ -121,7 +121,6 @@ func find_next_direction():
 
 func _on_area_entered(area):
 	if area.is_in_group("enemy"):
-		$death_sfx.play()
 		player_sprite.visible = false
 		player_sprite_dead.visible = true
 		player_sprite_dead.rotation = player_sprite.rotation
