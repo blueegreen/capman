@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://citfwdrvjm0ds"]
+[gd_scene load_steps=14 format=3 uid="uid://citfwdrvjm0ds"]
 
 [ext_resource type="Script" path="res://UI/level_manager.gd" id="1_nwl25"]
 [ext_resource type="PackedScene" uid="uid://bvp6nksc3aaae" path="res://UI/mouse_pointer.tscn" id="2_ya4ex"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dgyqg26itodgn" path="res://UI/left_hand.tscn" id="3_q0t8h"]
 [ext_resource type="PackedScene" uid="uid://dsxuxyhtjqepv" path="res://UI/right_hand.tscn" id="4_oc4ug"]
 [ext_resource type="FontFile" uid="uid://dpuk5ip7hhnvh" path="res://PublicPixel.ttf" id="5_r1t3k"]
+[ext_resource type="Texture2D" uid="uid://cstkd2rx1xrto" path="res://sprite_sheet_1.png" id="7_pfuks"]
 [ext_resource type="Shader" path="res://UI/crt_shader.gdshader" id="9_8iym5"]
 [ext_resource type="AudioStream" uid="uid://b5duk7a2awxbh" path="res://audio/game-over-arcade-6435.mp3" id="9_24h8i"]
 [ext_resource type="AudioStream" uid="uid://bhd407lqnk1r7" path="res://audio/theme.ogg" id="9_sa573"]
@@ -33,6 +34,7 @@ script = ExtResource("1_nwl25")
 
 [node name="mouse_pointer" parent="." instance=ExtResource("2_ya4ex")]
 modulate = Color(0.925353, 0.925353, 0.925353, 1)
+z_index = 9
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(616, 0)
@@ -104,7 +106,7 @@ scale = Vector2(42.4698, 6.8067)
 color = Color(0.0627451, 0.0313726, 0.12549, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="bg"]
-z_index = 11
+z_index = 10
 offset_left = 577.0
 offset_top = -794.0
 offset_right = 617.0
@@ -138,12 +140,29 @@ region_enabled = true
 region_rect = Rect2(3200, -8, 232, 1608)
 
 [node name="keyboard_sprite" type="Sprite2D" parent="bg"]
-modulate = Color(0.646029, 0.646029, 0.646029, 1)
+modulate = Color(0.720467, 0.720468, 0.720467, 1)
 z_index = 11
-position = Vector2(1792, -320)
+position = Vector2(1856, -320)
 texture = ExtResource("3_gqr8u")
 region_enabled = true
 region_rect = Rect2(3448, 576, 1344, 736)
+
+[node name="mousepad" type="Sprite2D" parent="bg"]
+modulate = Color(0.720467, 0.720468, 0.720467, 1)
+z_index = 10
+position = Vector2(1600, 576)
+rotation = -0.523598
+texture = ExtResource("7_pfuks")
+region_enabled = true
+region_rect = Rect2(680, 848, 792, 704)
+
+[node name="can" type="Sprite2D" parent="bg"]
+modulate = Color(0.720467, 0.720468, 0.720467, 1)
+z_index = 10
+position = Vector2(1216, -794)
+texture = ExtResource("7_pfuks")
+region_enabled = true
+region_rect = Rect2(312, 824, 312, 384)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dea5p")

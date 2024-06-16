@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6uho7s3ddu3p"]
+[gd_scene load_steps=11 format=3 uid="uid://b6uho7s3ddu3p"]
 
 [ext_resource type="PackedScene" uid="uid://ck5d81ekfneit" path="res://enemies/pathfinder.tscn" id="1_in4qk"]
 [ext_resource type="PackedScene" uid="uid://dt00c18n44v1r" path="res://boundary_objects/fixed_wall.tscn" id="2_7kj45"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cyqkxny4wetii" path="res://enemies/enemy_rusher.tscn" id="7_gwcrw"]
 [ext_resource type="PackedScene" uid="uid://dt3aavonv0brs" path="res://boundary_objects/inner_fixed_wall.tscn" id="7_tn0m7"]
 [ext_resource type="PackedScene" uid="uid://dnuisoj85rswt" path="res://UI/dialogue_manager.tscn" id="9_ekg74"]
+[ext_resource type="Script" path="res://dialogues/lvl_6_start_dialogue.gd" id="10_gqmui"]
 
 [node name="lvl_6" type="Node2D"]
 
@@ -181,3 +182,5 @@ position = Vector2(-128, 64)
 position = Vector2(-256, -192)
 
 [node name="dialogue_manager" parent="." instance=ExtResource("9_ekg74")]
+level_start_delay = 1.0
+level_start_script = ExtResource("10_gqmui")

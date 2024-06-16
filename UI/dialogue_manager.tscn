@@ -6,6 +6,6 @@
 
 [node name="dialogue_manager" type="Node2D"]
 script = ExtResource("1_dahii")
-level_start_delay = 3.0
+level_start_delay = 0.5
 game_over_script = ExtResource("2_p40ev")
 win_script = ExtResource("3_crafl")

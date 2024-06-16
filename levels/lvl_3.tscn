@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bb3jikgrehygo"]
+[gd_scene load_steps=9 format=3 uid="uid://bb3jikgrehygo"]
 
 [ext_resource type="PackedScene" uid="uid://b7uigk2ronqgh" path="res://player/player.tscn" id="1_0bs41"]
 [ext_resource type="PackedScene" uid="uid://db2caokmjrqn2" path="res://collectibles/food.tscn" id="2_6mwjj"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://citfwdrvjm0ds" path="res://UI/level_manager.tscn" id="4_i3nsx"]
 [ext_resource type="PackedScene" uid="uid://dt00c18n44v1r" path="res://boundary_objects/fixed_wall.tscn" id="5_pcy8j"]
 [ext_resource type="PackedScene" uid="uid://cnr625oysfmyj" path="res://boundary_objects/double_anchor_wall.tscn" id="6_ljptc"]
+[ext_resource type="PackedScene" uid="uid://dnuisoj85rswt" path="res://UI/dialogue_manager.tscn" id="7_ej2d6"]
+[ext_resource type="Script" path="res://dialogues/lvl_3_start_dialogue.gd" id="8_jfyyu"]
 
 [node name="lvl_3" type="Node2D"]
 
@@ -105,3 +107,6 @@ position = Vector2(0, -256)
 position = Vector2(128, -256)
 
 [node name="double_anchor_wall6" parent="boundary" instance=ExtResource("6_ljptc")]
+
+[node name="dialogue_manager" parent="." instance=ExtResource("7_ej2d6")]
+level_start_script = ExtResource("8_jfyyu")

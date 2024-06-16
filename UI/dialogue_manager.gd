@@ -9,7 +9,7 @@ const DIALOGUE_BOX = preload("res://UI/dialogue_box.tscn")
 var box
 
 func _ready():
-	global_position = Vector2(randf_range(1400, 1600), randf_range(-128, -256))
+	global_position = Vector2(randf_range(1300, 1500), randf_range(-100, -300))
 	make_new_box()
 
 func level_start_dialogue():
@@ -32,7 +32,7 @@ func game_over_dialogue():
 	make_new_box()
 	var new_game_over_array : Array[String] = []
 	new_game_over_array.push_back(game_over_script.lines[randi_range(0, 3)])
-	new_game_over_array.push_back(game_over_script.lines[randi_range(4, 6)])
+	new_game_over_array.push_back(game_over_script.lines[randi_range(4, 7)])
 	box.display_array(new_game_over_array)
 
 func win_dialogue():
