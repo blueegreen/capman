@@ -13,5 +13,5 @@ func _ready():
 	levels.resize(100)
 	highscores.resize(100)
 	levels.fill(false)
-	highscores.fill(20)
+	highscores.fill(1001)
 	levels[1] = true

@@ -38,6 +38,7 @@ func game_over_dialogue():
 func win_dialogue():
 	if win_script == null:
 		return
+	make_new_box()
 	var new_win_array : Array[String] = []
 	new_win_array.push_back(win_script.lines[randi_range(0, 3)])
 	new_win_array.push_back(win_script.lines[randi_range(4, 5)])
@@ -45,7 +46,7 @@ func win_dialogue():
 
 func make_new_box():
 	if box:
-		box.free()
+		box.queue_free()
 	box = DIALOGUE_BOX.instantiate()
 	box.global_position = global_position
 	add_child(box)

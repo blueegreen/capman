@@ -12,6 +12,8 @@ config_version=5
 
 config/name="Capman"
 run/main_scene="res://levels/lvl_select_screen.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="playtest_save"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -25,7 +27,10 @@ GlobalTimer="*res://global/global_timer.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
+window/size/borderless=true
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="viewport"
 
 [input]
 

@@ -37,7 +37,10 @@ func _ready():
 		dialogue_manager.level_start_dialogue()
 	
 	if game_level:
-		highscore_label.text = "highscore: " + str(GlobalVariables.highscores[level_num])
+		if GlobalVariables.highscores[level_num] < 1000:
+			highscore_label.text = "highscore: " + str(GlobalVariables.highscores[level_num])
+		else:
+			highscore_label.text = "highscore: "
 	else:
 		highscore_label.queue_free()
 		score_label.queue_free()
@@ -116,9 +119,7 @@ func _on_collectible_collected(_msg = {}):
 		finish_level()
 
 func handle_input(delta):
-	if level_over:
-		return
-	if Input.is_action_pressed("left_click"):
+	if Input.is_action_pressed("left_click") and not level_over:
 		if not pressed_left:
 			pressed_left = true
 			pressed_right = false
@@ -128,7 +129,7 @@ func handle_input(delta):
 			pressed_time += delta
 			if pressed_time > 0.2 and current_time_state != TIME_STATE.FAST:
 				state_transition(TIME_STATE.FAST)
-	elif Input.is_action_pressed("right_click"):
+	elif Input.is_action_pressed("right_click") and not level_over:
 		if not pressed_right:
 			pressed_right = true
 			pressed_left = false
