@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://xwn8cpff2a6m"]
+
+[ext_resource type="Script" path="res://global/global_audio_manager.gd" id="1_xxi1w"]
+[ext_resource type="AudioStream" uid="uid://br6eenixjhvjv" path="res://audio/mouse-click-153941.mp3" id="1_yjq21"]
+[ext_resource type="AudioStream" uid="uid://cs5f6drry3jrr" path="res://audio/minimal-pop-click-ui-1-198301.mp3" id="3_s3rvq"]
+
+[node name="global_audio_manager" type="Node"]
+script = ExtResource("1_xxi1w")
+
+[node name="click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_yjq21")
+volume_db = -9.797
+
+[node name="pop" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_s3rvq")
+volume_db = -15.0

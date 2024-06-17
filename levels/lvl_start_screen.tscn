@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://xv4lt8np1hho"]
+[gd_scene load_steps=12 format=3 uid="uid://xv4lt8np1hho"]
 
 [ext_resource type="PackedScene" uid="uid://citfwdrvjm0ds" path="res://UI/level_manager.tscn" id="1_c85vj"]
 [ext_resource type="Texture2D" uid="uid://cstkd2rx1xrto" path="res://sprite_sheet_1.png" id="2_70ttl"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d3o2488gok078" path="res://UI/credits_button_sprite.tscn" id="5_d461d"]
 [ext_resource type="PackedScene" uid="uid://dnuisoj85rswt" path="res://UI/dialogue_manager.tscn" id="6_yu7ax"]
 [ext_resource type="Script" path="res://dialogues/game_start_dialogue.gd" id="7_pfdds"]
+[ext_resource type="AudioStream" uid="uid://b8w6k6ijqsuvj" path="res://audio/short-beep-tone-47916.mp3" id="8_xvnqp"]
 
 [sub_resource type="Animation" id="Animation_qt40c"]
 length = 0.001
@@ -37,7 +38,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_01bja"]
 resource_name = "start"
-length = 5.0
+length = 6.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -45,7 +46,7 @@ tracks/0/path = NodePath("start_button:collision_layer")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3.3),
+"times": PackedFloat32Array(0, 4.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -57,7 +58,7 @@ tracks/1/path = NodePath("credits_button:collision_layer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 3.3),
+"times": PackedFloat32Array(0, 4.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -69,7 +70,7 @@ tracks/2/path = NodePath("credits_button:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 2.5, 3.3),
+"times": PackedFloat32Array(0, 3.6, 4.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -81,7 +82,7 @@ tracks/3/path = NodePath("start_button:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 2.5, 3.3),
+"times": PackedFloat32Array(0, 3.6, 4.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -93,7 +94,7 @@ tracks/4/path = NodePath("GAME_LOGO:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
+"times": PackedFloat32Array(0, 1.5, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -105,10 +106,22 @@ tracks/5/path = NodePath("GAME_LOGO:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 1.5, 4),
+"times": PackedFloat32Array(0, 2.5, 5.1),
 "transitions": PackedFloat32Array(1, -2, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -192)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("beep:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tl7mi"]
@@ -148,5 +161,8 @@ sprite_scene = ExtResource("5_d461d")
 path = "res://levels/lvl_credits.tscn"
 
 [node name="dialogue_manager" parent="." instance=ExtResource("6_yu7ax")]
-level_start_delay = 4.5
+level_start_delay = 5.5
 level_start_script = ExtResource("7_pfdds")
+
+[node name="beep" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_xvnqp")

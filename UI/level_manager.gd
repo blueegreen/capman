@@ -37,6 +37,7 @@ func _ready():
 		dialogue_manager.level_start_dialogue()
 	
 	if game_level:
+		$theme_player.play()
 		if GlobalVariables.highscores[level_num] < 1000:
 			highscore_label.text = "highscore: " + str(GlobalVariables.highscores[level_num])
 		else:

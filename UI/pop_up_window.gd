@@ -85,3 +85,19 @@ func _on_win_reload_mouse_exited():
 
 func _on_win_continue_mouse_exited():
 	win_continue_sprite.scale = Vector2(1, 1)
+
+
+func _on_game_over_reload_mouse_entered():
+	GlobalAudioManager.pop_sound()
+
+
+func _on_win_reload_mouse_entered():
+	GlobalAudioManager.pop_sound()
+
+
+func _on_win_continue_mouse_entered():
+	GlobalAudioManager.pop_sound()
+
+
+func _on_exit_mouse_entered():
+	GlobalAudioManager.pop_sound()

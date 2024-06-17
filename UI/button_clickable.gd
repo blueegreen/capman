@@ -18,3 +18,7 @@ func _on_input_event(_viewport, _event, _shape_idx):
 func _on_mouse_exited():
 	if sprite != null:
 		sprite.position = Vector2(0, 0)
+
+
+func _on_mouse_entered():
+	GlobalAudioManager.pop_sound()

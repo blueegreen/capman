@@ -20,6 +20,7 @@ func display_array(array : Array[String]):
 		await get_tree().create_timer(delay).timeout
 		sprite_1.visible = false
 		sprite_2.visible = false
+	shift_sfx.play()
 
 func display_line(line : String):
 	if line.begins_with("0"):
