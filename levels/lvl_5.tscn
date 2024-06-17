@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dnuisoj85rswt" path="res://UI/dialogue_manager.tscn" id="9_eonyc"]
 [ext_resource type="Script" path="res://dialogues/lvl_5_start_dialogue.gd" id="10_xxoxl"]
 
-[node name="lvl_6" type="Node2D"]
+[node name="lvl_5" type="Node2D"]
 
 [node name="pathfinder" parent="." instance=ExtResource("1_in4qk")]
 

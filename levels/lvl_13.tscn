@@ -16,6 +16,7 @@
 
 [node name="level_manager" parent="." instance=ExtResource("2_1bi4e")]
 level_timestep = 0.8
+next_level_path = "res://levels/lvl_14.tscn"
 
 [node name="dialogue_manager" parent="." instance=ExtResource("2_rlkw0")]
 position = Vector2(1248, -32)
