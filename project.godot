@@ -10,12 +10,13 @@ config_version=5
 
 [application]
 
-config/name="Capman"
+config/name="PlayTest"
 run/main_scene="res://levels/lvl_start_screen.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="playtest_save"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://logo.png"
+config/windows_native_icon="res://logo.ico"
 
 [autoload]
 
