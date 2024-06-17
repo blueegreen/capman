@@ -21,7 +21,6 @@ position = Vector2(-192, 64)
 next_level_path = "res://levels/lvl_2.tscn"
 
 [node name="dialogue_manager" parent="." instance=ExtResource("5_6kwq6")]
-level_start_delay = 0.5
 level_start_script = ExtResource("5_kgnbn")
 level_end_script = ExtResource("6_unh67")
 

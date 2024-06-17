@@ -20,6 +20,7 @@
 
 [node name="level_manager" parent="." instance=ExtResource("2_0i1a6")]
 level_timestep = 0.8
+next_level_path = "res://levels/lvl_final_screen.tscn"
 
 [node name="Food" type="Node" parent="."]
 
