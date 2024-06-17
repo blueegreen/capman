@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bks4fvt2jeps2"]
+
+[ext_resource type="PackedScene" uid="uid://citfwdrvjm0ds" path="res://UI/level_manager.tscn" id="1_st4eh"]
+[ext_resource type="Texture2D" uid="uid://bakq0bv6cj5ea" path="res://thumbnail_pt.png" id="2_ugf8a"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="level_manager" parent="." instance=ExtResource("1_st4eh")]
+
+[node name="ThumbnailPt" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_ugf8a")
