@@ -19,6 +19,7 @@
 [node name="pathfinder" parent="." instance=ExtResource("1_vjal3")]
 
 [node name="level_manager" parent="." instance=ExtResource("2_0i1a6")]
+level_timestep = 0.8
 
 [node name="Food" type="Node" parent="."]
 
