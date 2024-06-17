@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://oyb01ckrf38s"]
+
+[ext_resource type="Script" path="res://UI/button_clickable.gd" id="1_82myy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_la66q"]
+size = Vector2(332, 128)
+
+[node name="button_clickable" type="Area2D"]
+collision_mask = 0
+script = ExtResource("1_82myy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_la66q")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3o2488gok078"]
+
+[ext_resource type="Texture2D" uid="uid://cstkd2rx1xrto" path="res://sprite_sheet_1.png" id="1_hhc52"]
+
+[node name="credits_button_sprite" type="Sprite2D"]
+texture = ExtResource("1_hhc52")
+region_enabled = true
+region_rect = Rect2(64, 200, 368, 88)

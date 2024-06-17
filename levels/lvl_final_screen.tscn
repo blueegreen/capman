@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://3mw40sjmtgwk"]
+
+[ext_resource type="PackedScene" uid="uid://citfwdrvjm0ds" path="res://UI/level_manager.tscn" id="1_8os1k"]
+[ext_resource type="Texture2D" uid="uid://cstkd2rx1xrto" path="res://sprite_sheet_1.png" id="2_f72g5"]
+[ext_resource type="FontFile" uid="uid://dpuk5ip7hhnvh" path="res://PublicPixel.ttf" id="3_gfjpl"]
+[ext_resource type="PackedScene" uid="uid://oyb01ckrf38s" path="res://UI/button_clickable.tscn" id="4_rk1v7"]
+[ext_resource type="PackedScene" uid="uid://c6ooafw310alj" path="res://UI/start_button_sprite.tscn" id="5_jmonh"]
+
+[node name="lvl_final_screen" type="Node2D"]
+
+[node name="level_manager" parent="." instance=ExtResource("1_8os1k")]
+game_level = false
+
+[node name="GAME_LOGO" type="Sprite2D" parent="."]
+position = Vector2(0, -248)
+texture = ExtResource("2_f72g5")
+region_enabled = true
+region_rect = Rect2(648, 128, 704, 144)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -128.0
+offset_top = -120.0
+offset_right = 142.0
+offset_bottom = -70.0
+theme_override_fonts/font = ExtResource("3_gfjpl")
+theme_override_font_sizes/font_size = 30
+text = "a game by"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -384.0
+offset_top = -56.0
+offset_right = 456.0
+offset_bottom = 4.0
+theme_override_fonts/font = ExtResource("3_gfjpl")
+theme_override_font_sizes/font_size = 40
+text = "ARIN  CHINMAY  SAMBIT"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = -283.0
+offset_top = 72.0
+offset_right = 287.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("3_gfjpl")
+theme_override_font_sizes/font_size = 30
+text = "THANKS FOR PLAYING!"
+
+[node name="button_clickable" parent="." instance=ExtResource("4_rk1v7")]
+position = Vector2(0, 384)
+sprite_scene = ExtResource("5_jmonh")
+path = "res://levels/lvl_start_screen.tscn"

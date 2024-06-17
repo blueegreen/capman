@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://citfwdrvjm0ds"]
+[gd_scene load_steps=16 format=3 uid="uid://citfwdrvjm0ds"]
 
 [ext_resource type="Script" path="res://UI/level_manager.gd" id="1_nwl25"]
 [ext_resource type="PackedScene" uid="uid://bvp6nksc3aaae" path="res://UI/mouse_pointer.tscn" id="2_ya4ex"]
@@ -27,6 +27,41 @@ shader = ExtResource("9_8iym5")
 shader_parameter/scanline_count = 200.0
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_w53xd"]
+
+[sub_resource type="Animation" id="Animation_1q6eh"]
+resource_name = "new_level"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg/blank_screen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bg/blank_screen")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3mxww"]
+_data = {
+"new_level": SubResource("Animation_1q6eh")
+}
 
 [node name="level_manager" type="Node2D"]
 modulate = Color(0.894133, 0.888691, 0.894132, 1)
@@ -114,6 +149,14 @@ offset_bottom = -754.0
 scale = Vector2(36.6324, 39.9497)
 color = Color(0.0627451, 0.0313726, 0.12549, 1)
 
+[node name="blank_screen" type="ColorRect" parent="bg"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -576.0
+offset_top = -576.0
+offset_right = 616.0
+offset_bottom = 576.0
+color = Color(0.0627451, 0.0313726, 0.12549, 1)
+
 [node name="left_hand" parent="bg" instance=ExtResource("3_q0t8h")]
 position = Vector2(-448, 678)
 
@@ -183,3 +226,9 @@ stream = ExtResource("9_24h8i")
 pitch_scale = 1.58
 
 [node name="win_sfx" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3mxww")
+}
+autoplay = "new_level"
