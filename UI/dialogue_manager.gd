@@ -41,7 +41,7 @@ func win_dialogue():
 	make_new_box()
 	var new_win_array : Array[String] = []
 	new_win_array.push_back(win_script.lines[randi_range(0, 3)])
-	new_win_array.push_back(win_script.lines[randi_range(4, 5)])
+	new_win_array.push_back(win_script.lines[randi_range(4, 7)])
 	box.display_array(new_win_array)
 
 func make_new_box():

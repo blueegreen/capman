@@ -7,4 +7,6 @@ const lines : Array[String] = [
 	"0Heeeere's victory!!",
 	"1Next one won't be as easy, see?",
 	"1The true challenge lies ahead",
+	"1There you are!",
+	"1Good job, I guess"
 ]

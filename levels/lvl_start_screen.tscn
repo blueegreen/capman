@@ -123,6 +123,7 @@ _data = {
 game_level = false
 
 [node name="GAME_LOGO" type="Sprite2D" parent="."]
+z_index = 8
 texture = ExtResource("2_70ttl")
 region_enabled = true
 region_rect = Rect2(648, 128, 704, 144)
@@ -134,12 +135,14 @@ libraries = {
 autoplay = "start"
 
 [node name="start_button" parent="." instance=ExtResource("3_nu72l")]
+z_index = 8
 position = Vector2(0, 128)
 collision_layer = 0
 sprite_scene = ExtResource("4_v5jaf")
 path = "res://levels/lvl_select_screen.tscn"
 
 [node name="credits_button" parent="." instance=ExtResource("3_nu72l")]
+z_index = 8
 position = Vector2(0, 320)
 sprite_scene = ExtResource("5_d461d")
 path = "res://levels/lvl_credits.tscn"

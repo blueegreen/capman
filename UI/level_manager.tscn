@@ -30,7 +30,7 @@ shader_parameter/scanline_count = 200.0
 
 [sub_resource type="Animation" id="Animation_1q6eh"]
 resource_name = "new_level"
-length = 0.5
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -38,7 +38,7 @@ tracks/0/path = NodePath("bg/blank_screen:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -50,7 +50,7 @@ tracks/1/path = NodePath("bg/blank_screen")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.5),
+"times": PackedFloat32Array(0.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -183,7 +183,6 @@ region_enabled = true
 region_rect = Rect2(3200, -8, 232, 1608)
 
 [node name="keyboard_sprite" type="Sprite2D" parent="bg"]
-modulate = Color(0.720467, 0.720468, 0.720467, 1)
 z_index = 11
 position = Vector2(1856, -320)
 texture = ExtResource("3_gqr8u")
@@ -191,7 +190,6 @@ region_enabled = true
 region_rect = Rect2(3448, 576, 1344, 736)
 
 [node name="mousepad" type="Sprite2D" parent="bg"]
-modulate = Color(0.720467, 0.720468, 0.720467, 1)
 z_index = 10
 position = Vector2(1600, 576)
 rotation = -0.523598
@@ -200,7 +198,6 @@ region_enabled = true
 region_rect = Rect2(680, 848, 792, 704)
 
 [node name="can" type="Sprite2D" parent="bg"]
-modulate = Color(0.720467, 0.720468, 0.720467, 1)
 z_index = 10
 position = Vector2(1216, -794)
 texture = ExtResource("7_pfuks")
