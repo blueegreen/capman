@@ -150,6 +150,7 @@ scale = Vector2(36.6324, 39.9497)
 color = Color(0.0627451, 0.0313726, 0.12549, 1)
 
 [node name="blank_screen" type="ColorRect" parent="bg"]
+z_index = 7
 offset_left = -576.0
 offset_top = -576.0
 offset_right = 616.0
