@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bi1h8pwa8tfey"]
+[gd_scene load_steps=11 format=3 uid="uid://bi1h8pwa8tfey"]
 
 [ext_resource type="PackedScene" uid="uid://ck5d81ekfneit" path="res://enemies/pathfinder.tscn" id="1_2bktt"]
 [ext_resource type="PackedScene" uid="uid://citfwdrvjm0ds" path="res://UI/level_manager.tscn" id="2_1bi4e"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://db2caokmjrqn2" path="res://collectibles/food.tscn" id="4_y1ice"]
 [ext_resource type="PackedScene" uid="uid://b7uigk2ronqgh" path="res://player/player.tscn" id="5_e0spc"]
 [ext_resource type="PackedScene" uid="uid://cnr625oysfmyj" path="res://boundary_objects/double_anchor_wall.tscn" id="6_jpn8x"]
-[ext_resource type="PackedScene" uid="uid://7fqe2rduw1yw" path="res://boundary_objects/permeable_wall.tscn" id="7_2vj1t"]
 [ext_resource type="PackedScene" uid="uid://cbm00s6fateus" path="res://boundary_objects/single_anchor_wall.tscn" id="8_vtmiw"]
 [ext_resource type="PackedScene" uid="uid://cyqkxny4wetii" path="res://enemies/enemy_rusher.tscn" id="10_o0x56"]
 [ext_resource type="PackedScene" uid="uid://dt3aavonv0brs" path="res://boundary_objects/inner_fixed_wall.tscn" id="11_mkatb"]
@@ -25,6 +24,9 @@ position = Vector2(1248, -32)
 
 [node name="player" parent="." instance=ExtResource("5_e0spc")]
 position = Vector2(-320, 320)
+
+[node name="enemy_rusher" parent="." instance=ExtResource("10_o0x56")]
+position = Vector2(-64, -64)
 
 [node name="walls" type="Node" parent="."]
 
@@ -141,7 +143,7 @@ position = Vector2(-256, -192)
 rotation = -1.5708
 
 [node name="inner_fixed_wall3" parent="walls" instance=ExtResource("11_mkatb")]
-position = Vector2(0, -72)
+position = Vector2(0, -64)
 rotation = -1.5708
 
 [node name="inner_fixed_wall4" parent="walls" instance=ExtResource("11_mkatb")]
@@ -166,30 +168,19 @@ position = Vector2(-64, -256)
 [node name="double_anchor_wall6" parent="walls" instance=ExtResource("6_jpn8x")]
 position = Vector2(64, 256)
 
-[node name="permeable_wall6" parent="walls" instance=ExtResource("7_2vj1t")]
-position = Vector2(-256, -64)
-rotation = 1.5708
-
-[node name="permeable_wall2" parent="walls" instance=ExtResource("7_2vj1t")]
-position = Vector2(256, 64)
-rotation = -1.5708
-
-[node name="enemy_rusher" parent="walls" instance=ExtResource("10_o0x56")]
-position = Vector2(-64, -64)
-
-[node name="permeable_wall7" parent="walls" instance=ExtResource("7_2vj1t")]
-position = Vector2(256, -192)
-rotation = 1.5708
-
-[node name="permeable_wall8" parent="walls" instance=ExtResource("7_2vj1t")]
-position = Vector2(-256, 192)
-rotation = -1.5708
-
 [node name="single_anchor_wall" parent="walls" instance=ExtResource("8_vtmiw")]
 position = Vector2(64, -128)
 
 [node name="single_anchor_wall3" parent="walls" instance=ExtResource("8_vtmiw")]
 position = Vector2(128, 64)
+rotation = 1.5708
+
+[node name="single_anchor_wall7" parent="walls" instance=ExtResource("8_vtmiw")]
+position = Vector2(-256, -64)
+rotation = 1.5708
+
+[node name="single_anchor_wall6" parent="walls" instance=ExtResource("8_vtmiw")]
+position = Vector2(256, -192)
 rotation = 1.5708
 
 [node name="single_anchor_wall4" parent="walls" instance=ExtResource("8_vtmiw")]
@@ -198,6 +189,14 @@ rotation = 3.14159
 
 [node name="single_anchor_wall2" parent="walls" instance=ExtResource("8_vtmiw")]
 position = Vector2(-128, -64)
+rotation = -1.5708
+
+[node name="single_anchor_wall8" parent="walls" instance=ExtResource("8_vtmiw")]
+position = Vector2(256, 64)
+rotation = -1.5708
+
+[node name="single_anchor_wall5" parent="walls" instance=ExtResource("8_vtmiw")]
+position = Vector2(-256, 192)
 rotation = -1.5708
 
 [node name="Food" type="Node" parent="."]

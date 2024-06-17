@@ -140,6 +140,18 @@ position = Vector2(320, 320)
 
 [node name="walls" type="Node" parent="."]
 
+[node name="permeable_wall4" parent="walls" instance=ExtResource("6_lguu5")]
+position = Vector2(256, 192)
+rotation = -1.5708
+
+[node name="permeable_wall5" parent="walls" instance=ExtResource("6_lguu5")]
+position = Vector2(-256, -192)
+rotation = 1.5708
+
+[node name="permeable_wall9" parent="walls" instance=ExtResource("6_lguu5")]
+position = Vector2(-64, -128)
+rotation = 3.14159
+
 [node name="inner_fixed_wall" parent="walls" instance=ExtResource("11_hu35f")]
 position = Vector2(-192, -256)
 
@@ -168,18 +180,6 @@ rotation = 1.5708
 
 [node name="inner_fixed_wall6" parent="walls" instance=ExtResource("11_hu35f")]
 position = Vector2(256, 64)
-rotation = 1.5708
-
-[node name="inner_fixed_wall7" parent="walls" instance=ExtResource("11_hu35f")]
-position = Vector2(-256, -64)
-rotation = 1.5708
-
-[node name="inner_fixed_wall8" parent="walls" instance=ExtResource("11_hu35f")]
-position = Vector2(-256, 64)
-rotation = 1.5708
-
-[node name="inner_fixed_wall9" parent="walls" instance=ExtResource("11_hu35f")]
-position = Vector2(-256, 192)
 rotation = 1.5708
 
 [node name="single_anchor_wall4" parent="walls" instance=ExtResource("7_40378")]
@@ -285,22 +285,7 @@ rotation = -1.5708
 position = Vector2(-384, 320)
 rotation = -1.5708
 
-[node name="permeable_wall4" parent="walls" instance=ExtResource("6_lguu5")]
-position = Vector2(256, 192)
-rotation = -1.5708
-
-[node name="permeable_wall5" parent="walls" instance=ExtResource("6_lguu5")]
-position = Vector2(-256, -192)
-rotation = 1.5708
-
-[node name="permeable_wall9" parent="walls" instance=ExtResource("6_lguu5")]
-position = Vector2(-64, -128)
-rotation = 3.14159
-
 [node name="double_anchor_wall" parent="walls" instance=ExtResource("5_nrxnh")]
-position = Vector2(-64, 128)
-
-[node name="double_anchor_wall2" parent="walls" instance=ExtResource("5_nrxnh")]
 position = Vector2(-64, 128)
 
 [node name="double_anchor_wall3" parent="walls" instance=ExtResource("5_nrxnh")]
@@ -310,11 +295,19 @@ position = Vector2(64, -128)
 position = Vector2(0, 64)
 rotation = -1.5708
 
-[node name="single_anchor_wall" parent="walls" instance=ExtResource("7_40378")]
-position = Vector2(128, -200)
-rotation = -1.5708
+[node name="inner_fixed_wall7" parent="walls" instance=ExtResource("11_hu35f")]
+position = Vector2(-256, -64)
+rotation = 1.5708
 
-[node name="single_anchor_wall2" parent="walls" instance=ExtResource("7_40378")]
+[node name="inner_fixed_wall8" parent="walls" instance=ExtResource("11_hu35f")]
+position = Vector2(-256, 64)
+rotation = 1.5708
+
+[node name="inner_fixed_wall9" parent="walls" instance=ExtResource("11_hu35f")]
+position = Vector2(-256, 192)
+rotation = 1.5708
+
+[node name="single_anchor_wall" parent="walls" instance=ExtResource("7_40378")]
 position = Vector2(128, -200)
 rotation = -1.5708
 

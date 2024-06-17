@@ -24,7 +24,7 @@ position = Vector2(1248, -32)
 [node name="pathfinder" parent="." instance=ExtResource("3_hvgs0")]
 
 [node name="player" parent="." instance=ExtResource("4_wappk")]
-position = Vector2(-328, 320)
+position = Vector2(-320, 320)
 
 [node name="enemy_rusher" parent="." instance=ExtResource("11_20153")]
 position = Vector2(-64, -64)
@@ -319,4 +319,4 @@ rotation = 1.5708
 position = Vector2(64, 128)
 
 [node name="enemy_basic" parent="walls" instance=ExtResource("11_7d26j")]
-position = Vector2(328, -312)
+position = Vector2(320, -320)

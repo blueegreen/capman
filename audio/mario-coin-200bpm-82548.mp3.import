@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/mario-coin-200bpm-82548.mp3-46093eba20ca37f1c
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=120.0
 beat_count=0
 bar_beats=4
