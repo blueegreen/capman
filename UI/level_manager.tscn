@@ -1,15 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://citfwdrvjm0ds"]
+[gd_scene load_steps=18 format=3 uid="uid://citfwdrvjm0ds"]
 
-[ext_resource type="Script" path="res://UI/level_manager.gd" id="1_nwl25"]
+[ext_resource type="Script" uid="uid://roe8orhmrn8k" path="res://UI/level_manager.gd" id="1_nwl25"]
 [ext_resource type="PackedScene" uid="uid://bvp6nksc3aaae" path="res://UI/mouse_pointer.tscn" id="2_ya4ex"]
 [ext_resource type="Texture2D" uid="uid://csfhcknrdxk1f" path="res://sprite_sheet-export.png" id="3_gqr8u"]
 [ext_resource type="PackedScene" uid="uid://dgyqg26itodgn" path="res://UI/left_hand.tscn" id="3_q0t8h"]
 [ext_resource type="PackedScene" uid="uid://dsxuxyhtjqepv" path="res://UI/right_hand.tscn" id="4_oc4ug"]
 [ext_resource type="FontFile" uid="uid://dpuk5ip7hhnvh" path="res://PublicPixel.ttf" id="5_r1t3k"]
 [ext_resource type="Texture2D" uid="uid://cstkd2rx1xrto" path="res://sprite_sheet_1.png" id="7_pfuks"]
-[ext_resource type="Shader" path="res://UI/crt_shader.gdshader" id="9_8iym5"]
+[ext_resource type="Shader" uid="uid://bofo65agwnx8x" path="res://UI/crt_shader.gdshader" id="9_8iym5"]
 [ext_resource type="AudioStream" uid="uid://b5duk7a2awxbh" path="res://audio/game-over-arcade-6435.mp3" id="9_24h8i"]
 [ext_resource type="AudioStream" uid="uid://bhd407lqnk1r7" path="res://audio/theme.ogg" id="9_sa573"]
+[ext_resource type="AudioStream" uid="uid://dadrtv0v4vsd4" path="res://audio/theme_reverse.ogg" id="10_3a0bn"]
 [ext_resource type="AudioStream" uid="uid://c3qqlxujdhn0q" path="res://audio/mario-coin-200bpm-82548.mp3" id="11_x0kut"]
 
 [sub_resource type="Environment" id="Environment_dea5p"]
@@ -25,7 +26,7 @@ glow_hdr_threshold = 1.91
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_etexg"]
 resource_local_to_scene = true
 shader = ExtResource("9_8iym5")
-shader_parameter/scanline_count = 200.0
+shader_parameter/scanline_count = 150.0
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_w53xd"]
 
@@ -61,7 +62,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3mxww"]
 _data = {
-"new_level": SubResource("Animation_1q6eh")
+&"new_level": SubResource("Animation_1q6eh")
 }
 
 [node name="level_manager" type="Node2D"]
@@ -73,7 +74,7 @@ modulate = Color(0.925353, 0.925353, 0.925353, 1)
 z_index = 9
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(616, 0)
+position = Vector2(384, 0)
 zoom = Vector2(0.68, 0.68)
 
 [node name="rewind_sprite" type="Sprite2D" parent="."]
@@ -91,6 +92,7 @@ region_enabled = true
 region_rect = Rect2(1432, 152, 80, 72)
 
 [node name="score_label" type="Label" parent="."]
+visible = false
 offset_left = 128.0
 offset_top = -512.0
 offset_right = 384.0
@@ -98,10 +100,11 @@ offset_bottom = -469.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("5_r1t3k")
 theme_override_font_sizes/font_size = 20
-text = "moves: 0"
+text = "time: 0"
 vertical_alignment = 1
 
 [node name="highscore_label" type="Label" parent="."]
+visible = false
 offset_left = -320.0
 offset_top = -512.0
 offset_bottom = -469.0
@@ -112,7 +115,6 @@ text = "highscore:"
 vertical_alignment = 1
 
 [node name="bg" type="Node2D" parent="."]
-modulate = Color(0.894922, 0.894922, 0.894922, 1)
 
 [node name="ColorRect" type="ColorRect" parent="bg"]
 z_index = 11
@@ -162,7 +164,7 @@ color = Color(0.0627451, 0.0313726, 0.12549, 1)
 position = Vector2(-448, 678)
 
 [node name="right_hand" parent="bg" instance=ExtResource("4_oc4ug")]
-position = Vector2(1728, 512)
+position = Vector2(1344, 448)
 
 [node name="console_sprite" type="Sprite2D" parent="bg"]
 z_index = 11
@@ -178,21 +180,21 @@ region_rect = Rect2(1600, -8, 1592, 1608)
 
 [node name="wire_sprite" type="Sprite2D" parent="bg"]
 z_index = 11
-position = Vector2(960, 0)
+position = Vector2(896, 0)
 texture = ExtResource("3_gqr8u")
 region_enabled = true
 region_rect = Rect2(3200, -8, 232, 1608)
 
 [node name="keyboard_sprite" type="Sprite2D" parent="bg"]
 z_index = 11
-position = Vector2(1856, -320)
+position = Vector2(1664, -320)
 texture = ExtResource("3_gqr8u")
 region_enabled = true
 region_rect = Rect2(3448, 576, 1344, 736)
 
 [node name="mousepad" type="Sprite2D" parent="bg"]
 z_index = 10
-position = Vector2(1600, 576)
+position = Vector2(1344, 576)
 rotation = -0.523598
 texture = ExtResource("7_pfuks")
 region_enabled = true
@@ -200,7 +202,7 @@ region_rect = Rect2(680, 848, 792, 704)
 
 [node name="can" type="Sprite2D" parent="bg"]
 z_index = 10
-position = Vector2(1216, -794)
+position = Vector2(1280, -768)
 texture = ExtResource("7_pfuks")
 region_enabled = true
 region_rect = Rect2(312, 824, 312, 384)
@@ -218,6 +220,10 @@ texture = SubResource("PlaceholderTexture2D_w53xd")
 [node name="theme_player" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_sa573")
 
+[node name="theme_rewind_player" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_3a0bn")
+pitch_scale = 1.25
+
 [node name="death_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_24h8i")
 pitch_scale = 1.58
@@ -228,6 +234,6 @@ volume_db = -4.262
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_3mxww")
+&"": SubResource("AnimationLibrary_3mxww")
 }
 autoplay = "new_level"

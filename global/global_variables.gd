@@ -15,3 +15,4 @@ func _ready():
 	levels.fill(false)
 	highscores.fill(1001)
 	levels[1] = true
+	GameManager.load_game()

@@ -5,6 +5,7 @@ extends Node2D
 @onready var score_label = $score_label
 @onready var highscore_label = $highscore_label
 @onready var theme_player = $theme_player
+@onready var theme_rewind_player = $theme_rewind_player
 @onready var death_sfx = $death_sfx
 @onready var win_sfx = $win_sfx
 
@@ -32,6 +33,7 @@ var dialogue_manager
 
 func _ready():
 	level_num = int(GameManager.current_scene.scene_file_path)
+	tutorial()
 	dialogue_manager = get_parent().get_node_or_null("dialogue_manager")
 	if dialogue_manager != null:
 		dialogue_manager.level_start_dialogue()
@@ -64,6 +66,8 @@ func _ready():
 
 func _process(delta):
 	handle_input(delta)
+	if Input.is_action_just_pressed("reload") and game_level:
+		reload_level()
 
 func _on_beat():
 	if not game_level:
@@ -77,34 +81,51 @@ func _on_beat():
 		TIME_STATE.FAST:
 			move_count += 1
 			pass
-	score_label.text = "moves: " + str(move_count)
+	await get_tree().create_timer(GlobalVariables.time_step / 2.0).timeout
+	score_label.text = "time: " + str(move_count)
 
 func state_transition(new_state : TIME_STATE):
+	var stream_pos 
 	match new_state:
 		TIME_STATE.NORMAL:
 			rewind_sprite.visible = false
 			forward_sprite.visible = false
 			theme_player.pitch_scale = 1
 			
+			if theme_rewind_player.playing:
+				stream_pos = theme_rewind_player.get_playback_position()
+				theme_rewind_player.stop()
+				theme_player.play(9.64 - stream_pos)
+			
 			for entity in moving_entities:
 				entity.rewinding = false
 			for moving_wall in moving_walls:
 				moving_wall.rewinding = false
 			GlobalVariables.time_step = level_timestep
+			
 		TIME_STATE.REWIND:
 			forward_sprite.visible = false
 			rewind_sprite.visible = true
-			theme_player.pitch_scale = 1.25
+			
+			stream_pos = theme_player.get_playback_position()
+			theme_player.stop()
+			theme_rewind_player.play(9.64 - stream_pos)
 			
 			for entity in moving_entities:
 				entity.rewinding = true
 			for moving_wall in moving_walls:
 				moving_wall.rewinding = true
 			GlobalVariables.time_step = 0.3
+			
 		TIME_STATE.FAST:
 			forward_sprite.visible = true
 			rewind_sprite.visible = false
 			theme_player.pitch_scale = 1.25
+			
+			if theme_rewind_player.playing:
+				stream_pos = theme_rewind_player.get_playback_position()
+				theme_rewind_player.stop()
+				theme_player.play(9.64 - stream_pos)
 			
 			for entity in moving_entities:
 				entity.rewinding = false
@@ -115,11 +136,13 @@ func state_transition(new_state : TIME_STATE):
 	current_time_state = new_state
 
 func _on_collectible_collected(_msg = {}):
-	score +=1
+	score += 1
 	if score >= food_count:
 		finish_level()
 
 func handle_input(delta):
+	if level_num < 3:
+		return
 	if Input.is_action_pressed("left_click") and not level_over:
 		if not pressed_left:
 			pressed_left = true
@@ -158,7 +181,7 @@ func _on_game_over():
 		enemy.visible = false
 	GlobalTimer.stop()
 	var new_window = WINDOW.instantiate()
-	new_window.global_position = global_position
+	new_window.global_position = Vector2(randf_range(-192, 192), randf_range(-192, 192))
 	new_window.mode = 0
 	new_window.level_manager = self
 	call_deferred("add_child", new_window)
@@ -171,13 +194,14 @@ func finish_level():
 	if GlobalVariables.highscores[level_num] > move_count:
 		GlobalVariables.highscores[level_num] = move_count
 		highscore_label.text = "highscore: " + str(move_count)
+	GameManager.save_game()
 	GlobalTimer.stop()
 	
 	if not next_level_path.is_empty():
 		GlobalVariables.levels[level_num+1] = true
 	
 	var new_window = WINDOW.instantiate()
-	new_window.global_position = global_position
+	new_window.global_position = Vector2(randf_range(-320, 320), randf_range(-320, 320))
 	new_window.mode = 1
 	new_window.level_manager = self
 	call_deferred("add_child", new_window)
@@ -188,3 +212,25 @@ func reload_level():
 func go_to_next_level():
 	if not next_level_path.is_empty():
 		GameManager.goto_scene(next_level_path)
+
+func tutorial():
+	if level_num > 3 or level_num < 1:
+		return
+	var new_window = WINDOW.instantiate()
+	new_window.global_position = global_position
+	new_window.mode = 2
+	match level_num:
+		1:
+			new_window.global_position = Vector2(192, -192)
+			new_window.tut_text = "click on wall anchors to rotate them"
+			new_window.tut_delay = 6.5
+		2:
+			new_window.global_position = Vector2(-320, -256)
+			new_window.tut_text = "left click for clockwise\nright click for anticlockwise"
+			new_window.tut_delay = 1
+		3:
+			new_window.global_position = Vector2(320, -320)
+			new_window.tut_text = "hold left click to speed up\nhold right click to rewind"
+			new_window.tut_delay = 1
+	new_window.level_manager = self
+	call_deferred("add_child", new_window)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgttddc4c1myp"]
+[gd_scene load_steps=9 format=3 uid="uid://bgttddc4c1myp"]
 
 [ext_resource type="Script" path="res://UI/pop_up_window.gd" id="1_wr0qm"]
 [ext_resource type="Texture2D" uid="uid://csfhcknrdxk1f" path="res://sprite_sheet-export.png" id="2_og06i"]
+[ext_resource type="FontFile" uid="uid://dvtvosnnewvtx" path="res://PIXBOB LITE.otf" id="3_56mrh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whmx2"]
-size = Vector2(432, 74.5)
+size = Vector2(498, 353)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w4nvh"]
 radius = 56.5685
@@ -18,7 +19,7 @@ size = Vector2(64, 104)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lx68t"]
 size = Vector2(40, 48)
 
-[node name="pop_up_window" type="Node2D"]
+[node name="pop_up_window" type="Node2D" groups=["window"]]
 z_index = 9
 script = ExtResource("1_wr0qm")
 mode = 1
@@ -28,11 +29,12 @@ texture = ExtResource("2_og06i")
 region_enabled = true
 region_rect = Rect2(32, 1088, 528, 376)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="draggable_area" type="Area2D" parent="."]
+collision_layer = 128
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-32, -146.75)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="draggable_area"]
+position = Vector2(1, -4.5)
 shape = SubResource("RectangleShape2D_whmx2")
 
 [node name="game_over_window" type="Node2D" parent="."]
@@ -96,6 +98,22 @@ collision_mask = 0
 position = Vector2(80, 92)
 shape = SubResource("RectangleShape2D_h5a1u")
 
+[node name="tut_window" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="tut_window"]
+offset_left = -200.0
+offset_top = -79.0
+offset_right = 207.0
+offset_bottom = 142.0
+theme_override_fonts/font = ExtResource("3_56mrh")
+theme_override_font_sizes/font_size = 60
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="tut_timer" type="Timer" parent="tut_window"]
+one_shot = true
+
 [node name="exit" type="Area2D" parent="."]
 collision_mask = 0
 
@@ -110,7 +128,7 @@ texture = ExtResource("2_og06i")
 region_enabled = true
 region_rect = Rect2(496, 1104, 40, 40)
 
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="input_event" from="draggable_area" to="." method="_on_area_2d_input_event"]
 [connection signal="input_event" from="game_over_window/game_over_reload" to="." method="_on_game_over_reload_input_event"]
 [connection signal="mouse_entered" from="game_over_window/game_over_reload" to="." method="_on_game_over_reload_mouse_entered"]
 [connection signal="mouse_exited" from="game_over_window/game_over_reload" to="." method="_on_game_over_reload_mouse_exited"]
@@ -120,6 +138,7 @@ region_rect = Rect2(496, 1104, 40, 40)
 [connection signal="input_event" from="win_window/win_continue" to="." method="_on_win_continue_input_event"]
 [connection signal="mouse_entered" from="win_window/win_continue" to="." method="_on_win_continue_mouse_entered"]
 [connection signal="mouse_exited" from="win_window/win_continue" to="." method="_on_win_continue_mouse_exited"]
+[connection signal="timeout" from="tut_window/tut_timer" to="." method="_on_tut_timer_timeout"]
 [connection signal="input_event" from="exit" to="." method="_on_exit_input_event"]
 [connection signal="mouse_entered" from="exit" to="." method="_on_exit_mouse_entered"]
 [connection signal="mouse_exited" from="exit" to="." method="_on_exit_mouse_exited"]

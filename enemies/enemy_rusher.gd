@@ -25,7 +25,7 @@ func move():
 	end_pos = new_end_pos
 	
 	var move_tween = create_tween()
-	move_tween.tween_property(self, "global_position", end_pos, GlobalVariables.time_step).set_trans(Tween.TRANS_EXPO)
+	move_tween.tween_property(self, "global_position", end_pos, GlobalVariables.time_step).set_trans(Tween.TRANS_QUART)
 	move_tween.parallel().tween_property(enemy_sprite, "frame", (enemy_sprite.frame + 1) % 2, GlobalVariables.time_step)
 
 func move_back():
@@ -35,7 +35,7 @@ func move_back():
 		var move_back_tween = create_tween()
 		direction = prev_move[1]
 		end_pos = prev_pos
-		move_back_tween.tween_property(self, "global_position", prev_pos, GlobalVariables.time_step).set_trans(Tween.TRANS_EXPO)
+		move_back_tween.tween_property(self, "global_position", prev_pos, GlobalVariables.time_step).set_trans(Tween.TRANS_QUART)
 		move_back_tween.parallel().tween_property(enemy_sprite, "frame", (enemy_sprite.frame + 1) % 2, GlobalVariables.time_step)
 		
 func start_next_move():

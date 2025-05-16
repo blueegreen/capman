@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b2dso68s2hu80"]
+[gd_scene load_steps=12 format=3 uid="uid://b2dso68s2hu80"]
 
 [ext_resource type="PackedScene" uid="uid://dt00c18n44v1r" path="res://boundary_objects/fixed_wall.tscn" id="2_78rfq"]
 [ext_resource type="PackedScene" uid="uid://db2caokmjrqn2" path="res://collectibles/food.tscn" id="3_wa4h3"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://dialogues/lvl_10_start_dialogue.gd" id="6_2xrbn"]
 [ext_resource type="PackedScene" uid="uid://citfwdrvjm0ds" path="res://UI/level_manager.tscn" id="8_sbm2i"]
 [ext_resource type="PackedScene" uid="uid://lyj2ofbuus5i" path="res://enemies/enemy_basic.tscn" id="11_dyrr7"]
+[ext_resource type="PackedScene" uid="uid://cnr625oysfmyj" path="res://boundary_objects/double_anchor_wall.tscn" id="11_r0fx7"]
 
 [node name="lvl_10" type="Node2D"]
 
@@ -41,10 +42,6 @@ rotation = -3.14159
 position = Vector2(-64, 192)
 rotation = -3.14159
 
-[node name="permeable_wall13" parent="wall" instance=ExtResource("6_1v1on")]
-position = Vector2(0, 256)
-rotation = 1.5708
-
 [node name="permeable_wall16" parent="wall" instance=ExtResource("6_1v1on")]
 position = Vector2(-256, 256)
 rotation = 1.5708
@@ -54,10 +51,6 @@ position = Vector2(64, 192)
 
 [node name="permeable_wall14" parent="wall" instance=ExtResource("6_1v1on")]
 position = Vector2(64, -192)
-
-[node name="permeable_wall15" parent="wall" instance=ExtResource("6_1v1on")]
-position = Vector2(0, -256)
-rotation = -1.6057
 
 [node name="permeable_wall17" parent="wall" instance=ExtResource("6_1v1on")]
 position = Vector2(256, -256)
@@ -118,14 +111,6 @@ rotation = 1.5708
 position = Vector2(384, 0)
 rotation = 1.5708
 
-[node name="fixed_wall23" parent="wall" instance=ExtResource("2_78rfq")]
-position = Vector2(128, 0)
-rotation = 1.5708
-
-[node name="fixed_wall24" parent="wall" instance=ExtResource("2_78rfq")]
-position = Vector2(-128, 0)
-rotation = 1.5708
-
 [node name="fixed_wall14" parent="wall" instance=ExtResource("2_78rfq")]
 position = Vector2(384, 256)
 rotation = 1.5708
@@ -150,12 +135,6 @@ rotation = 1.5708
 position = Vector2(-384, 256)
 rotation = 1.5708
 
-[node name="inner_fixed_wall2" parent="wall" instance=ExtResource("4_pen0m")]
-position = Vector2(-192, 192)
-
-[node name="inner_fixed_wall3" parent="wall" instance=ExtResource("4_pen0m")]
-position = Vector2(192, -192)
-
 [node name="inner_fixed_wall5" parent="wall" instance=ExtResource("4_pen0m")]
 position = Vector2(256, 128)
 rotation = 1.5708
@@ -170,10 +149,6 @@ rotation = 1.5708
 
 [node name="inner_fixed_wall13" parent="wall" instance=ExtResource("4_pen0m")]
 position = Vector2(-256, 0)
-rotation = 1.5708
-
-[node name="inner_fixed_wall16" parent="wall" instance=ExtResource("4_pen0m")]
-position = Vector2(256, -128)
 rotation = 1.5708
 
 [node name="inner_fixed_wall14" parent="wall" instance=ExtResource("4_pen0m")]
@@ -259,6 +234,12 @@ position = Vector2(192, 128)
 [node name="food21" parent="food" instance=ExtResource("3_wa4h3")]
 position = Vector2(192, 0)
 
+[node name="food27" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(64, 0)
+
+[node name="food28" parent="food" instance=ExtResource("3_wa4h3")]
+position = Vector2(-64, 0)
+
 [node name="food22" parent="food" instance=ExtResource("3_wa4h3")]
 position = Vector2(192, -128)
 
@@ -273,3 +254,17 @@ position = Vector2(-192, -128)
 
 [node name="food26" parent="food" instance=ExtResource("3_wa4h3")]
 position = Vector2(-192, 0)
+
+[node name="double_anchor_wall" parent="." instance=ExtResource("11_r0fx7")]
+position = Vector2(-192, 192)
+
+[node name="double_anchor_wall2" parent="." instance=ExtResource("11_r0fx7")]
+position = Vector2(-256, 128)
+rotation = 1.5708
+
+[node name="double_anchor_wall3" parent="." instance=ExtResource("11_r0fx7")]
+position = Vector2(192, -192)
+
+[node name="double_anchor_wall4" parent="." instance=ExtResource("11_r0fx7")]
+position = Vector2(256, -128)
+rotation = 1.5708

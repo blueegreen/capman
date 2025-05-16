@@ -15,6 +15,7 @@ func display_array(array : Array[String]):
 	sprite_1.visible = false
 	sprite_2.visible = false
 	for line in array:
+		rotation = randf_range(-5.0, 5.0) * PI / 180.0
 		display_line(line)
 		shift_sfx.play()
 		await get_tree().create_timer(delay).timeout

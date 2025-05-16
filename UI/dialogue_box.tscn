@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://csfhcknrdxk1f" path="res://sprite_sheet-export.png" id="1_6mgqp"]
 [ext_resource type="Script" path="res://UI/dialogue_box.gd" id="1_m2ayu"]
 [ext_resource type="FontFile" uid="uid://dpuk5ip7hhnvh" path="res://PublicPixel.ttf" id="3_m7xdw"]
-[ext_resource type="AudioStream" path="res://audio/shift.wav" id="4_x73la"]
+[ext_resource type="AudioStream" uid="uid://djmqjceylegn5" path="res://audio/shift.wav" id="4_x73la"]
 
 [node name="dialogue_box" type="Node2D"]
 top_level = true
@@ -17,9 +17,9 @@ region_enabled = true
 region_rect = Rect2(976, 240, 616, 472)
 
 [node name="text_1" type="Label" parent="sprite_1"]
-offset_left = -210.0
+offset_left = -216.0
 offset_top = -156.0
-offset_right = 242.0
+offset_right = 250.0
 offset_bottom = 81.0
 rotation = 0.0385916
 theme_override_colors/font_color = Color(0, 0, 0, 1)

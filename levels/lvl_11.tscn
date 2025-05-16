@@ -14,7 +14,6 @@
 [node name="lvl_11" type="Node2D"]
 
 [node name="level_manager" parent="." instance=ExtResource("3_th0jh")]
-level_timestep = 0.8
 next_level_path = "res://levels/lvl_12.tscn"
 
 [node name="pathfinder" parent="." instance=ExtResource("1_gqpdd")]

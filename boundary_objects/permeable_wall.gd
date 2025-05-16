@@ -10,7 +10,6 @@ extends Area2D
 var root
 
 enum DIR {CW, ACW}
-signal changed
 
 var mouse_position : Vector2
 var rotate_allowed = true
@@ -31,15 +30,24 @@ func _ready():
 	root = get_parent()
 	GlobalTimer.timeout.connect(_on_beat)
 
-func _on_beat():
-	toggle_permeability()
+func _process(_delta):
 	if move_queued != null:
 		rotate_around(move_queued)
 		move_queued = null
 	elif rewinding:
+		return
+
+func _on_beat():
+	toggle_permeability()
+	if rewinding:
 		rotate_back()
-	else:
+		await get_tree().create_timer(GlobalVariables.time_step/2).timeout
+		rotate_back()
+	elif rotate_allowed:
 		record_moves.push_back(null)
+		await get_tree().create_timer(GlobalVariables.time_step/2).timeout
+		record_moves.push_back(null)
+
 
 func rotate_back():
 	if record_moves.size() > 0:
@@ -61,7 +69,6 @@ func _on_area_2d_input_event(_viewport, _event, _shape_idx):
 			if obj.is_in_group("fixed_wall"):
 				return
 	anchor_sprite_1.frame = 1
-	anchor_sprite_2.frame = 1
 	if Input.is_action_just_pressed("left_click") and rotate_allowed:
 		rotation_dir = DIR.CW
 		move_queued = point_1
@@ -92,10 +99,11 @@ func rotate_around(point):
 	anchor.add_child(wall)
 	wall.global_position = wall_position
 	
-	rotate_allowed = true
 	var rotate_tween = create_tween()
-	rotate_tween.tween_property(anchor, "rotation", rotation_angle, GlobalVariables.time_step - 0.1).set_trans(Tween.TRANS_EXPO)
+	rotate_tween.tween_property(anchor, "rotation", rotation_angle, GlobalVariables.time_step/2 - 0.1).set_trans(Tween.TRANS_EXPO)
 	rotate_tween.tween_callback(complete_rotation)
+	await get_tree().create_timer(GlobalVariables.time_step/2).timeout
+	rotate_allowed = true
 
 func rotate_area(point):
 	var wall_transform = wall.global_transform

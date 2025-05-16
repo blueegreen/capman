@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c6ooafw310alj" path="res://UI/start_button_sprite.tscn" id="4_v5jaf"]
 [ext_resource type="PackedScene" uid="uid://d3o2488gok078" path="res://UI/credits_button_sprite.tscn" id="5_d461d"]
 [ext_resource type="PackedScene" uid="uid://dnuisoj85rswt" path="res://UI/dialogue_manager.tscn" id="6_yu7ax"]
-[ext_resource type="Script" path="res://dialogues/game_start_dialogue.gd" id="7_pfdds"]
+[ext_resource type="Script" uid="uid://c7tfrvag1xbo5" path="res://dialogues/game_start_dialogue.gd" id="7_pfdds"]
 [ext_resource type="AudioStream" uid="uid://b8w6k6ijqsuvj" path="res://audio/short-beep-tone-47916.mp3" id="8_xvnqp"]
 
 [sub_resource type="Animation" id="Animation_qt40c"]
@@ -126,8 +126,8 @@ tracks/6/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tl7mi"]
 _data = {
-"RESET": SubResource("Animation_qt40c"),
-"start": SubResource("Animation_01bja")
+&"RESET": SubResource("Animation_qt40c"),
+&"start": SubResource("Animation_01bja")
 }
 
 [node name="lvl_start_screen" type="Node2D"]
@@ -143,7 +143,7 @@ region_rect = Rect2(648, 128, 704, 144)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_tl7mi")
+&"": SubResource("AnimationLibrary_tl7mi")
 }
 autoplay = "start"
 

@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://ck5d81ekfneit" path="res://enemies/pathfinder.tscn" id="3_jp7nk"]
 [ext_resource type="PackedScene" uid="uid://citfwdrvjm0ds" path="res://UI/level_manager.tscn" id="4_awh0e"]
 [ext_resource type="PackedScene" uid="uid://dnuisoj85rswt" path="res://UI/dialogue_manager.tscn" id="5_6kwq6"]
-[ext_resource type="Script" path="res://dialogues/lvl_1_start_dialogue.gd" id="5_kgnbn"]
+[ext_resource type="Script" uid="uid://xlw4r862f8hd" path="res://dialogues/lvl_1_start_dialogue.gd" id="5_kgnbn"]
 [ext_resource type="PackedScene" uid="uid://dt00c18n44v1r" path="res://boundary_objects/fixed_wall.tscn" id="5_mxl6d"]
 [ext_resource type="PackedScene" uid="uid://db2caokmjrqn2" path="res://collectibles/food.tscn" id="6_ir5t4"]
-[ext_resource type="Script" path="res://dialogues/lvl_1_end_dialogue.gd" id="6_unh67"]
+[ext_resource type="Script" uid="uid://dimyg7nv64164" path="res://dialogues/lvl_1_end_dialogue.gd" id="6_unh67"]
 
 [node name="lvl_1" type="Node2D"]
 
@@ -27,12 +27,11 @@ level_end_script = ExtResource("6_unh67")
 [node name="walls" type="Node" parent="."]
 
 [node name="single_anchor_wall" parent="walls" instance=ExtResource("2_gkc4o")]
-position = Vector2(128, 64)
-rotation = 1.5708
+position = Vector2(-192, 0)
+rotation = 3.14159
 
 [node name="single_anchor_wall2" parent="walls" instance=ExtResource("2_gkc4o")]
-position = Vector2(128, -64)
-rotation = -1.5708
+position = Vector2(192, 0)
 
 [node name="fixed_wall" parent="walls" instance=ExtResource("5_mxl6d")]
 position = Vector2(-192, 128)
