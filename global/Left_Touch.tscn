@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://fttsxwgvc0xj"]
+
+[ext_resource type="Script" uid="uid://cibphsisddoha" path="res://global/left_touch.gd" id="1_qcncn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ih5s"]
+size = Vector2(1e+11, 1e+11)
+
+[node name="LeftTouch" type="TouchScreenButton"]
+shape = SubResource("RectangleShape2D_2ih5s")
+shape_visible = false
+action = "left_click"
+script = ExtResource("1_qcncn")
