@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://lyj2ofbuus5i" path="res://enemies/enemy_basic.tscn" id="6_bp7vl"]
 [ext_resource type="PackedScene" uid="uid://citfwdrvjm0ds" path="res://UI/level_manager.tscn" id="7_l2sip"]
 [ext_resource type="PackedScene" uid="uid://dnuisoj85rswt" path="res://UI/dialogue_manager.tscn" id="8_v2566"]
-[ext_resource type="Script" path="res://dialogues/lvl_4_start_dialogue.gd" id="9_2gwy4"]
+[ext_resource type="Script" uid="uid://c01akwwlsol54" path="res://dialogues/lvl_4_start_dialogue.gd" id="9_2gwy4"]
 
 [node name="lvl_4" type="Node2D"]
 

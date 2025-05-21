@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbt5me6mo4xaf"]
+
+[ext_resource type="Script" uid="uid://b4aaksnq8hm1k" path="res://global/general_touch.gd" id="1_gcd7b"]
+[ext_resource type="Texture2D" uid="uid://delcu20rdql0x" path="res://logo.png" id="2_ggcqa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggcqa"]
+size = Vector2(1e+11, 1e+11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xus5h"]
+size = Vector2(38.884, 40.076)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ij6um"]
+size = Vector2(38.974, 40.076)
+
+[node name="TouchSystem" type="TouchScreenButton"]
+shape = SubResource("RectangleShape2D_ggcqa")
+action = "left_click"
+script = ExtResource("1_gcd7b")
+metadata/_custom_type_script = "uid://b4aaksnq8hm1k"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 206.0
+offset_top = 683.0
+offset_right = 246.0
+offset_bottom = 723.0
+scale = Vector2(5.15446, 5.15446)
+
+[node name="Switch_Rotation" type="TouchScreenButton" parent="CanvasLayer/HBoxContainer"]
+z_index = 100
+position = Vector2(-1.55206, 5.6262)
+scale = Vector2(0.19594, 0.19594)
+texture_normal = ExtResource("2_ggcqa")
+
+[node name="LContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(20.4243, 26.9114)
+size_flags_horizontal = 4
+
+[node name="LTouch" type="TouchScreenButton" parent="CanvasLayer/LContainer"]
+position = Vector2(19.4866, 19.6571)
+shape = SubResource("RectangleShape2D_xus5h")
+action = "left_click"
+
+[node name="RContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -11.0
+offset_top = -2.0
+offset_right = 29.0
+offset_bottom = 38.0
+grow_horizontal = 2
+scale = Vector2(20.4243, 26.9114)
+size_flags_horizontal = 4
+
+[node name="RTouch" type="TouchScreenButton" parent="CanvasLayer/RContainer"]
+position = Vector2(20.5148, 19.5456)
+shape = SubResource("RectangleShape2D_ij6um")
+action = "left_click"
+
+[node name="Touchdelay" type="Timer" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Switch_Rotation" to="." method="_on_switch_rotation_pressed"]
+[connection signal="pressed" from="CanvasLayer/LContainer/LTouch" to="." method="_on_l_touch_pressed"]
+[connection signal="pressed" from="CanvasLayer/RContainer/RTouch" to="." method="_on_r_touch_pressed"]

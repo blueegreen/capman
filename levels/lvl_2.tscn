@@ -11,127 +11,130 @@
 
 [node name="lvl_2" type="Node2D"]
 
-[node name="level_manager" parent="." instance=ExtResource("1_3co4l")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="level_manager" parent="CanvasLayer" instance=ExtResource("1_3co4l")]
 next_level_path = "res://levels/lvl_3.tscn"
 
-[node name="pathfinder" parent="." instance=ExtResource("2_uby3f")]
+[node name="pathfinder" parent="CanvasLayer" instance=ExtResource("2_uby3f")]
 position = Vector2(769.17, 323.324)
 
-[node name="Food" type="Node" parent="."]
+[node name="Food" type="Node" parent="CanvasLayer"]
 
-[node name="food2" parent="Food" instance=ExtResource("3_m0yqx")]
+[node name="food2" parent="CanvasLayer/Food" instance=ExtResource("3_m0yqx")]
 position = Vector2(65, 128)
 
-[node name="food3" parent="Food" instance=ExtResource("3_m0yqx")]
+[node name="food3" parent="CanvasLayer/Food" instance=ExtResource("3_m0yqx")]
 position = Vector2(-64, 128)
 
-[node name="food4" parent="Food" instance=ExtResource("3_m0yqx")]
+[node name="food4" parent="CanvasLayer/Food" instance=ExtResource("3_m0yqx")]
 position = Vector2(-192, 128)
 
-[node name="food5" parent="Food" instance=ExtResource("3_m0yqx")]
+[node name="food5" parent="CanvasLayer/Food" instance=ExtResource("3_m0yqx")]
 position = Vector2(-192, 0)
 
-[node name="food6" parent="Food" instance=ExtResource("3_m0yqx")]
+[node name="food6" parent="CanvasLayer/Food" instance=ExtResource("3_m0yqx")]
 position = Vector2(-64, 0)
 
-[node name="food7" parent="Food" instance=ExtResource("3_m0yqx")]
+[node name="food7" parent="CanvasLayer/Food" instance=ExtResource("3_m0yqx")]
 position = Vector2(64, 0)
 
-[node name="food8" parent="Food" instance=ExtResource("3_m0yqx")]
+[node name="food8" parent="CanvasLayer/Food" instance=ExtResource("3_m0yqx")]
 position = Vector2(192, 0)
 
-[node name="food11" parent="Food" instance=ExtResource("3_m0yqx")]
+[node name="food11" parent="CanvasLayer/Food" instance=ExtResource("3_m0yqx")]
 position = Vector2(192, -128)
 
-[node name="food12" parent="Food" instance=ExtResource("3_m0yqx")]
+[node name="food12" parent="CanvasLayer/Food" instance=ExtResource("3_m0yqx")]
 position = Vector2(64, -128)
 
-[node name="food13" parent="Food" instance=ExtResource("3_m0yqx")]
+[node name="food13" parent="CanvasLayer/Food" instance=ExtResource("3_m0yqx")]
 position = Vector2(-64, -128)
 
-[node name="food14" parent="Food" instance=ExtResource("3_m0yqx")]
+[node name="food14" parent="CanvasLayer/Food" instance=ExtResource("3_m0yqx")]
 position = Vector2(-192, -128)
 
-[node name="boundary" type="Node" parent="."]
+[node name="boundary" type="Node" parent="CanvasLayer"]
 
-[node name="fixed_wall19" parent="boundary" instance=ExtResource("4_n8ra0")]
+[node name="fixed_wall19" parent="CanvasLayer/boundary" instance=ExtResource("4_n8ra0")]
 position = Vector2(256, 128)
 rotation = 1.5708
 
-[node name="fixed_wall20" parent="boundary" instance=ExtResource("4_n8ra0")]
+[node name="fixed_wall20" parent="CanvasLayer/boundary" instance=ExtResource("4_n8ra0")]
 position = Vector2(256, 0)
 rotation = 1.5708
 
-[node name="fixed_wall21" parent="boundary" instance=ExtResource("4_n8ra0")]
+[node name="fixed_wall21" parent="CanvasLayer/boundary" instance=ExtResource("4_n8ra0")]
 position = Vector2(256, -128)
 rotation = 1.5708
 
-[node name="fixed_wall22" parent="boundary" instance=ExtResource("4_n8ra0")]
+[node name="fixed_wall22" parent="CanvasLayer/boundary" instance=ExtResource("4_n8ra0")]
 position = Vector2(-256, 128)
 rotation = 1.5708
 
-[node name="fixed_wall23" parent="boundary" instance=ExtResource("4_n8ra0")]
+[node name="fixed_wall23" parent="CanvasLayer/boundary" instance=ExtResource("4_n8ra0")]
 position = Vector2(-256, 0)
 rotation = 1.5708
 
-[node name="fixed_wall24" parent="boundary" instance=ExtResource("4_n8ra0")]
+[node name="fixed_wall24" parent="CanvasLayer/boundary" instance=ExtResource("4_n8ra0")]
 position = Vector2(-256, -128)
 rotation = 1.5708
 
-[node name="fixed_wall2" parent="boundary" instance=ExtResource("4_n8ra0")]
+[node name="fixed_wall2" parent="CanvasLayer/boundary" instance=ExtResource("4_n8ra0")]
 position = Vector2(192, 192)
 
-[node name="fixed_wall3" parent="boundary" instance=ExtResource("4_n8ra0")]
+[node name="fixed_wall3" parent="CanvasLayer/boundary" instance=ExtResource("4_n8ra0")]
 position = Vector2(64, 192)
 
-[node name="fixed_wall4" parent="boundary" instance=ExtResource("4_n8ra0")]
+[node name="fixed_wall4" parent="CanvasLayer/boundary" instance=ExtResource("4_n8ra0")]
 position = Vector2(-64, 192)
 
-[node name="fixed_wall5" parent="boundary" instance=ExtResource("4_n8ra0")]
+[node name="fixed_wall5" parent="CanvasLayer/boundary" instance=ExtResource("4_n8ra0")]
 position = Vector2(-192, 192)
 
-[node name="fixed_wall11" parent="boundary" instance=ExtResource("4_n8ra0")]
+[node name="fixed_wall11" parent="CanvasLayer/boundary" instance=ExtResource("4_n8ra0")]
 position = Vector2(192, -192)
 
-[node name="fixed_wall12" parent="boundary" instance=ExtResource("4_n8ra0")]
+[node name="fixed_wall12" parent="CanvasLayer/boundary" instance=ExtResource("4_n8ra0")]
 position = Vector2(64, -192)
 
-[node name="fixed_wall13" parent="boundary" instance=ExtResource("4_n8ra0")]
+[node name="fixed_wall13" parent="CanvasLayer/boundary" instance=ExtResource("4_n8ra0")]
 position = Vector2(-64, -192)
 
-[node name="fixed_wall14" parent="boundary" instance=ExtResource("4_n8ra0")]
+[node name="fixed_wall14" parent="CanvasLayer/boundary" instance=ExtResource("4_n8ra0")]
 position = Vector2(-192, -192)
 
-[node name="walls" type="Node" parent="."]
+[node name="walls" type="Node" parent="CanvasLayer"]
 
-[node name="single_anchor_wall2" parent="walls" instance=ExtResource("5_n0hc8")]
+[node name="single_anchor_wall2" parent="CanvasLayer/walls" instance=ExtResource("5_n0hc8")]
 position = Vector2(-128, 128)
 rotation = 1.5708
 
-[node name="single_anchor_wall4" parent="walls" instance=ExtResource("5_n0hc8")]
+[node name="single_anchor_wall4" parent="CanvasLayer/walls" instance=ExtResource("5_n0hc8")]
 position = Vector2(-64, 64)
 
-[node name="single_anchor_wall5" parent="walls" instance=ExtResource("5_n0hc8")]
+[node name="single_anchor_wall5" parent="CanvasLayer/walls" instance=ExtResource("5_n0hc8")]
 position = Vector2(64, -64)
 rotation = -3.14159
 
-[node name="single_anchor_wall3" parent="walls" instance=ExtResource("5_n0hc8")]
+[node name="single_anchor_wall3" parent="CanvasLayer/walls" instance=ExtResource("5_n0hc8")]
 position = Vector2(128, 0)
 rotation = 1.5708
 
-[node name="inner_fixed_wall" parent="walls" instance=ExtResource("7_tijp1")]
+[node name="inner_fixed_wall" parent="CanvasLayer/walls" instance=ExtResource("7_tijp1")]
 position = Vector2(-192, -64)
 
-[node name="inner_fixed_wall2" parent="walls" instance=ExtResource("7_tijp1")]
+[node name="inner_fixed_wall2" parent="CanvasLayer/walls" instance=ExtResource("7_tijp1")]
 position = Vector2(-64, -64)
 
-[node name="inner_fixed_wall3" parent="walls" instance=ExtResource("7_tijp1")]
+[node name="inner_fixed_wall3" parent="CanvasLayer/walls" instance=ExtResource("7_tijp1")]
 position = Vector2(64, 64)
 
-[node name="inner_fixed_wall4" parent="walls" instance=ExtResource("7_tijp1")]
+[node name="inner_fixed_wall4" parent="CanvasLayer/walls" instance=ExtResource("7_tijp1")]
 position = Vector2(192, 64)
 
-[node name="player" parent="." instance=ExtResource("6_cl6od")]
+[node name="player" parent="CanvasLayer" instance=ExtResource("6_cl6od")]
 position = Vector2(192, 128)
 
-[node name="dialogue_manager" parent="." instance=ExtResource("8_sweyv")]
+[node name="dialogue_manager" parent="CanvasLayer" instance=ExtResource("8_sweyv")]

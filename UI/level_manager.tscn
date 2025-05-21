@@ -74,7 +74,7 @@ modulate = Color(0.925353, 0.925353, 0.925353, 1)
 z_index = 9
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(384, 0)
+position = Vector2(418, 38)
 zoom = Vector2(0.68, 0.68)
 
 [node name="rewind_sprite" type="Sprite2D" parent="."]
@@ -213,7 +213,7 @@ environment = SubResource("Environment_dea5p")
 [node name="crt_shader" type="Sprite2D" parent="."]
 z_index = 14
 material = SubResource("ShaderMaterial_etexg")
-position = Vector2(768, -3.8147e-06)
+position = Vector2(852, 34)
 scale = Vector2(3840, 1920)
 texture = SubResource("PlaceholderTexture2D_w53xd")
 

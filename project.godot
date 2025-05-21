@@ -24,15 +24,16 @@ GameManager="*res://global/game_manager.gd"
 GlobalVariables="*res://global/global_variables.gd"
 GlobalTimer="*res://global/global_timer.tscn"
 GlobalAudioManager="*res://global/global_audio_manager.tscn"
-LeftTouch="*res://global/Left_Touch.tscn"
+TouchSystem="*res://global/touch_system.tscn"
 
 [display]
 
 window/size/viewport_width=1600
 window/size/viewport_height=1080
-window/size/mode=3
 window/size/borderless=true
 window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+window/emulate_mouse_from_touch=true
 
 [input]
 
@@ -54,7 +55,6 @@ reload={
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
-pointing/emulate_mouse_from_touch=false
 
 [layer_names]
 

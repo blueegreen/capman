@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dgyqg26itodgn"]
 
 [ext_resource type="Texture2D" uid="uid://csfhcknrdxk1f" path="res://sprite_sheet-export.png" id="1_0ums1"]
-[ext_resource type="Script" path="res://UI/left_hand.gd" id="1_xa515"]
+[ext_resource type="Script" uid="uid://eqo3v8fxajbj" path="res://UI/left_hand.gd" id="1_xa515"]
 
 [node name="left_hand" type="Node2D"]
 z_index = 12

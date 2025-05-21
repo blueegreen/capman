@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cyqkxny4wetii" path="res://enemies/enemy_rusher.tscn" id="7_gwcrw"]
 [ext_resource type="PackedScene" uid="uid://dt3aavonv0brs" path="res://boundary_objects/inner_fixed_wall.tscn" id="7_tn0m7"]
 [ext_resource type="PackedScene" uid="uid://dnuisoj85rswt" path="res://UI/dialogue_manager.tscn" id="9_ekg74"]
-[ext_resource type="Script" path="res://dialogues/lvl_6_start_dialogue.gd" id="10_gqmui"]
+[ext_resource type="Script" uid="uid://oxgkbkmy425k" path="res://dialogues/lvl_6_start_dialogue.gd" id="10_gqmui"]
 
 [node name="lvl_6" type="Node2D"]
 
